@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ScriptLoaderService } from '../../../../_services/script-loader.service';
 
 @Component({
-  selector: '.m-grid__item.m-grid__item--fluid.m-wrapper',
+  selector: '.m-grid__item.m-grid__item--fluid.m-wrapper.animationtest',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })

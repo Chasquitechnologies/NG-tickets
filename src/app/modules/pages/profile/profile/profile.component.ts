@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Helpers } from '../../../../helpers';
 
 @Component({
-  selector: ".m-grid__item.m-grid__item--fluid.m-wrapper",
+  selector: ".m-grid__item.m-grid__item--fluid.m-wrapper.animationtest",
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
