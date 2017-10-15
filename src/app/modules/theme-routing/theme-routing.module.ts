@@ -21,6 +21,10 @@ const routes: Routes = [
                 loadChildren: "../pages/profile/profile.module#ProfileModule"
             },
             {
+                path: "tickets",
+                loadChildren: "../pages/admin-tickets/admin-tickets.module#AdminTicketsModule"
+            },
+            {
                 path: "",
                 redirectTo: "index",
                 pathMatch: "full"
