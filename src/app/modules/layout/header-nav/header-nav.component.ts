@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 declare let mLayout: any;
 
@@ -10,15 +11,18 @@ declare let mLayout: any;
 })
 export class HeaderNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private oauthService: OAuthService) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    
-            mLayout.initHeader();
-    
-        }
 
+    mLayout.initHeader();
+
+  }
+
+  public logoff() {
+    this.oauthService.logOut();
+  }
 }
