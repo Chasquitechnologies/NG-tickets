@@ -4,6 +4,7 @@ import { IndexComponent } from './index/index.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutModule } from '../../layout/layout.module';
 import { DefaultComponent } from '../../layout/default/default.component';
+import { AuthGuardServiceService } from '../../../_services/auth-guard-service.service';
 
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
       "children": [
           {
               "path": "",
-              "component": IndexComponent
+              "component": IndexComponent              
           }
       ]
   }
