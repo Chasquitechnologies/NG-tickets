@@ -31,7 +31,7 @@ export class LoginTestComponent implements OnInit, OnDestroy {
 
     public get name() {
         let claims = this.oauthService.getIdentityClaims();
-        console.log(claims);
+        // console.log(claims);
         if (!claims) return null;
         return claims['given_name'];
     }
