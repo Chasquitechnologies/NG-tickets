@@ -5,35 +5,34 @@
 			<div class="m-login__contanier">
 
 				<div *ngIf="!loggedIn" class="m-login__content">
-					<div class="m-login__title">
-						<h3 *ngIf="name">
-							HELLO, {{name}}
-						</h3>
-						<h3 *ngIf="!name">
-							HELLO
+					<div class="m-login__logo" style="margin-top: 30px;">
+						<a>
+							<img src="./assets/img/logos/ngr_logo.png">
+						</a>
+					</div>
+					<div class="m-login__title" style="margin-top:20px;">
+						<h3>
+							NG Restaurants
 						</h3>
 					</div>
 					<div class="m-login__desc">
-						Inicia tu session para acceder al modulo de tickets
+						Inicia tu sesión para acceder al Módulo de Solicitudes
 					</div>
 					<div class="m-login__form-action">
-						<button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" (click)="login()">
-							Log In
-						</button>
-						<button type="button" id="m_login_signup" class="btn btn-outline-focus m-btn--pill" (click)="logoff()">
-							Log Out
+						<button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air" 
+						style="background-color: #3598dc; border-color:#3598dc; margin-top:70px;" (click)="login()">
+							Iniciar Sesión
 						</button>
 					</div>
 				</div>
 
-				<div *ngIf="loggedIn" class="m-login__content">
+				<!-- <div *ngIf="loggedIn" class="m-login__content">
 					<div class="m-login__title">
 						<h3>
-							...REDIRECTING...
+							<img src="./assets/img/misc/loading-anim-1.gif" alt="loading animation">
 						</h3>
 					</div>
-
-				</div>
+				</div> -->
 			</div>
 			<div class="m-login__border">
 				<div></div>

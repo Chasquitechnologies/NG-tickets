@@ -11,7 +11,7 @@ import { LoginTestComponent } from '../../login-test.component';
 const routes: Routes = [
     {
         path: "",
-        redirectTo: "login",
+        redirectTo: "index",
         pathMatch: "full"
     },
     {

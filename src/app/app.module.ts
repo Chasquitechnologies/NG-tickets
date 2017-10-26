@@ -10,6 +10,7 @@ import { HttpModule} from '@angular/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { LoginTestComponent } from './login-test.component';
 import { AuthGuardServiceService } from './_services/auth-guard-service.service';
+import { RedirectUrlService } from './_services/redirect-url.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,11 @@ import { AuthGuardServiceService } from './_services/auth-guard-service.service'
     AppRoutingModule,
     ThemeRoutingModule
   ],
-  providers: [ScriptLoaderService, AuthGuardServiceService],
+  providers: [
+    RedirectUrlService,
+    ScriptLoaderService, 
+    AuthGuardServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
