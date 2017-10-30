@@ -28,41 +28,13 @@ var DatatableRemoteAjaxDemo = function() {
                 pagination: !0,
                 columns: [{
                     field: "RecordID",
-                    title: "#",
+                    title: "# Ticket",
                     sortable: !1,
-                    width: 40,
                     selector: !1,
                     textAlign: "center"
-                }, {
-                    field: "OrderID",
-                    title: "Order ID",
-                    filterable: !1,
-                    width: 150,
-                    template: "{{OrderID}} - {{ShipCountry}}"
-                }, {
-                    field: "ShipCountry",
-                    title: "Ship Country",
-                    width: 150,
-                    template: function(t) {
-                        return t.ShipCountry + " - " + t.ShipCity
-                    }
-                }, {
-                    field: "ShipCity",
-                    title: "Ship City"
-                }, {
-                    field: "Currency",
-                    title: "Currency",
-                    width: 100
-                }, {
-                    field: "ShipDate",
-                    title: "Ship Date",
-                    sortable: "asc"
-                }, {
-                    field: "Latitude",
-                    title: "Latitude"
-                }, {
+                },{
                     field: "Status",
-                    title: "Status",
+                    title: "Estado",
                     template: function(t) {
                         var e = {
                             1: {
@@ -97,26 +69,66 @@ var DatatableRemoteAjaxDemo = function() {
                         return '<span class="m-badge ' + e[t.Status].class + ' m-badge--wide">' + e[t.Status].title + "</span>"
                     }
                 }, {
-                    field: "Type",
-                    title: "Type",
+                    field: "ShipCity",
+                    title: "Marca"
+                }, {
+                    field: "ShipCountry",
+                    title: "Local",
+                    width: 150,
                     template: function(t) {
-                        var e = {
-                            1: {
-                                title: "Online",
-                                state: "danger"
-                            },
-                            2: {
-                                title: "Retail",
-                                state: "primary"
-                            },
-                            3: {
-                                title: "Direct",
-                                state: "accent"
-                            }
-                        };
-                        return '<span class="m-badge m-badge--' + e[t.Type].state + ' m-badge--dot"></span>&nbsp;<span class="m--font-bold m--font-' + e[t.Type].state + '">' + e[t.Type].title + "</span>"
+                        return t.ShipCountry + " - " + t.ShipCity
                     }
                 }, {
+                    field: "Currency",
+                    title: "Prioridad",
+                    width: 100
+                }, {
+                    field: "Currency",
+                    title: "Clasificación"
+                }, {
+                    field: "Currency",
+                    title: "Familia",
+                    width: 100
+                }, {
+                    field: "ShipCity",
+                    title: "Nombre de Equipo"
+                }, {
+                    field: "ShipCity",
+                    title: "Tipo de Falla"
+                }, {
+                    field: "ShipCity",
+                    title: "Coordinador"
+                }, {
+                    field: "ShipDate",
+                    title: "Fecha de Inicio",
+                    sortable: "desc"
+                }, {
+                    field: "ShipDate",
+                    title: "Fecha de Confirmación",
+                    sortable: "desc"
+                }, 
+                // {
+                //     field: "Type",
+                //     title: "Type",
+                //     template: function(t) {
+                //         var e = {
+                //             1: {
+                //                 title: "Online",
+                //                 state: "danger"
+                //             },
+                //             2: {
+                //                 title: "Retail",
+                //                 state: "primary"
+                //             },
+                //             3: {
+                //                 title: "Direct",
+                //                 state: "accent"
+                //             }
+                //         };
+                //         return '<span class="m-badge m-badge--' + e[t.Type].state + ' m-badge--dot"></span>&nbsp;<span class="m--font-bold m--font-' + e[t.Type].state + '">' + e[t.Type].title + "</span>"
+                //     }
+                // }, 
+                {
                     field: "Actions",
                     width: 110,
                     title: "Actions",
