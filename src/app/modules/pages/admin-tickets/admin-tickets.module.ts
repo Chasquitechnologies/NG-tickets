@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseDataAjaxComponent } from './base-data-ajax/base-data-ajax.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,6 +6,7 @@ import { DefaultComponent } from '../../layout/default/default.component';
 import { LayoutModule } from '../../layout/layout.module';
 import { AdminTicketsMainComponent } from './admin-tickets-main/admin-tickets-main.component';
 import { AdminTicketsDetailsComponent } from './admin-tickets-details/admin-tickets-details.component';
+import { throwIfAlreadyLoaded } from '../../../_services/module-import-guard';
 
 
 const routes: Routes = [
@@ -40,4 +41,8 @@ const routes: Routes = [
   ],
   declarations: [BaseDataAjaxComponent, AdminTicketsMainComponent, AdminTicketsDetailsComponent]
 })
-export class AdminTicketsModule { }
+export class AdminTicketsModule { 
+  constructor( @Optional() @SkipSelf() parentModule: AdminTicketsModule) {
+    throwIfAlreadyLoaded(parentModule, 'AdminTicketsModule');
+  }
+}

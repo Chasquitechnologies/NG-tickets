@@ -5,23 +5,29 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutModule } from '../layout/layout.module';
 import { DefaultComponent } from '../layout/default/default.component'
 import { AuthGuardServiceService } from '../../_services/auth-guard-service.service';
-import { LoginTestComponent } from '../../login-test.component';
+import { LoginComponent } from '../../login.component';
+import { RedirectComponent } from '../../redirect.component';
 
 
-const routes: Routes = [
-    {
-        path: "",
-        redirectTo: "index",
-        pathMatch: "full"
-    },
+const routes: Routes = [ 
+    // {
+    //     path: "index.html",
+    //     redirectTo: "login",
+    //     pathMatch: "full"        
+    // },
     {
         path: "index.html",
-        redirectTo: "login",
+        redirectTo: "redirect",
+        pathMatch: "full"        
+    },
+    {
+        path: "redirect",
+        component: RedirectComponent,
         pathMatch: "full"        
     },
     {
         path: "login",
-        component: LoginTestComponent,
+        component: LoginComponent,
         pathMatch: "full"
     },
     {
@@ -48,8 +54,12 @@ const routes: Routes = [
                 pathMatch: "full"
             }
         ]
-    }, 
-    
+    },
+    {
+        path: "",
+        redirectTo: "index",
+        pathMatch: "full"
+    },   
     {
         path: "**",
         redirectTo: "404",

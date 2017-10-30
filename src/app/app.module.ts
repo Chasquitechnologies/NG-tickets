@@ -8,15 +8,17 @@ import { ScriptLoaderService } from './_services/script-loader.service';
 import { ThemeRoutingModule } from './modules/theme-routing/theme-routing.module';
 import { HttpModule} from '@angular/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
-import { LoginTestComponent } from './login-test.component';
+import { LoginComponent } from './login.component';
 import { AuthGuardServiceService } from './_services/auth-guard-service.service';
 import { RedirectUrlService } from './_services/redirect-url.service';
+import { RedirectComponent } from './redirect.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemeComponent,
-    LoginTestComponent
+    LoginComponent,
+    RedirectComponent
   ],
   imports: [
     HttpModule,

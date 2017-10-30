@@ -7,9 +7,9 @@ import { RedirectUrlService } from './_services/redirect-url.service';
 
 @Component({
     selector: '.m-grid.m-grid--hor.m-grid--root.m-page',
-    templateUrl: './login-test.component.html',
+    templateUrl: './login.component.html',
 })
-export class LoginTestComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         var parent = document.getElementById('m_login');
