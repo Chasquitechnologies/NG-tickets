@@ -10,9 +10,12 @@ import { BaseDataAjaxComponent } from '../base-data-ajax/base-data-ajax.componen
 
 export class AdminTicketsMainComponent implements OnInit {
 
+  public show: boolean;
+  
   constructor() { }
 
   ngOnInit() {
+    this.show=false;
   }
 
 }

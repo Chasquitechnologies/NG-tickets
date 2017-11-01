@@ -8,11 +8,9 @@ import { ScriptLoaderService } from '../../../../_services/script-loader.service
 })
 export class BaseDataAjaxComponent implements OnInit {
 
-  private show: boolean;
 
   constructor(private _script: ScriptLoaderService) { }
   ngOnInit() {
-    this.show = false;
   }
 
   ngAfterViewInit() {
