@@ -1,38 +1,21 @@
 version: 0.2
 
-#env:
-  #variables:
-     # key: "value"
-     # key: "value"
-  #parameter-store:
-     # key: "value"
-     # key: "value"
-
 phases:
-  #install:
-   #commands:
-      # - command
-      # - command
-  #pre_build:
-    #commands:
-      #- echo Logging in to Amazon ECR...
-      #- $(aws ecr get-login --region $AWS_DEFAULT_REGION)
-  build:
-    commands:
-      # - dotnet restore
-      # - dotnet build
-      # - dotnet publish
-  post_build:
-    commands:
-      # - mkdir publish-output
-      # - cp -R bin/Debug/netcoreapp1.1/publish/* publish-output/
-      #- cd publish-output
-      #- zip -r publish-output.zip ./*
-      #- mv publish-output.zip ../
-      #- echo Build completed on `date`
+    install:
+        commands:
+            - echo Installing source NPM dependencies...
+            - npm install
+            - npm install -g @angular/cli
+    build:
+        commands:
+            - echo Build started on `date`
+            - ng build --prod
+    post_build:
+         commands:
+            #- aws s3 cp dist s3://${S3_BUCKET} --recursive
+            #- echo Build completed on `date`
 artifacts:
-  files:
-    #- publish-output.zip
-    # - '**/*'
-  # discard-paths: no
-  # base-directory: bin/Debug/netcoreapp1.1/publish
+    #files:
+    #    - '**/*'
+    #base-directory: 'dist*'
+    #discard-paths: yes
