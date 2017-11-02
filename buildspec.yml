@@ -16,7 +16,7 @@ phases:
          commands:
             - echo saving production build to S3
             - aws s3 cp dist s3://chasqui-test --recursive
-            - finish saving production build to S3
+            - echo finish saving production build to S3
 artifacts:
     files:
         - '**/*'
