@@ -15,8 +15,12 @@ phases:
     post_build:
          commands:
             - echo saving production build to S3
+            - aws s3 rm s3://chasqui-test --recursive
             - aws s3 cp dist s3://chasqui-test --recursive
             - echo finish saving production build to S3
+            - echo begin invalidation process
+            - aws cloudfront create-invalidation --distribution-id E37OES38EZEHPZ --paths /*
+            - echo invalidation command was run and is now being processed async by aws 
 artifacts:
     files:
         - '**/*'
