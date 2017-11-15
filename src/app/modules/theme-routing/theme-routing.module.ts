@@ -8,7 +8,6 @@ import { AuthGuardServiceService } from '../../_services/auth-guard-service.serv
 import { LoginComponent } from '../../login.component';
 import { RedirectComponent } from '../../redirect.component';
 
-
 const routes: Routes = [ 
     // {
     //     path: "index.html",

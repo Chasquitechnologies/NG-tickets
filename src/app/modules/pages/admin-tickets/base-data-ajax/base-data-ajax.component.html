@@ -5,134 +5,206 @@
 		<!--begin: Search Form -->
 		<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
 			<div class="row align-items-center">
-				<div class="col-xl-8 order-2 order-xl-1">
+				<div class="col-xl-12 order-1 order-xl-1">
 					<div class="form-group m-form__group row align-items-center">
 						<div class="col-md-4">
 							<div class="m-form__group m-form__group--inline">
 								<div class="m-form__label">
 									<label>
-									Status:
-								</label>
+										Marca:
+									</label>
 								</div>
 								<div class="m-form__control">
-									<select class="form-control m-bootstrap-select" id="m_form_status">
-									<option value="">
-										All
-									</option>
-									<option value="1">
-										Pending
-									</option>
-									<option value="2">
-										Delivered
-									</option>
-									<option value="3">
-										Canceled
-									</option>
-								</select>
+									<select [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange($event)" class="form-control m-bootstrap-select selectpicker" id="m_form_status1">
+										<option *ngFor="let brand of brandDropdown" [value]="brand.id">
+											{{ brand.name }}
+										</option>
+									</select>
 								</div>
 							</div>
-							<div class="d-md-none m--margin-bottom-10"></div>
+							<div class="m--margin-bottom-10"></div>
 						</div>
 						<div class="col-md-4">
 							<div class="m-form__group m-form__group--inline">
 								<div class="m-form__label">
 									<label class="m-label m-label--single">
-									Type:
-								</label>
+										Local:
+									</label>
+								</div>
+								<div class="m-form__control">
+									<select class="form-control m-bootstrap-select selectpicker" id="m_form_type1">
+										<option *ngFor="let store of storeDropdown" [value]="store.id">
+											{{ store.name }}
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="m--margin-bottom-10"></div>
+						</div>
+						<div class="col-md-4">
+							<div class="m-form__group m-form__group--inline">
+								<div class="m-form__label">
+									<label class="m-label m-label--single">
+										Familia:
+									</label>
 								</div>
 								<div class="m-form__control">
 									<select class="form-control m-bootstrap-select" id="m_form_type">
-									<option value="">
-										All
-									</option>
-									<option value="1">
-										Online
-									</option>
-									<option value="2">
-										Retail
-									</option>
-									<option value="3">
-										Direct
-									</option>
-								</select>
+										<option *ngFor="let family of familyDropdown" [value]="family.id">
+											{{family.name}}
+										</option>
+									</select>
 								</div>
 							</div>
-							<div class="d-md-none m--margin-bottom-10"></div>
+							<div class="m--margin-bottom-10"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="row align-items-center">
+				<div class="col-xl-12 order-2 order-xl-2">
+					<div class="form-group m-form__group row align-items-center">
+						<div class="col-md-4">
+							<div class="m-form__group m-form__group--inline">
+								<div class="m-form__label">
+									<label>
+										Prioridad:
+									</label>
+								</div>
+								<div class="m-form__control">
+									<select class="form-control m-bootstrap-select" id="m_form_status">
+										<option *ngFor="let priority of priorityDropdown" [value]="priority.id">
+											{{priority.name}}
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="m--margin-bottom-10"></div>
 						</div>
 						<div class="col-md-4">
+							<div class="m-form__group m-form__group--inline">
+								<div class="m-form__label">
+									<label class="m-label m-label--single">
+										Estado:
+									</label>
+								</div>
+								<div class="m-form__control">
+									<select class="form-control m-bootstrap-select" id="m_form_status">
+										<option *ngFor="let status of statusDropdown" [value]="status.id">
+											{{status.name}}
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="m--margin-bottom-10"></div>
+						</div>
+						<div class="col-md-4">
+							<div class="m-form__group m-form__group--inline">
+								<div class="m-form__label">
+									<label class="m-label m-label--single">
+										Fecha:
+									</label>
+								</div>
+								<div class="m-form__control">
+									<input type="text" name="daterange" value="01/01/2015 - 01/31/2015" class="form-control m-input" />
+									<!-- <select class="form-control m-bootstrap-select" id="m_form_type">
+										<option value="">
+											All
+										</option>
+									</select> -->
+								</div>
+							</div>
+							<div class="m--margin-bottom-10"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="m-separator m-separator--dashed"></div>
+
+
+			<div class="row align-items-right">
+				<div class="col-xl-5 order-1 order-xl-1">
+					<div class="form-group m-form__group row align-items-center">
+
+						<div class="col-md-12">
 							<div class="m-input-icon m-input-icon--left">
 								<input type="text" class="form-control m-input" placeholder="Buscar..." id="m_form_search">
 								<span class="m-input-icon__icon m-input-icon__icon--left">
-								<span>
-									<i class="la la-search"></i>
-								</span>
+									<span>
+										<i class="la la-search"></i>
+									</span>
 								</span>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-4 order-1 order-xl-2 m--align-right">
-					<a routerLink="/tickets/detail" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
-					<span>
-						<i class="la la-rocket"></i>
-						<span>
-							Nuevo Ticket
-						</span>
-					</span>
-				</a>
-					<div class="m-separator m-separator--dashed d-xl-none"></div>
-				</div>
+				<div class="m-separator m-separator--dashed d-xl-none"></div>
 
-			</div>
-		</div>
-		<!--end: Search Form -->
+				<div class="col-xl-7 order-2 order-xl-2 m--align-right">
+					<div class="col-xl-7 order-1 order-xl-1 m--align-right">
 
-		<div class="m-portlet__head-tools">
-			<ul class="m-portlet__nav">
-				<li class="m-portlet__nav-item">
-					<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover"
-					 aria-expanded="true">
-						<a href="/tickets" class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl m-dropdown__toggle">
-									<i class="la la-plus m--hide"></i>
-									<i class="la la-ellipsis-h m--font-brand"></i>
-								</a>
-						<div class="m-dropdown__wrapper">
-							<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-							<div class="m-dropdown__inner">
-								<div class="m-dropdown__body">
-									<div class="m-dropdown__content">
-										<ul class="m-nav">
-											<li class="m-nav__section m-nav__section--first">
-												<span class="m-nav__section-text">
-															Acciones
+						<a routerLink="/tickets/detail" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+							<span>
+								<i class="la la-rocket"></i>
+								<span>
+									Nuevo Ticket
+								</span>
+							</span>
+						</a>
+
+						<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover"
+						 aria-expanded="true">
+							<a class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl m-dropdown__toggle">
+								<i class="la la-plus m--hide"></i>
+								<i class="la la-ellipsis-h m--font-brand"></i>
+							</a>
+							<div class="m-dropdown__wrapper">
+								<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+								<div class="m-dropdown__inner">
+									<div class="m-dropdown__body">
+										<div class="m-dropdown__content">
+											<ul class="m-nav">
+												<li class="m-nav__section m-nav__section--first">
+													<span class="m-nav__section-text">
+														Acciones
+													</span>
+												</li>
+												<li class="m-nav__item">
+													<a href="/tickets" class="m-nav__link">
+														<i class="m-nav__link-icon flaticon-graphic-2"></i>
+														<span class="m-nav__link-text">
+															Exportar Reporte
 														</span>
-											</li>
-											<li class="m-nav__item">
-												<a href="/tickets" class="m-nav__link">
-															<i class="m-nav__link-icon flaticon-graphic-2"></i>
-															<span class="m-nav__link-text">
-																Exportar Reporte
-															</span>
-														</a>
-											</li>
-											<li class="m-nav__item">
-												<a href="/tickets" class="m-nav__link">
-																<i class="m-nav__link-icon flaticon-lifebuoy"></i>
-																<span class="m-nav__link-text">
-																	Soporte
-																</span>
-															</a>
-											</li>
-										</ul>
+													</a>
+												</li>
+												<li class="m-nav__item">
+													<a href="/tickets" class="m-nav__link">
+														<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+														<span class="m-nav__link-text">
+															Soporte
+														</span>
+													</a>
+												</li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
 
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
 
 	</div>
 	<div class="m-portlet__body">
@@ -142,4 +214,3 @@
 		<!--end: Datatable -->
 	</div>
 </div>
-

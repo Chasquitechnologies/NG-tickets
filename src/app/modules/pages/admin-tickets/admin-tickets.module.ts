@@ -8,6 +8,10 @@ import { AdminTicketsMainComponent } from './admin-tickets-main/admin-tickets-ma
 import { AdminTicketsDetailsComponent } from './admin-tickets-details/admin-tickets-details.component';
 import { throwIfAlreadyLoaded } from '../../../_services/module-import-guard';
 
+import { FormsModule } from '@angular/forms';
+
+
+import {CalendarModule} from 'primeng/primeng';
 
 const routes: Routes = [
   {
@@ -34,12 +38,17 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    CalendarModule,
     CommonModule,
     LayoutModule,
-    RouterModule.forChild(routes),
-    
+    RouterModule.forChild(routes),   
+    FormsModule
   ],
-  declarations: [BaseDataAjaxComponent, AdminTicketsMainComponent, AdminTicketsDetailsComponent]
+  declarations: [
+    BaseDataAjaxComponent,
+    AdminTicketsMainComponent,
+    AdminTicketsDetailsComponent
+  ]
 })
 export class AdminTicketsModule { 
   constructor( @Optional() @SkipSelf() parentModule: AdminTicketsModule) {
