@@ -102,3 +102,76 @@
         border-right: 0px solid #ebedf2;
     }
 }
+
+/* Styling PrimeNG dropdowns */
+
+
+
+.ui-dropdown .ui-dropdown-label {
+    border-color: #716aca!important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+/* styling the primeNG dropdown selected label features */
+.ui-dropdown-label.ui-inputtext.ui-corner-all, 
+.ui-dropdown-trigger
+{
+    background-color: white !important;
+    line-height: 1.5;
+    padding: 0.5em 1.25em;
+}
+
+.ui-shadow{
+    box-shadow: 0 0 15px 1px rgba(113,106,202,.2) !important;
+}
+
+.ui-dropdown-items{
+    font-family: sans-serif,Arial !important;
+    line-height: 2.0 !important;
+}
+
+/* styling the primeNG dropdown single item */
+.ui-dropdown-item{
+    padding: 0.375em 1.25em !important;
+}
+
+.ui-dropdown-panel .ui-dropdown-item {
+    font-weight: 100 !important;
+}
+/* #EBEDF3 */
+.ui-dropdown-item:hover{
+    background-color: #f4f5f8 !important;
+}
+
+.ui-dropdown-item.ui-state-highlight {
+    background-color: #f7f8fa !important;
+    color: #3f4047 !important;
+}
+
+/* styling the main border from primeNG dropdown item (when panel is closed) */
+p-dropdown > .ui-dropdown.ui-widget{
+    border-color: #EBEDF3;
+}
+
+/* styling the main border from primeNG dropdown item (when panel is closed) */
+p-dropdown > .ui-dropdown.ui-widget.ui-dropdown-open{
+    border-color: #716aca;
+}
+
+/* styling the input search box from primeNG dropdown item (shown when panel is open)*/
+.ui-dropdown-filter-container > input.ui-dropdown-filter.ui-inputtext{
+    border-color: #716aca;
+}
+
+/* styling border from primeNG dropdown panel (shown when dropdown open)  */
+.ui-dropdown.ui-widget > .ui-dropdown-panel.ui-widget-content{
+    border-color: transparent;
+}
+
+
+/* body .ui-dropdown{
+    border-color: #EBEDF3 !important;
+} */

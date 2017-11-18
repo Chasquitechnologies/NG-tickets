@@ -4,103 +4,10 @@
 		<div class="m--space-30"></div>
 		<!--begin: Search Form -->
 		<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
-			<div class="row align-items-center">
-				<div class="col-xl-12 order-1 order-xl-1">
-					<div class="form-group m-form__group row align-items-center">
-						<div class="col-md-4">
-							<div class="m-form__group m-form__group--inline">
-								<div class="m-form__label">
-									<label>
-										Marca:
-									</label>
-								</div>
-								<div class="m-form__control">
-									<select [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange($event)" class="form-control m-bootstrap-select selectpicker" id="m_form_status1">
-										<option *ngFor="let brand of brandDropdown" [value]="brand.id">
-											{{ brand.name }}
-										</option>
-									</select>
-								</div>
-							</div>
-							<div class="m--margin-bottom-10"></div>
-						</div>
-						<div class="col-md-4">
-							<div class="m-form__group m-form__group--inline">
-								<div class="m-form__label">
-									<label class="m-label m-label--single">
-										Local:
-									</label>
-								</div>
-								<div class="m-form__control">
-									<select class="form-control m-bootstrap-select selectpicker" id="m_form_type1">
-										<option *ngFor="let store of storeDropdown" [value]="store.id">
-											{{ store.name }}
-										</option>
-									</select>
-								</div>
-							</div>
-							<div class="m--margin-bottom-10"></div>
-						</div>
-						<div class="col-md-4">
-							<div class="m-form__group m-form__group--inline">
-								<div class="m-form__label">
-									<label class="m-label m-label--single">
-										Familia:
-									</label>
-								</div>
-								<div class="m-form__control">
-									<select class="form-control m-bootstrap-select" id="m_form_type">
-										<option *ngFor="let family of familyDropdown" [value]="family.id">
-											{{family.name}}
-										</option>
-									</select>
-								</div>
-							</div>
-							<div class="m--margin-bottom-10"></div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-
-			<div class="row align-items-center">
+			<!-- <div class="row align-items-center">
 				<div class="col-xl-12 order-2 order-xl-2">
 					<div class="form-group m-form__group row align-items-center">
-						<div class="col-md-4">
-							<div class="m-form__group m-form__group--inline">
-								<div class="m-form__label">
-									<label>
-										Prioridad:
-									</label>
-								</div>
-								<div class="m-form__control">
-									<select class="form-control m-bootstrap-select" id="m_form_status">
-										<option *ngFor="let priority of priorityDropdown" [value]="priority.id">
-											{{priority.name}}
-										</option>
-									</select>
-								</div>
-							</div>
-							<div class="m--margin-bottom-10"></div>
-						</div>
-						<div class="col-md-4">
-							<div class="m-form__group m-form__group--inline">
-								<div class="m-form__label">
-									<label class="m-label m-label--single">
-										Estado:
-									</label>
-								</div>
-								<div class="m-form__control">
-									<select class="form-control m-bootstrap-select" id="m_form_status">
-										<option *ngFor="let status of statusDropdown" [value]="status.id">
-											{{status.name}}
-										</option>
-									</select>
-								</div>
-							</div>
-							<div class="m--margin-bottom-10"></div>
-						</div>
+						
 						<div class="col-md-4">
 							<div class="m-form__group m-form__group--inline">
 								<div class="m-form__label">
@@ -110,19 +17,93 @@
 								</div>
 								<div class="m-form__control">
 									<input type="text" name="daterange" value="01/01/2015 - 01/31/2015" class="form-control m-input" />
-									<!-- <select class="form-control m-bootstrap-select" id="m_form_type">
-										<option value="">
-											All
-										</option>
-									</select> -->
 								</div>
 							</div>
 							<div class="m--margin-bottom-10"></div>
 						</div>
+
+					</div>
+				</div>
+
+			</div> -->
+
+			<div class="ui-g align-items-center">
+
+				<div class="ui-g-4 ui-sm-12	m-form__group m-form__group--inline">
+					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px;">
+						<label class="m-label m-label--single">
+							Marca
+						</label>
+					</div>
+					<div class="ui-g-12 ui-fluid" style="padding-right:20px">
+						<p-dropdown [options]="brandDropdown" [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange($event)" filter="true" optionLabel="name"
+						[autoWidth]="false" dropdownIcon="fa fa-angle-down" ></p-dropdown>
+					</div>
+				</div>
+
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
+					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px; padding-left:10px; padding-right:10px;">
+						<label class="m-label m-label--single">
+							Tienda
+						</label>
+					</div>
+					<div class="ui-g-12 ui-fluid" style="padding-left:10px; padding-right:10px;">
+						<p-dropdown [options]="storeDropdown" [(ngModel)]="selectedStore" filter="true" optionLabel="name" [autoWidth]="false"
+						dropdownIcon="fa fa-angle-down"></p-dropdown>
+					</div>
+				</div>
+
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
+					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px; padding-left:20px;">
+						<label class="m-label m-label--single">
+							Familia
+						</label>
+					</div>
+					<div class="ui-g-12 ui-fluid" style="padding-left:20px">
+						<p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" filter="true" optionLabel="name" [autoWidth]="false"
+						dropdownIcon="fa fa-angle-down"></p-dropdown>
+					</div>
+				</div>
+
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
+					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px; padding-left:10px; padding-right:10px;">
+						<label class="m-label m-label--single">
+							Prioridad
+						</label>
+					</div>
+					<div class="ui-g-12 ui-fluid" style="padding-right:20px">
+						<p-dropdown [options]="priorityDropdown" [(ngModel)]="selectedPriority" filter="true" optionLabel="name" [autoWidth]="false"
+						dropdownIcon="fa fa-angle-down"></p-dropdown>
+					</div>
+				</div>
+
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
+					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px;">
+						<label class="m-label m-label--single">
+							Estado
+						</label>
+					</div>
+					<div class="ui-g-12 ui-fluid" style="padding-left:10px; padding-right:10px;">
+						<p-dropdown [options]="statusDropdown" [(ngModel)]="selectedStatus" filter="true" optionLabel="name" [autoWidth]="false"
+						dropdownIcon="fa fa-angle-down"></p-dropdown>
+					</div>
+				</div>
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
+					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px; padding-left:20px;">
+						<label class="m-label m-label--single">
+							Fecha
+						</label>
+					</div>
+					<div class="ui-g-12 ui-fluid" style="padding-left:20px">
+						<!-- <p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" filter="true" optionLabel="name" [autoWidth]="false"
+						dropdownIcon="fa fa-angle-down"></p-dropdown> -->
+						<p-calendar [(ngModel)]="dateRangeSelected" selectionMode="range" readonlyInput="true"></p-calendar>						
 					</div>
 				</div>
 
 			</div>
+
+
 
 
 			<div class="m-separator m-separator--dashed"></div>

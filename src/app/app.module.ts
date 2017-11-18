@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ThemeComponent } from './modules/theme-routing/theme/theme.component';
@@ -25,6 +26,7 @@ import { FilterDropDownService } from './_services/filter-drop-down.service';
   imports: [
     HttpModule,
     BrowserModule,
+    BrowserAnimationsModule,    
     FormsModule,
     OAuthModule.forRoot(),
     LayoutModule,

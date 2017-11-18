@@ -7,8 +7,8 @@ import { Family } from '../../../../models/Family';
 import { Priority } from '../../../../models/Priority';
 import { Status } from '../../../../models/Status';
 
-declare var jquery: any;
-declare var $: any;
+// declare var jquery: any;
+// declare var $: any;
 
 @Component({
   templateUrl: "./base-data-ajax.component.html",
@@ -29,12 +29,16 @@ export class BaseDataAjaxComponent implements OnInit {
   public selectedFamily: number;
   public selectedPriority: number;
   public selectedStatus: number;
+  
   public dateNow: Date;
+  public dateRangeSelected: Date[];
+  public starDate: Date;
+  public endDate: Date;
 
-
-  constructor(private _script: ScriptLoaderService, private dropdownService: FilterDropDownService) { }
+  constructor(private _script: ScriptLoaderService, private dropdownService: FilterDropDownService) {
+      
+   }
   ngOnInit() {
-
     this.brandDropdown = this.dropdownService.getBrands();
     this.storeDropdown = this.dropdownService.getStores(0);
     this.familyDropdown = this.dropdownService.getFamilies();
@@ -46,9 +50,13 @@ export class BaseDataAjaxComponent implements OnInit {
     this.selectedFamily = 0;
     this.selectedPriority = 0;
     this.selectedStatus = 0;
+    this.endDate = new Date();    
+    this.starDate = new Date();
+    this.starDate.setMonth(this.endDate.getMonth() - 12);
+    this.dateRangeSelected=[this.starDate,this.endDate]
 
-    $('input[name="daterange"]').daterangepicker();
-    
+    // $('input[name="daterange"]').daterangepicker();
+
   }
 
   ngAfterViewInit() {
@@ -57,19 +65,9 @@ export class BaseDataAjaxComponent implements OnInit {
 
   }
 
-  onBrandChange(storeId): void {
-    //console.log(event);
-    this.storeDropdown = this.dropdownService.getStores(parseInt(storeId))
-
-    setTimeout(() => {
-      $('#m_form_type1').selectpicker('refresh');
-      console.log('store dropdown updated');
-    }, 150);
-
-    console.log(this.storeDropdown);
-
-    //this.brandDropdown=[];    
-    //this.storeDropdown=[];   
+  onBrandChange(event): void {
+    console.log(event);
+    this.storeDropdown = this.dropdownService.getStores(parseInt(event.id))
 
   }
 

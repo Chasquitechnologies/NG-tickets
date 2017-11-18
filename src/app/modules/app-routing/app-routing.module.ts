@@ -11,8 +11,8 @@ const routes = [
    }];
 
 @NgModule({
-  // imports: [CommonModule, RouterModule.forRoot(routes)],
-  imports: [CommonModule, RouterModule.forRoot(routes,{ enableTracing: true })],  
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  //imports: [CommonModule, RouterModule.forRoot(routes,{ enableTracing: true })],  
   exports:[RouterModule],
   declarations: []
 })

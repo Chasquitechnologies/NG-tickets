@@ -10,8 +10,9 @@ import { throwIfAlreadyLoaded } from '../../../_services/module-import-guard';
 
 import { FormsModule } from '@angular/forms';
 
-
-import {CalendarModule} from 'primeng/primeng';
+// PrimeNG Modules
+import {DropdownModule} from 'primeng/components/dropdown/dropdown';
+import {CalendarModule} from 'primeng/components/calendar/calendar';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CalendarModule,
+    DropdownModule,
     CommonModule,
     LayoutModule,
     RouterModule.forChild(routes),   
