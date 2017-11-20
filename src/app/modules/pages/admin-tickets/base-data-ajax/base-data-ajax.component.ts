@@ -28,16 +28,16 @@ export class BaseDataAjaxComponent implements OnInit {
   public selectedStore: number;
   public selectedFamily: number;
   public selectedPriority: number;
-  public selectedStatus: number;
-  
+  public selectedStatus: Status[];
+
   public dateNow: Date;
   public dateRangeSelected: Date[];
   public starDate: Date;
   public endDate: Date;
 
   constructor(private _script: ScriptLoaderService, private dropdownService: FilterDropDownService) {
-      
-   }
+
+  }
   ngOnInit() {
     this.brandDropdown = this.dropdownService.getBrands();
     this.storeDropdown = this.dropdownService.getStores(0);
@@ -49,12 +49,14 @@ export class BaseDataAjaxComponent implements OnInit {
     this.selectedStore = 0;
     this.selectedFamily = 0;
     this.selectedPriority = 0;
-    this.selectedStatus = 0;
-    this.endDate = new Date();    
+    this.selectedStatus = [{ id: 1, name: "Ingresado" },
+                            { id: 2, name: "Asignado" },
+                            { id: 3, name: "Programado" },
+                            { id: 7, name: "Reactivado" }];
+    this.endDate = new Date();
     this.starDate = new Date();
     this.starDate.setMonth(this.endDate.getMonth() - 12);
-    this.dateRangeSelected=[this.starDate,this.endDate]
-
+    this.dateRangeSelected = [this.starDate, this.endDate];
     // $('input[name="daterange"]').daterangepicker();
 
   }

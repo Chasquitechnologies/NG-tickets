@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 // PrimeNG Modules
 import {DropdownModule} from 'primeng/components/dropdown/dropdown';
 import {CalendarModule} from 'primeng/components/calendar/calendar';
+import {MultiSelectModule} from 'primeng/components/multiselect/multiselect';
 
 const routes: Routes = [
   {
@@ -41,6 +42,7 @@ const routes: Routes = [
   imports: [
     CalendarModule,
     DropdownModule,
+    MultiSelectModule,
     CommonModule,
     LayoutModule,
     RouterModule.forChild(routes),   

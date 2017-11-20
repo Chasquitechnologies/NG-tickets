@@ -90,7 +90,6 @@ export class FilterDropDownService {
 
   getStatus(): Status[] {
     this.allStatus = [
-      { id: 0, name: "All" },
       { id: 1, name: "Ingresado" },
       { id: 2, name: "Asignado" },
       { id: 3, name: "Programado" },

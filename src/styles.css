@@ -103,9 +103,8 @@
     }
 }
 
+
 /* Styling PrimeNG dropdowns */
-
-
 
 .ui-dropdown .ui-dropdown-label {
     border-color: #716aca!important;
@@ -172,6 +171,71 @@ p-dropdown > .ui-dropdown.ui-widget.ui-dropdown-open{
 }
 
 
-/* body .ui-dropdown{
-    border-color: #EBEDF3 !important;
-} */
+/* Styling PrimeNG multiselct */
+
+p-multiselect > .ui-multiselect.ui-widget{
+    border: 1px solid #EBEDF3;
+}
+
+p-multiselect > .ui-multiselect.ui-widget:hover{
+    border: 1px solid #cccccc;
+    background-color: transparent;
+}
+
+p-multiselect > .ui-multiselect.ui-widget.ui-state-focus{
+    border: 1px solid #716aca;    
+}
+
+.ui-multiselect-label-container	> label.ui-multiselect-label{
+    margin: 0px;
+    padding: 0em 0.5em;
+}
+
+.ui-multiselect-panel{
+    border: 0px solid transparent !important;
+    margin-bottom: 0px;
+}
+
+.ui-multiselect-panel > .ui-widget-header{
+    margin: 0px;
+}
+
+.ui-multiselect-items{
+    line-height: 2.0 !important;
+}
+
+li.ui-multiselect-item > label {
+    margin: 0px;
+}
+
+.ui-multiselect-label-container > label.ui-multiselect-label{
+    font-family: sans-serif , Arial;
+    font-weight: 100;
+}
+
+.ui-multiselect-item.ui-state-highlight{
+    background-color: #f7f8fa !important;
+    color: #3f4047 !important;
+}
+
+.ui-multiselect-panel .ui-multiselect-item > label{
+    font-weight: 100 !important;
+    
+}
+.ui-multiselect .ui-multiselect-item.ui-state-highlight .ui-chkbox
+{
+    border: 0px solid transparent !important;
+}
+
+.ui-chkbox .ui-chkbox-box.ui-state-active{
+    border: 1px solid #716aca !important;
+    background-color: #716aca !important;
+}
+
+.ui-multiselect:not(.ui-state-disabled) .ui-multiselect-trigger:hover {
+    background-color: transparent !important;
+}
+
+.ui-multiselect:not(.ui-state-disabled):hover .ui-multiselect-trigger {
+    background-color: transparent !important;;
+}

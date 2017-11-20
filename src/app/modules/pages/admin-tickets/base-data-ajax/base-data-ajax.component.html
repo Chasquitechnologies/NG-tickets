@@ -84,8 +84,12 @@
 						</label>
 					</div>
 					<div class="ui-g-12 ui-fluid" style="padding-left:10px; padding-right:10px;">
-						<p-dropdown [options]="statusDropdown" [(ngModel)]="selectedStatus" filter="true" optionLabel="name" [autoWidth]="false"
-						dropdownIcon="fa fa-angle-down"></p-dropdown>
+						<!-- <p-dropdown [options]="statusDropdown" [(ngModel)]="selectedStatus" filter="true" optionLabel="name" [autoWidth]="false"
+						dropdownIcon="fa fa-angle-down"></p-dropdown> -->
+
+						<p-multiSelect [options]="statusDropdown" [(ngModel)]="selectedStatus" optionLabel="name" defaultLabel="Seleccionar" maxSelectedLabels=2
+						dropdownIcon="fa fa-angle-down"></p-multiSelect>
+						
 					</div>
 				</div>
 				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
