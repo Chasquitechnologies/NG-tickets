@@ -239,3 +239,51 @@ li.ui-multiselect-item > label {
 .ui-multiselect:not(.ui-state-disabled):hover .ui-multiselect-trigger {
     background-color: transparent !important;;
 }
+
+/* Styling PrimeNG Calendar Select Dropdonw */
+
+/* styling the main border and line-height from primeNG calendar item (when panel is closed) */
+p-calendar input.ui-inputtext.ui-widget{
+    line-height: 1.5;
+    border: 1px solid #EBEDF3
+}
+
+/* styling the main border ON HOVER from primeNG calendar item (when panel is closed) */
+p-calendar input.ui-inputtext.ui-widget:hover{
+    border: 1px solid #cccccc
+}
+
+/* styling the icon background color from primeNG calendar item (when panel is closed) */
+p-calendar button.ui-datepicker-trigger.ui-calendar-button{
+    background-color: #5766dd;
+}
+
+/* styling the icon background color from primeNG calendar item (when panel is closed) */
+p-calendar button.ui-datepicker-trigger.ui-calendar-button:hover{
+    background-color: #5766dd;
+}
+
+/* styling the main border and line-height from primeNG calendar item (when panel is closed) */
+p-calendar.ui-inputwrapper-focus input.ui-inputtext.ui-widget{
+    border: 1px solid #716aca;
+}
+
+/* removing the border from primeNG calendar date selection area (when panel is open) */
+p-calendar .ui-datepicker.ui-widget.ui-widget-content{
+    border: 0px solid transparent;
+}
+
+p-calendar .ui-datepicker.ui-widget.ui-widget-content{
+    border: 0px solid transparent;
+}
+
+/* styles the active dates selected that are part of the current month from primeNG calendar date selection area (when panel is open) */
+body .ui-datepicker table.ui-datepicker-calendar td:not(.ui-state-disabled) a.ui-state-active {
+    background-color: #5766dd !important;
+}
+
+/* styles the active dates selected that are part of the next month from primeNG calendar date selection area (when panel is open) */
+body .ui-datepicker table.ui-datepicker-calendar td.ui-state-disabled a.ui-state-active {
+    color: #ffffff !important;
+    background-color: #9ea6eb !important;
+}
