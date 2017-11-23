@@ -141,6 +141,10 @@
     padding-left:20px;
 }
 
+/* Styiling dropdown selection label wrapping on overflow*/
+.ui-dropdown .ui-dropdown-label {
+    white-space: pre-wrap !important;
+}
 
 /* Styling dropdown label and selector padding when in mobile size */
 @media only screen and (max-width: 640px) {
