@@ -3,10 +3,8 @@
 	<div class="m-portlet__head">
 		<div class="m--space-30"></div>
 		<!--begin: Search Form -->
-		<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
-
+		<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-20">
 			<div class="ui-g align-items-center ticketfilters">
-
 				<div class="ui-g-4 ui-sm-12	m-form__group m-form__group--inline first">
 					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
@@ -15,10 +13,9 @@
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-dropdown [options]="brandDropdown" [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange($event)" filter="true" optionLabel="name"
-						[autoWidth]="false" dropdownIcon="fa fa-angle-down" ></p-dropdown>
+						 [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
-
 				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline middle">
 					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
@@ -26,11 +23,9 @@
 						</label>
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
-						<p-dropdown [options]="storeDropdown" [(ngModel)]="selectedStore" filter="true" optionLabel="name" [autoWidth]="false"
-						dropdownIcon="fa fa-angle-down"></p-dropdown>
+						<p-dropdown [options]="storeDropdown" [(ngModel)]="selectedStore" filter="true" optionLabel="name" [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
-
 				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline last">
 					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
@@ -39,10 +34,9 @@
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" filter="true" optionLabel="name" [autoWidth]="false"
-						dropdownIcon="fa fa-angle-down"></p-dropdown>
+						 dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
-
 				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline first">
 					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
@@ -51,10 +45,9 @@
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-dropdown [options]="priorityDropdown" [(ngModel)]="selectedPriority" filter="true" optionLabel="name" [autoWidth]="false"
-						dropdownIcon="fa fa-angle-down"></p-dropdown>
+						 dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
-
 				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline middle">
 					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
@@ -63,8 +56,7 @@
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-multiSelect [options]="statusDropdown" [(ngModel)]="selectedStatus" optionLabel="name" defaultLabel="Seleccionar" maxSelectedLabels=2
-						dropdownIcon="fa fa-angle-down"></p-multiSelect>
-						
+						 dropdownIcon="fa fa-angle-down"></p-multiSelect>
 					</div>
 				</div>
 				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline last">
@@ -74,93 +66,97 @@
 						</label>
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
-						<p-calendar [(ngModel)]="dateRangeSelected" selectionMode="range" readonlyInput="true" [showIcon]="true"></p-calendar>						
+						<p-calendar [(ngModel)]="dateRangeSelected" selectionMode="range" readonlyInput="true" [showIcon]="true"></p-calendar>
 					</div>
 				</div>
-
 			</div>
-
-
 
 
 			<div class="m-separator m-separator--dashed"></div>
 
-
-			<div class="row align-items-right">
-				<div class="col-xl-5 order-1 order-xl-1">
-					<div class="form-group m-form__group row align-items-center">
-
-						<div class="col-md-12">
-							<div class="m-input-icon m-input-icon--left">
-								<input type="text" class="form-control m-input" placeholder="Buscar..." id="m_form_search">
-								<span class="m-input-icon__icon m-input-icon__icon--left">
-									<span>
-										<i class="la la-search"></i>
-									</span>
+			<div class="ui-g align-items-center ticketfilters">
+				<div class="ui-g-6 ui-sm-12	m-form__group m-form__group--inline first">
+					<div class="ui-g-12 ui-fluid dd-selector">
+						<div class="m-input-icon m-input-icon--left">
+							<input type="text" class="form-control m-input" placeholder="Buscar..." id="m_form_search">
+							<span class="m-input-icon__icon m-input-icon__icon--left">
+								<span>
+									<i class="la la-search"></i>
 								</span>
-							</div>
+							</span>
 						</div>
 					</div>
 				</div>
-				<div class="m-separator m-separator--dashed d-xl-none"></div>
+				<div class="ui-g-6 ui-sm-12 m-form__group m-form__group--inline last">
+					<!-- <div class="ui-g-12 dd-label">
+						<label class="m-label m-label--single">
+							Fecha
+						</label>
+					</div>
+					<div class="ui-g-12 ui-fluid dd-selector">
+						<p-calendar [(ngModel)]="dateRangeSelected" selectionMode="range" readonlyInput="true" [showIcon]="true"></p-calendar>
+					</div> -->
 
-				<div class="col-xl-7 order-2 order-xl-2 m--align-right">
-					<div class="col-xl-7 order-1 order-xl-1 m--align-right">
+					<div class="ui-g-12 dd-selector">
 
-						<a routerLink="/tickets/detail" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
-							<span>
-								<i class="la la-rocket"></i>
+						<div class="ui-g-10">
+							<a routerLink="/tickets/detail" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" style="float: right;">
 								<span>
-									Nuevo Ticket
+									<i class="la la-rocket"></i>
+									<span>
+										Nuevo Ticket
+									</span>
 								</span>
-							</span>
-						</a>
-
-						<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover"
-						 aria-expanded="true">
-							<a class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl m-dropdown__toggle">
-								<i class="la la-plus m--hide"></i>
-								<i class="la la-ellipsis-h m--font-brand"></i>
 							</a>
-							<div class="m-dropdown__wrapper">
-								<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-								<div class="m-dropdown__inner">
-									<div class="m-dropdown__body">
-										<div class="m-dropdown__content">
-											<ul class="m-nav">
-												<li class="m-nav__section m-nav__section--first">
-													<span class="m-nav__section-text">
-														Acciones
-													</span>
-												</li>
-												<li class="m-nav__item">
-													<a href="/tickets" class="m-nav__link">
-														<i class="m-nav__link-icon flaticon-graphic-2"></i>
-														<span class="m-nav__link-text">
-															Exportar Reporte
+						</div>
+						<div class="ui-g-2" style="padding-top: 12px;">
+							<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover"
+							 aria-expanded="true" style="float: right;">
+								<a class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl m-dropdown__toggle">
+									<i class="la la-plus m--hide"></i>
+									<i class="la la-ellipsis-h m--font-brand"></i>
+								</a>
+								<div class="m-dropdown__wrapper">
+									<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+									<div class="m-dropdown__inner">
+										<div class="m-dropdown__body">
+											<div class="m-dropdown__content">
+												<ul class="m-nav">
+													<li class="m-nav__section m-nav__section--first">
+														<span class="m-nav__section-text">
+															Acciones
 														</span>
-													</a>
-												</li>
-												<li class="m-nav__item">
-													<a href="/tickets" class="m-nav__link">
-														<i class="m-nav__link-icon flaticon-lifebuoy"></i>
-														<span class="m-nav__link-text">
-															Soporte
-														</span>
-													</a>
-												</li>
-											</ul>
+													</li>
+													<li class="m-nav__item">
+														<a href="/tickets" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-graphic-2"></i>
+															<span class="m-nav__link-text">
+																Exportar Reporte
+															</span>
+														</a>
+													</li>
+													<li class="m-nav__item">
+														<a href="/tickets" class="m-nav__link">
+															<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+															<span class="m-nav__link-text">
+																Soporte
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 
+
 					</div>
+
 				</div>
-
+				<div class="m-separator m-separator--dashed d-xl-none"></div>
 			</div>
-
 
 		</div>
 
