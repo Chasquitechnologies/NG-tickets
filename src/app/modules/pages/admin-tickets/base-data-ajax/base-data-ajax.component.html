@@ -4,101 +4,76 @@
 		<div class="m--space-30"></div>
 		<!--begin: Search Form -->
 		<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
-			<!-- <div class="row align-items-center">
-				<div class="col-xl-12 order-2 order-xl-2">
-					<div class="form-group m-form__group row align-items-center">
-						
-						<div class="col-md-4">
-							<div class="m-form__group m-form__group--inline">
-								<div class="m-form__label">
-									<label class="m-label m-label--single">
-										Fecha:
-									</label>
-								</div>
-								<div class="m-form__control">
-									<input type="text" name="daterange" value="01/01/2015 - 01/31/2015" class="form-control m-input" />
-								</div>
-							</div>
-							<div class="m--margin-bottom-10"></div>
-						</div>
 
-					</div>
-				</div>
+			<div class="ui-g align-items-center ticketfilters">
 
-			</div> -->
-
-			<div class="ui-g align-items-center">
-
-				<div class="ui-g-4 ui-sm-12	m-form__group m-form__group--inline">
-					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px;">
+				<div class="ui-g-4 ui-sm-12	m-form__group m-form__group--inline first">
+					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
 							Marca
 						</label>
 					</div>
-					<div class="ui-g-12 ui-fluid" style="padding-right:20px">
+					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-dropdown [options]="brandDropdown" [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange($event)" filter="true" optionLabel="name"
 						[autoWidth]="false" dropdownIcon="fa fa-angle-down" ></p-dropdown>
 					</div>
 				</div>
 
-				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
-					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px; padding-left:10px; padding-right:10px;">
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline middle">
+					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
 							Tienda
 						</label>
 					</div>
-					<div class="ui-g-12 ui-fluid" style="padding-left:10px; padding-right:10px;">
+					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-dropdown [options]="storeDropdown" [(ngModel)]="selectedStore" filter="true" optionLabel="name" [autoWidth]="false"
 						dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
 
-				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
-					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px; padding-left:20px;">
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline last">
+					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
 							Familia
 						</label>
 					</div>
-					<div class="ui-g-12 ui-fluid" style="padding-left:20px">
+					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" filter="true" optionLabel="name" [autoWidth]="false"
 						dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
 
-				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
-					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px; padding-left:10px; padding-right:10px;">
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline first">
+					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
 							Prioridad
 						</label>
 					</div>
-					<div class="ui-g-12 ui-fluid" style="padding-right:20px">
+					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-dropdown [options]="priorityDropdown" [(ngModel)]="selectedPriority" filter="true" optionLabel="name" [autoWidth]="false"
 						dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
 
-				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
-					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px;">
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline middle">
+					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
 							Estado
 						</label>
 					</div>
-					<div class="ui-g-12 ui-fluid" style="padding-left:10px; padding-right:10px;">
-						<!-- <p-dropdown [options]="statusDropdown" [(ngModel)]="selectedStatus" filter="true" optionLabel="name" [autoWidth]="false"
-						dropdownIcon="fa fa-angle-down"></p-dropdown> -->
-
+					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-multiSelect [options]="statusDropdown" [(ngModel)]="selectedStatus" optionLabel="name" defaultLabel="Seleccionar" maxSelectedLabels=2
 						dropdownIcon="fa fa-angle-down"></p-multiSelect>
 						
 					</div>
 				</div>
-				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline">
-					<div class="ui-g-12" style="padding-top:15px; padding-bottom:0px; line-height:0px; padding-left:20px;">
+				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline last">
+					<div class="ui-g-12 dd-label">
 						<label class="m-label m-label--single">
 							Fecha
 						</label>
 					</div>
-					<div class="ui-g-12 ui-fluid" style="padding-left:20px">
+					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-calendar [(ngModel)]="dateRangeSelected" selectionMode="range" readonlyInput="true" [showIcon]="true"></p-calendar>						
 					</div>
 				</div>
