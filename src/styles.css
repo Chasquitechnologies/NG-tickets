@@ -367,3 +367,70 @@ body .ui-datepicker table.ui-datepicker-calendar td.ui-state-disabled a.ui-state
     color: #ffffff !important;
     background-color: #9ea6eb !important;
 }
+
+
+/* STYLING DATATABLES */
+
+/* Styling header */
+p-datatable.metronic-theme .ui-datatable .ui-datatable-thead > tr > th {
+    background-color: #f4f3fb;
+    border-color: transparent;
+    color: #373a3c;
+    font-weight: 700;
+    line-height: 1.94;
+    
+}
+
+p-datatable.metronic-theme .ui-datatable .ui-datatable-data > tr > td {
+    border-color: transparent;
+}
+
+p-datatable.metronic-theme .ui-datatable .ui-datatable-data tr.ui-datatable-even {
+    background-color: #fbfbfe;
+}
+
+
+/* Styling paginator */
+p-datatable.metronic-theme p-paginator .ui-paginator-bottom.ui-paginator{
+    border: 0px solid transparent;
+    margin-top: 20px;
+}
+
+p-datatable.metronic-theme p-paginator .ui-paginator-pages .ui-paginator-page{
+    min-width: 2.5em;
+    border-radius: 50%;
+    margin-left: .15em;
+    margin-right: .15em;    
+    font-weight: 400;
+}
+
+/* style paginator pages that are not selected */
+p-datatable.metronic-theme p-paginator a.ui-paginator-page.ui-paginator-element {
+    background-color: #ffffff;
+    color: #898b96;
+}
+
+/* style paginator pages ON HOVER that are not selected */
+p-datatable.metronic-theme p-paginator a.ui-paginator-page.ui-paginator-element:hover {
+    background-color:rgb(237, 236, 248);
+    color: #716aca;
+}
+
+/* style paginator pages that IS selected */
+p-datatable.metronic-theme p-paginator a.ui-paginator-page.ui-paginator-element.ui-state-active {
+    background-color: #716aca;
+    color: #ffffff;
+}
+/* style paginator page ON HOVER that IS selected */
+p-datatable.metronic-theme p-paginator a.ui-paginator-page.ui-paginator-element.ui-state-active:hover {
+    background-color: #716aca;
+    color: #ffffff;
+}
+
+p-datatable.metronic-theme p-paginator .ui-paginator-bottom > a.ui-paginator-element {
+    color: #716aca;
+}
+
+
+/* on hover: rgb(237, 236, 248) #716aca */
+/* on default state: #898b96 */

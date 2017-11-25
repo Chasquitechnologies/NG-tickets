@@ -6,6 +6,8 @@ import { Store } from '../../../../models/Store';
 import { Family } from '../../../../models/Family';
 import { Priority } from '../../../../models/Priority';
 import { Status } from '../../../../models/Status';
+import { AdminTicketService } from '../../../../_services/admin-ticket-service.service'
+import { Ticket } from '../../../../models/Ticket';
 
 // declare var jquery: any;
 // declare var $: any;
@@ -17,6 +19,8 @@ import { Status } from '../../../../models/Status';
 })
 
 export class BaseDataAjaxComponent implements OnInit {
+
+  public adminTickets:Ticket[];
 
   public brandDropdown: Brand[];
   public storeDropdown: Store[];
@@ -35,10 +39,38 @@ export class BaseDataAjaxComponent implements OnInit {
   public starDate: Date;
   public endDate: Date;
 
-  constructor(private _script: ScriptLoaderService, private dropdownService: FilterDropDownService) {
+  public colorsClass: object;
+  public statusColor: object;
+  
+
+  constructor(private _script: ScriptLoaderService, private dropdownService: FilterDropDownService,
+              private adminTicketService: AdminTicketService) {
 
   }
   ngOnInit() {
+
+    // delete following lines and implement server side color schema
+    this.colorsClass = {
+      Ingresado: 'm-badge m-badge--danger m-badge--wide',
+      Asignado: 'm-badge m-badge--warning m-badge--wide', 
+      Programado: 'm-badge m-badge--danger m-badge--wide',
+      Atendido: 'm-badge m-badge--info m-badge--wide',
+      Confirmado: 'm-badge m-badge--success m-badge--wide',
+      Anulado: 'm-badge m-badge--default m-badge--wide',
+      Reactivado: 'm-badge m-badge--danger m-badge--wide'
+    }
+
+    this.statusColor = {
+      Ingresado: '#ed6b75',
+      Asignado: '#F1C40F', 
+      Programado: '#F68D33',
+      Atendido: '#659be0',
+      Confirmado: '#22c103',
+      Anulado: '#bac3d0',
+      Reactivado: '#ed6b75'
+    }
+
+
     this.brandDropdown = this.dropdownService.getBrands();
     this.storeDropdown = this.dropdownService.getStores(0);
     this.familyDropdown = this.dropdownService.getFamilies();
@@ -57,13 +89,15 @@ export class BaseDataAjaxComponent implements OnInit {
     this.starDate = new Date();
     this.starDate.setMonth(this.endDate.getMonth() - 12);
     this.dateRangeSelected = [this.starDate, this.endDate];
-    // $('input[name="daterange"]').daterangepicker();
 
+    //needs to be modified to take in correct tickets
+    this.adminTickets = this.adminTicketService.getAdminTickets()
+  
   }
 
   ngAfterViewInit() {
-    this._script.load('.m-grid__item.m-grid__item--fluid.m-wrapper',
-      'assets/app/js/data-ajax.js');
+    // this._script.load('.m-grid__item.m-grid__item--fluid.m-wrapper',
+    //   'assets/app/js/data-ajax.js');
 
   }
 

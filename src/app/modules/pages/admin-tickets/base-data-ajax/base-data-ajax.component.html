@@ -88,14 +88,6 @@
 					</div>
 				</div>
 				<div class="ui-g-6 ui-sm-12 m-form__group m-form__group--inline last">
-					<!-- <div class="ui-g-12 dd-label">
-						<label class="m-label m-label--single">
-							Fecha
-						</label>
-					</div>
-					<div class="ui-g-12 ui-fluid dd-selector">
-						<p-calendar [(ngModel)]="dateRangeSelected" selectionMode="range" readonlyInput="true" [showIcon]="true"></p-calendar>
-					</div> -->
 
 					<div class="ui-g-12 dd-selector">
 
@@ -162,9 +154,36 @@
 
 	</div>
 	<div class="m-portlet__body">
-
+		
+			<p-dataTable class="metronic-theme" [value]="adminTickets" scrollable="true" scrollWidth="100%" [rows]="10" 
+												[paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+					<p-column field="globalTicketId" header="Ticket" [style]="{'width':'80px','text-align':'center'}"></p-column>
+					<p-column field="statusDescription" header="Estado" [style]="{'width':'150px','text-align':'center'}">
+							<!-- <ng-template let-col let-ticket="rowData" pTemplate="body">
+									<span [ngClass]="colorsClass[ticket[col.field]]">{{ticket[col.field]}}</span>
+							</ng-template> -->
+							<ng-template let-col let-ticket="rowData" pTemplate="body">
+									<span class="m-badge m-badge--wide" 
+									[ngStyle]="{'background-color': statusColor[ticket[col.field]], 'color':'#ffffff'}">
+									{{ticket[col.field]}}</span>
+							</ng-template>
+					</p-column>
+					<p-column field="brandDescription" header="Marca" [style]="{'width':'150px','text-align':'center'}"></p-column>
+					<p-column field="storeDescription" header="Tienda" [style]="{'width':'250px','text-align':'center'}"></p-column>
+					<p-column field="priorityDescitpiont" header="Prioridad" [style]="{'width':'80px','text-align':'center'}"></p-column>
+					<p-column field="classificationDescription" header="Clasificación" [style]="{'width':'150px','text-align':'center'}"></p-column>
+					<p-column field="familyDescription" header="Familia" [style]="{'width':'150px','text-align':'center'}"></p-column>
+					<p-column field="equipmentDescription" header="Nombre de Equipo" [style]="{'width':'200px','text-align':'center'}"></p-column>
+					<p-column field="failTypeDescription" header="Tipo de Falla" [style]="{'width':'90px','text-align':'center'}"></p-column>
+					<p-column field="supportAdminDescription" header="Coordinador" [style]="{'width':'150px','text-align':'center'}"></p-column>
+					<p-column field="createdDate" header="Fecha de Inicio" [style]="{'width':'250px','text-align':'center'}"></p-column>
+					<p-column field="confirmationDate" header="Fecha de Confirmación" [style]="{'width':'250px','text-align':'center'}"></p-column>
+			</p-dataTable>
 		<!--begin: Datatable -->
-		<div class="m_datatable" id="ajax_data"></div>
+
+		<!-- <div class="m_datatable" id="ajax_data"></div> -->
 		<!--end: Datatable -->
 	</div>
 </div>
+
+

@@ -15,6 +15,7 @@ import { AuthGuardServiceService } from './_services/auth-guard-service.service'
 import { RedirectUrlService } from './_services/redirect-url.service';
 import { RedirectComponent } from './redirect.component';
 import { FilterDropDownService } from './_services/filter-drop-down.service';
+import { AdminTicketService } from './_services/admin-ticket-service.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FilterDropDownService } from './_services/filter-drop-down.service';
     FormsModule
   ],
   providers: [
+    AdminTicketService,
     FilterDropDownService,
     RedirectUrlService,
     ScriptLoaderService, 

@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/components/dropdown/dropdown';
 import {CalendarModule} from 'primeng/components/calendar/calendar';
 import {MultiSelectModule} from 'primeng/components/multiselect/multiselect';
+import {SharedModule} from 'primeng/components/common/shared';
+import {DataTableModule} from 'primeng/components/datatable/datatable';
+import {PaginatorModule} from 'primeng/components/paginator/paginator';
 
 const routes: Routes = [
   {
@@ -43,6 +46,7 @@ const routes: Routes = [
     CalendarModule,
     DropdownModule,
     MultiSelectModule,
+    DataTableModule,
     CommonModule,
     LayoutModule,
     RouterModule.forChild(routes),   
