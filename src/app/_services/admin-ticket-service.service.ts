@@ -20,14 +20,15 @@ export class AdminTicketService {
                   storeId:number,
                   familyId:number,
                   priorityId:number,
-                  statusId:Status[]):Ticket[] {
+                  statusId:Status[],
+                  dateRangeSelected:Date[]):Ticket[] {
     
     // return this.http.get('https://www.primefaces.org/primeng/assets/showcase/data/cars-small.json')
     //             .toPromise()
     //             .then(res => <Car[]> res.json().data)
     //             .then(data => { return data; });
 
-    let adminTickets:Ticket[] = this.DAO.getAllAdminTickets(brandId,storeId, familyId, priorityId, statusId);
+    let adminTickets:Ticket[] = this.DAO.getAllAdminTickets(brandId,storeId, familyId, priorityId, statusId, dateRangeSelected);
 
 
     return adminTickets

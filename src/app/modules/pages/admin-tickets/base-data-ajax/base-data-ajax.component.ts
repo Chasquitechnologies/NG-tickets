@@ -34,12 +34,11 @@ export class BaseDataAjaxComponent implements OnInit {
   public selectedPriority: Priority;
   public selectedStatus: Status[];
 
-  public dateNow: Date;
+  
   public dateRangeSelected: Date[];
-  public starDate: Date;
-  public endDate: Date;
+  // public starDate: Date;
+  // public endDate: Date;
 
-  public colorsClass: object;
   public statusColor: object;
 
 
@@ -60,47 +59,40 @@ export class BaseDataAjaxComponent implements OnInit {
       Reactivado: '#ed6b75'
     }
 
+    // retrieving last dropdown selection
+    this.selectedBrand = this.dropdownService.getlastSelectedBrand();
+    this.selectedStore = this.dropdownService.getlastSelectedStore();    
+    this.selectedFamily = this.dropdownService.getlastSelectedFamily();
+    this.selectedPriority = this.dropdownService.getlastSelectedPriority();
+    this.selectedStatus = this.dropdownService.getlastSelectedStatus();
 
     this.brandDropdown = this.dropdownService.getBrands();
-    this.storeDropdown = this.dropdownService.getStores(0);
+    this.storeDropdown = this.dropdownService.getStores(this.selectedBrand.id);
     this.familyDropdown = this.dropdownService.getFamilies();
     this.priorityDropdown = this.dropdownService.getPriorities();
     this.statusDropdown = this.dropdownService.getStatus();
-
-    this.selectedBrand = { id: 0, name: 'All' };
-    this.selectedStore = { id: 0, brandId: 0, name: "All" };
-    this.selectedFamily = { id: 0, name: 'All' };;
-    this.selectedPriority = { id: 0, name: 'All' };;
-    this.selectedStatus = [{ id: 1, name: "Ingresado" },
-    { id: 12, name: "Asignado" },
-    { id: 2, name: "Programado" },
-    { id: 13, name: "Reactivado" }];
-    this.endDate = new Date();
-    this.starDate = new Date();
-    this.starDate.setMonth(this.endDate.getMonth() - 12);
-    this.dateRangeSelected = [this.starDate, this.endDate];
+    this.dateRangeSelected = this.dropdownService.getlastSelectedDateRange();
 
     //needs to be modified to take in correct tickets
-    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus);
+    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
 
   }
 
   ngAfterViewInit() {
-    // this._script.load('.m-grid__item.m-grid__item--fluid.m-wrapper',
-    //   'assets/app/js/data-ajax.js');
 
   }
 
   onBrandChange(event): void {
     console.log(event);
     // Store selected brand locally and on service singleton(to be implemented)
+    this.dropdownService.setlastSelectedBrand(this.selectedBrand);
 
     // filter store dropdon and select first store
     this.storeDropdown = this.dropdownService.getStores(parseInt(event.id))
     this.selectedStore = this.storeDropdown[0];
     
     //Updating tickets
-    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus);
+    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
 
 
   }
@@ -108,9 +100,10 @@ export class BaseDataAjaxComponent implements OnInit {
   onStoreChange(event): void {
     console.log(event);
     // TODO: Store selected brand on service singleton(to be implemented)
-
+    this.dropdownService.setlastSelectedStore(this.selectedStore);
+    
     //Updating tickets
-    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus);
+    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
 
 
   }
@@ -118,9 +111,13 @@ export class BaseDataAjaxComponent implements OnInit {
   onOtherDropdownChange(event): void {
     console.log(event);
     // TODO: Store selected Family, Priority & Status on service singleton(to be implemented)
-
+    this.dropdownService.setlastSelectedFamily(this.selectedFamily);
+    this.dropdownService.setlastSelectedPriority(this.selectedPriority);
+    this.dropdownService.setlastSelectedStatus(this.selectedStatus);
+    this.dropdownService.setlastSelectedDateRange(this.dateRangeSelected);
+    
     //Updating tickets
-    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus);
+    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
 
 
   }

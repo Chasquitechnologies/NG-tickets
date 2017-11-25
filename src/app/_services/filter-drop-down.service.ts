@@ -18,42 +18,107 @@ export class FilterDropDownService {
   private allFamilies: Family[];
   private allStatus: Status[];
 
-  // public StoreDropDown: any[];
-  // public FamilyDropDown: any[];
-  // public PriorityDropDown: any[];
-  // public StatusDropDown: any[];
+  //storing dropdown last selections on singleton
+  public lastSelectedBrand: Brand;
+  public lastSelectedStore: Store;
+  public lastSelectedFamily: Family;
+  public lastSelectedPriority: Priority;
+  public lastSelectedStatus: Status[];
 
-  constructor() { }
+  public dateNow: Date;
+  public dateRangeSelected: Date[];
+  public starDate: Date;
+  public endDate: Date;
+
+  constructor() {
+    this.lastSelectedBrand = { id: 0, name: 'All' };
+    this.lastSelectedStore = { id: 0, brandId: 0, name: "All" };
+    this.lastSelectedFamily = { id: 0, name: 'All' };;
+    this.lastSelectedPriority = { id: 0, name: 'All' };;
+    this.lastSelectedStatus = [{ id: 1, name: "Ingresado" },
+                              { id: 12, name: "Asignado" },
+                              { id: 2, name: "Programado" },
+                              { id: 13, name: "Reactivado" }];
+    let endDate: Date = new Date();
+    let starDate: Date = new Date();
+    
+    starDate.setMonth(endDate.getMonth() - 12);
+    this.dateRangeSelected = [starDate, endDate];
+
+  }
 
   public getBrands(): Brand[] {
-
     return this.DAO.getAllBrands();
-
   }
 
   public getStores(brandId: number): Store[] {
-
     return this.DAO.getAllStores(brandId);
-
   }
 
   public getFamilies(): Family[] {
-
     return this.DAO.getAllFamilies();
-    
   }
 
   public getPriorities(): Priority[] {
-
     return this.DAO.getAllPriorities();
-
   }
 
 
   public getStatus(): Status[] {
-
     return this.DAO.getAllStatus();
-
   }
+
+  // SETTERS AND GETTERS FOR LASTSELECTED DROPDOWN ITEMS
+  public setlastSelectedBrand(brand: Brand): void {
+    this.lastSelectedBrand = brand;
+  }
+
+  public getlastSelectedBrand(): Brand {
+    return this.lastSelectedBrand;
+  }
+
+  public setlastSelectedStore(store: Store): void {
+    this.lastSelectedStore = store;
+  }
+
+  public getlastSelectedStore(): Store {
+    return this.lastSelectedStore;
+  }
+
+  public setlastSelectedFamily(family: Family): void {
+    this.lastSelectedFamily = family;
+  }
+
+  public getlastSelectedFamily(): Family {
+    return this.lastSelectedFamily;
+  }
+
+  public setlastSelectedPriority(priority: Priority): void {
+    this.lastSelectedPriority = priority;
+  }
+
+  public getlastSelectedPriority(): Priority {
+    return this.lastSelectedPriority;
+  }
+
+  public setlastSelectedStatus(status: Status[]): void {
+    this.lastSelectedStatus = status;
+  }
+
+  public getlastSelectedStatus(): Status[] {
+    return this.lastSelectedStatus;
+  }
+
+  public setlastSelectedDateRange(dateRange: Date[]): void {
+    this.dateRangeSelected = dateRange;
+  }
+
+  public getlastSelectedDateRange(): Date[] {
+    return this.dateRangeSelected;
+  }
+
+
+
+
 
 }

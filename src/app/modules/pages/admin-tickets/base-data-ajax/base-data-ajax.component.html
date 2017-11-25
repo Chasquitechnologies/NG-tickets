@@ -67,7 +67,7 @@
 						</label>
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
-						<p-calendar [(ngModel)]="dateRangeSelected" selectionMode="range" readonlyInput="true" [showIcon]="true"></p-calendar>
+						<p-calendar [(ngModel)]="dateRangeSelected" (ngModelChange)="onOtherDropdownChange($event)" selectionMode="range" readonlyInput="true" [showIcon]="true"></p-calendar>
 					</div>
 				</div>
 			</div>

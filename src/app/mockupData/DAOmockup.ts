@@ -44,49 +44,49 @@ export class DAOmockup {
             {
                 id: 4, globalTicketId: 'T-004', statusId: 3, statusDescription: 'Atendido', brandId: 3, brandDescription: 'Don Belisario',
                 storeId: 11, storeDescription: 'DB - Store 3', priorityId: 2, priorityDescitpiont: 'A1', classificationId: 1, classificationDescription: 'Equipos',
-                familyId: 1, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 4',
+                familyId: 2, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 4',
                 failTypeId: 1, failTypeDescription: 'Total', supportAdminId: 1, supportAdminDescription: 'Support Admin 1'
             },
 
             {
                 id: 5, globalTicketId: 'T-005', statusId: 4, statusDescription: 'Confirmado', brandId: 4, brandDescription: "Dunkin' Donuts",
                 storeId: 14, storeDescription: 'DD - Modulo Plaza Vea El Cortijo (6149)', priorityId: 2, priorityDescitpiont: 'A1', classificationId: 1, classificationDescription: 'Equipos',
-                familyId: 1, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 5',
+                familyId: 2, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 5',
                 failTypeId: 1, failTypeDescription: 'Total', supportAdminId: 1, supportAdminDescription: 'Support Admin 1'
             },
 
             {
                 id: 6, globalTicketId: 'T-006', statusId: 5, statusDescription: 'Anulado', brandId: 5, brandDescription: 'Papa Johns',
                 storeId: 16, storeDescription: 'PJ - Store 2', priorityId: 2, priorityDescitpiont: 'A1', classificationId: 1, classificationDescription: 'Equipos',
-                familyId: 1, familyDescription: 'Family 3', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 6',
+                familyId: 3, familyDescription: 'Family 3', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 6',
                 failTypeId: 1, failTypeDescription: 'Total', supportAdminId: 1, supportAdminDescription: 'Support Admin 1'
             },
 
             {
                 id: 7, globalTicketId: 'T-007', statusId: 13, statusDescription: 'Reactivado', brandId: 6, brandDescription: 'Popeyes',
                 storeId: 20, storeDescription: 'PP - Store 3', priorityId: 6, priorityDescitpiont: 'B2', classificationId: 1, classificationDescription: 'Equipos',
-                familyId: 1, familyDescription: 'Family 3', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
+                familyId: 3, familyDescription: 'Family 3', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
                 failTypeId: 1, failTypeDescription: 'Total', supportAdminId: 1, supportAdminDescription: 'Support Admin 1'
             },
 
             {
                 id: 8, globalTicketId: 'T-008', statusId: 4, statusDescription: 'Confirmado', brandId: 6, brandDescription: 'Popeyes',
                 storeId: 20, storeDescription: 'PP - Store 3', priorityId: 6, priorityDescitpiont: 'B2', classificationId: 1, classificationDescription: 'Equipos',
-                familyId: 1, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
+                familyId: 2, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
                 failTypeId: 1, failTypeDescription: 'Total', supportAdminId: 1, supportAdminDescription: 'Support Admin 1'
             },
 
             {
                 id: 9, globalTicketId: 'T-009', statusId: 4, statusDescription: 'Confirmado', brandId: 6, brandDescription: 'Popeyes',
                 storeId: 20, storeDescription: 'PP - Store 3', priorityId: 3, priorityDescitpiont: 'A2', classificationId: 1, classificationDescription: 'Equipos',
-                familyId: 1, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
+                familyId: 2, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
                 failTypeId: 1, failTypeDescription: 'Total', supportAdminId: 1, supportAdminDescription: 'Support Admin 1'
             },
 
             {
                 id: 10, globalTicketId: 'T-010', statusId: 4, statusDescription: 'Confirmado', brandId: 6, brandDescription: 'Popeyes',
                 storeId: 20, storeDescription: 'PP - Store 3', priorityId: 3, priorityDescitpiont: 'A2', classificationId: 1, classificationDescription: 'Equipos',
-                familyId: 1, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
+                familyId: 2, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
                 failTypeId: 1, failTypeDescription: 'Total', supportAdminId: 1, supportAdminDescription: 'Support Admin 1'
             },
 
@@ -114,7 +114,7 @@ export class DAOmockup {
             {
                 id: 14, globalTicketId: 'T-014', statusId: 2, statusDescription: 'Programado', brandId: 6, brandDescription: 'Popeyes',
                 storeId: 20, storeDescription: 'PP - Store 3', priorityId: 8, priorityDescitpiont: 'C1', classificationId: 1, classificationDescription: 'Equipos',
-                familyId: 1, familyDescription: 'Family 1', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
+                familyId: 2, familyDescription: 'Family 2', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
                 failTypeId: 1, failTypeDescription: 'Total', supportAdminId: 1, supportAdminDescription: 'Support Admin 1'
             },
 
@@ -128,7 +128,7 @@ export class DAOmockup {
             {
                 id: 16, globalTicketId: 'T-016', statusId: 1, statusDescription: 'Ingresado', brandId: 6, brandDescription: 'Popeyes',
                 storeId: 20, storeDescription: 'PP - Store 3', priorityId: 10, priorityDescitpiont: 'C3', classificationId: 1, classificationDescription: 'Equipos',
-                familyId: 1, familyDescription: 'Family 3', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
+                familyId: 3, familyDescription: 'Family 3', equipmentId: 1000, equipmentDescription: 'Nombre de Equipo 7',
                 failTypeId: 1, failTypeDescription: 'Total', supportAdminId: 1, supportAdminDescription: 'Support Admin 1'
             }
 
@@ -205,7 +205,8 @@ export class DAOmockup {
         storeId: number,
         familyId: number,
         priorityId: number,
-        statusId: Status[]): Ticket[] {
+        statusId: Status[],
+        dateRangeSelected: Date[]): Ticket[] {
 
 
         let filteredTickets: Ticket[];
