@@ -20,7 +20,7 @@ import { Ticket } from '../../../../models/Ticket';
 
 export class BaseDataAjaxComponent implements OnInit {
 
-  public adminTickets:Ticket[];
+  public adminTickets: Ticket[];
 
   public brandDropdown: Brand[];
   public storeDropdown: Store[];
@@ -28,10 +28,10 @@ export class BaseDataAjaxComponent implements OnInit {
   public priorityDropdown: Priority[];
   public statusDropdown: Status[];
 
-  public selectedBrand: number;
-  public selectedStore: number;
-  public selectedFamily: number;
-  public selectedPriority: number;
+  public selectedBrand: Brand;
+  public selectedStore: Store;
+  public selectedFamily: Family;
+  public selectedPriority: Priority;
   public selectedStatus: Status[];
 
   public dateNow: Date;
@@ -41,28 +41,18 @@ export class BaseDataAjaxComponent implements OnInit {
 
   public colorsClass: object;
   public statusColor: object;
-  
+
 
   constructor(private _script: ScriptLoaderService, private dropdownService: FilterDropDownService,
-              private adminTicketService: AdminTicketService) {
+    private adminTicketService: AdminTicketService) {
 
   }
   ngOnInit() {
 
-    // delete following lines and implement server side color schema
-    this.colorsClass = {
-      Ingresado: 'm-badge m-badge--danger m-badge--wide',
-      Asignado: 'm-badge m-badge--warning m-badge--wide', 
-      Programado: 'm-badge m-badge--danger m-badge--wide',
-      Atendido: 'm-badge m-badge--info m-badge--wide',
-      Confirmado: 'm-badge m-badge--success m-badge--wide',
-      Anulado: 'm-badge m-badge--default m-badge--wide',
-      Reactivado: 'm-badge m-badge--danger m-badge--wide'
-    }
-
+    // must eventually delete following lines and implement server side color schema
     this.statusColor = {
       Ingresado: '#ed6b75',
-      Asignado: '#F1C40F', 
+      Asignado: '#F1C40F',
       Programado: '#F68D33',
       Atendido: '#659be0',
       Confirmado: '#22c103',
@@ -77,22 +67,22 @@ export class BaseDataAjaxComponent implements OnInit {
     this.priorityDropdown = this.dropdownService.getPriorities();
     this.statusDropdown = this.dropdownService.getStatus();
 
-    this.selectedBrand = 0;
-    this.selectedStore = 0;
-    this.selectedFamily = 0;
-    this.selectedPriority = 0;
+    this.selectedBrand = { id: 0, name: 'All' };
+    this.selectedStore = { id: 0, brandId: 0, name: "All" };
+    this.selectedFamily = { id: 0, name: 'All' };;
+    this.selectedPriority = { id: 0, name: 'All' };;
     this.selectedStatus = [{ id: 1, name: "Ingresado" },
-                            { id: 2, name: "Asignado" },
-                            { id: 3, name: "Programado" },
-                            { id: 7, name: "Reactivado" }];
+    { id: 12, name: "Asignado" },
+    { id: 2, name: "Programado" },
+    { id: 13, name: "Reactivado" }];
     this.endDate = new Date();
     this.starDate = new Date();
     this.starDate.setMonth(this.endDate.getMonth() - 12);
     this.dateRangeSelected = [this.starDate, this.endDate];
 
     //needs to be modified to take in correct tickets
-    this.adminTickets = this.adminTicketService.getAdminTickets()
-  
+    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus);
+
   }
 
   ngAfterViewInit() {
@@ -103,7 +93,35 @@ export class BaseDataAjaxComponent implements OnInit {
 
   onBrandChange(event): void {
     console.log(event);
+    // Store selected brand locally and on service singleton(to be implemented)
+
+    // filter store dropdon and select first store
     this.storeDropdown = this.dropdownService.getStores(parseInt(event.id))
+    this.selectedStore = this.storeDropdown[0];
+    
+    //Updating tickets
+    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus);
+
+
+  }
+
+  onStoreChange(event): void {
+    console.log(event);
+    // TODO: Store selected brand on service singleton(to be implemented)
+
+    //Updating tickets
+    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus);
+
+
+  }
+
+  onOtherDropdownChange(event): void {
+    console.log(event);
+    // TODO: Store selected Family, Priority & Status on service singleton(to be implemented)
+
+    //Updating tickets
+    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus);
+
 
   }
 
