@@ -8,6 +8,7 @@ import { Priority } from '../../../../models/Priority';
 import { Status } from '../../../../models/Status';
 import { AdminTicketService } from '../../../../_services/admin-ticket-service.service'
 import { Ticket } from '../../../../models/Ticket';
+import { TicketSummaryQuery } from '../../../../models/TicketSummaryQuery';
 
 // declare var jquery: any;
 // declare var $: any;
@@ -33,17 +34,15 @@ export class BaseDataAjaxComponent implements OnInit {
   public selectedFamily: Family;
   public selectedPriority: Priority;
   public selectedStatus: Status[];
-
-  
   public dateRangeSelected: Date[];
-  // public starDate: Date;
-  // public endDate: Date;
+
 
   public statusColor: object;
   public priorityColor: object;
+  public querySelections: TicketSummaryQuery;
 
 
-  constructor(private _script: ScriptLoaderService, private dropdownService: FilterDropDownService,
+  constructor(private dropdownService: FilterDropDownService,
     private adminTicketService: AdminTicketService) {
 
   }
@@ -58,24 +57,24 @@ export class BaseDataAjaxComponent implements OnInit {
       Confirmado: '#22c103',
       Anulado: '#bac3d0',
       Reactivado: '#ed6b75'
-    }
+    };
 
     this.priorityColor = {
-      'A++': {color:'red', weight:500},
-      A1: {color:'#575962', weight:300},
-      A2: {color:'#575962', weight:300},
-      A3: {color:'#575962', weight:300},
-      B1: {color:'#575962', weight:300},
-      B2: {color:'#575962', weight:300},
-      B3: {color:'#575962', weight:300},
-      C1: {color:'#575962', weight:300},
-      C2: {color:'#575962', weight:300},
-      C3: {color:'#575962', weight:300}
-    }
+      'A++': { color: 'red', weight: 500 },
+      A1: { color: '#575962', weight: 300 },
+      A2: { color: '#575962', weight: 300 },
+      A3: { color: '#575962', weight: 300 },
+      B1: { color: '#575962', weight: 300 },
+      B2: { color: '#575962', weight: 300 },
+      B3: { color: '#575962', weight: 300 },
+      C1: { color: '#575962', weight: 300 },
+      C2: { color: '#575962', weight: 300 },
+      C3: { color: '#575962', weight: 300 }
+    };
 
     // retrieving last dropdown selection
     this.selectedBrand = this.dropdownService.getlastSelectedBrand();
-    this.selectedStore = this.dropdownService.getlastSelectedStore();    
+    this.selectedStore = this.dropdownService.getlastSelectedStore();
     this.selectedFamily = this.dropdownService.getlastSelectedFamily();
     this.selectedPriority = this.dropdownService.getlastSelectedPriority();
     this.selectedStatus = this.dropdownService.getlastSelectedStatus();
@@ -96,6 +95,19 @@ export class BaseDataAjaxComponent implements OnInit {
 
   }
 
+  private passQuerySelectionsToMain(): void {
+    // Passing Data to Main Component to recalculate Summary Data
+    this.querySelections = {
+      selectedBrand: this.selectedBrand,
+      selectedStore: this.selectedStore,
+      selectedFamily: this.selectedFamily,
+      selectedPriority: this.selectedPriority,
+      selectedStatus: this.selectedStatus,
+      selectedDateRange: this.dateRangeSelected
+    }
+    this.dropdownService.modifyTicketSummaryQuery(this.querySelections)
+  }
+
   onBrandChange(event): void {
     console.log(event);
     // Store selected brand locally and on service singleton(to be implemented)
@@ -104,10 +116,12 @@ export class BaseDataAjaxComponent implements OnInit {
     // filter store dropdon and select first store
     this.storeDropdown = this.dropdownService.getStores(parseInt(event.id))
     this.selectedStore = this.storeDropdown[0];
-    
+
+    // Passing Data to Main Component to recalculate Summary Data
+    this.passQuerySelectionsToMain();
+
     //Updating tickets
     this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
-
 
   }
 
@@ -115,10 +129,12 @@ export class BaseDataAjaxComponent implements OnInit {
     console.log(event);
     // TODO: Store selected brand on service singleton(to be implemented)
     this.dropdownService.setlastSelectedStore(this.selectedStore);
-    
+
+    // Passing Data to Main Component to recalculate Summary Data
+    this.passQuerySelectionsToMain();
+
     //Updating tickets
     this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
-
 
   }
 
@@ -129,10 +145,12 @@ export class BaseDataAjaxComponent implements OnInit {
     this.dropdownService.setlastSelectedPriority(this.selectedPriority);
     this.dropdownService.setlastSelectedStatus(this.selectedStatus);
     this.dropdownService.setlastSelectedDateRange(this.dateRangeSelected);
-    
+
+    // Passing Data to Main Component to recalculate Summary Data
+    this.passQuerySelectionsToMain();
+
     //Updating tickets
     this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
-
 
   }
 

@@ -5,6 +5,7 @@ import { Family } from "../models/Family";
 import { Priority } from "../models/Priority";
 import { Status } from "../models/Status";
 import { element } from "protractor";
+import { TicketCountSummary } from "../models/TicketCountSummary";
 
 
 
@@ -236,8 +237,8 @@ export class DAOmockup {
         }
 
         if (statusId) {
-            let selectedStatus:number[] = statusId.map(status => status.id);
-            filteredTickets = filteredTickets.filter(function(ticket){
+            let selectedStatus: number[] = statusId.map(status => status.id);
+            filteredTickets = filteredTickets.filter(function (ticket) {
                 return selectedStatus.indexOf(ticket.statusId) >= 0
             });
         } else {
@@ -247,6 +248,83 @@ export class DAOmockup {
 
         return filteredTickets;
     }
+
+
+    public getAdminTicketsSummaryCount(brandId: number,
+        storeId: number,
+        familyId: number,
+        priorityId: number,
+        statusId: Status[],
+        dateRangeSelected: Date[]): TicketCountSummary {
+
+
+        let filteredTickets: Ticket[];
+
+        if (brandId == 0) {
+            filteredTickets = this.testTickets;
+        } else {
+            filteredTickets = this.testTickets.filter(ticket => ticket.brandId == brandId);
+        }
+
+        if (storeId == 0) {
+            filteredTickets = filteredTickets;
+        } else {
+            filteredTickets = filteredTickets.filter(ticket => ticket.storeId == storeId);
+        }
+
+        if (familyId == 0) {
+            filteredTickets = filteredTickets;
+        } else {
+            filteredTickets = filteredTickets.filter(ticket => ticket.familyId == familyId);
+        }
+
+        if (priorityId == 0) {
+            filteredTickets = filteredTickets;
+        } else {
+            filteredTickets = filteredTickets.filter(ticket => ticket.priorityId == priorityId);
+        }
+
+        if (statusId) {
+            let selectedStatus: number[] = statusId.map(status => status.id);
+            filteredTickets = filteredTickets.filter(function (ticket) {
+                return selectedStatus.indexOf(ticket.statusId) >= 0
+            });
+        } else {
+            filteredTickets = filteredTickets;
+        }
+
+        let adminTicketsSummary: TicketCountSummary = {
+            totalPriorityA: 0,
+            totalPriorityB: 0,
+            totalPriorityC: 0,
+            totalPendingTickets: 0,
+            percentPriorityA: 0,
+            percentPriorityB: 0,
+            percentPriorityC: 0
+        };
+
+        for (let ticket of filteredTickets) {
+            if ((ticket.priorityId == 1 || ticket.priorityId == 2 || ticket.priorityId == 3 || ticket.priorityId == 4) &&
+                (ticket.statusId == 1 || ticket.statusId == 12 || ticket.statusId == 2 || ticket.statusId == 13)) {
+                adminTicketsSummary.totalPriorityA += 1
+            }
+            if ((ticket.priorityId == 5 || ticket.priorityId == 6 || ticket.priorityId == 7) &&
+                (ticket.statusId == 1 || ticket.statusId == 12 || ticket.statusId == 2 || ticket.statusId == 13)) {
+                adminTicketsSummary.totalPriorityB += 1
+            }
+            if ((ticket.priorityId == 8 || ticket.priorityId == 9 || ticket.priorityId == 10) && 
+                (ticket.statusId == 1 || ticket.statusId == 12 || ticket.statusId == 2 || ticket.statusId == 13)) {
+                adminTicketsSummary.totalPriorityC += 1
+            }
+        }
+
+        adminTicketsSummary.totalPendingTickets = adminTicketsSummary.totalPriorityA + adminTicketsSummary.totalPriorityB + adminTicketsSummary.totalPriorityC
+
+        return adminTicketsSummary;
+    }
+
+
+
 
     public getAllBrands(): Brand[] {
 

@@ -5,6 +5,8 @@ import { Family } from '../models/Family';
 import { Priority } from '../models/Priority';
 import { Status } from '../models/Status';
 import { DAOmockup } from '../mockupData/DAOmockup';
+import { Subject } from 'rxjs/Subject';
+import { TicketSummaryQuery } from '../models/TicketSummaryQuery';
 
 @Injectable()
 export class FilterDropDownService {
@@ -24,11 +26,20 @@ export class FilterDropDownService {
   public lastSelectedFamily: Family;
   public lastSelectedPriority: Priority;
   public lastSelectedStatus: Status[];
-
-  public dateNow: Date;
   public dateRangeSelected: Date[];
-  public starDate: Date;
-  public endDate: Date;
+
+  // SETTING OBSERVABLE TO SHARE DATA WITH PARENT COMPONENT
+  // Observable TicketSummaryQuery sources
+  private ticketSummaryQuerySource = new Subject<TicketSummaryQuery>();
+
+  // Observable TicketSummaryQuery streams
+  ticketSummaryQuery$ = this.ticketSummaryQuerySource.asObservable();
+
+  // Service message commands
+  public modifyTicketSummaryQuery (ticketSummaryQuery: TicketSummaryQuery) {
+    this.ticketSummaryQuerySource.next(ticketSummaryQuery);
+  }
+  
 
   constructor() {
     this.lastSelectedBrand = { id: 0, name: 'All' };
