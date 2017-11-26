@@ -171,7 +171,13 @@
 					</p-column>
 					<p-column field="brandDescription" header="Marca" [style]="{'width':'150px','text-align':'center'}"></p-column>
 					<p-column field="storeDescription" header="Tienda" [style]="{'width':'250px','text-align':'center'}"></p-column>
-					<p-column field="priorityDescitpiont" header="Prioridad" [style]="{'width':'80px','text-align':'center'}"></p-column>
+					<p-column field="priorityDescitpiont" header="Prioridad" [style]="{'width':'80px','text-align':'center'}">
+							<ng-template let-col let-ticket="rowData" pTemplate="body">
+									<span 
+									[ngStyle]="{'color': priorityColor[ticket[col.field]].color, 'font-weight':priorityColor[ticket[col.field]].weight}">
+									{{ticket[col.field]}}</span>
+							</ng-template>
+					</p-column>
 					<p-column field="classificationDescription" header="Clasificación" [style]="{'width':'150px','text-align':'center'}"></p-column>
 					<p-column field="familyDescription" header="Familia" [style]="{'width':'150px','text-align':'center'}"></p-column>
 					<p-column field="equipmentDescription" header="Nombre de Equipo" [style]="{'width':'200px','text-align':'center'}"></p-column>

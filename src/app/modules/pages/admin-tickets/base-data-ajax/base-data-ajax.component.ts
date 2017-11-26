@@ -40,6 +40,7 @@ export class BaseDataAjaxComponent implements OnInit {
   // public endDate: Date;
 
   public statusColor: object;
+  public priorityColor: object;
 
 
   constructor(private _script: ScriptLoaderService, private dropdownService: FilterDropDownService,
@@ -57,6 +58,19 @@ export class BaseDataAjaxComponent implements OnInit {
       Confirmado: '#22c103',
       Anulado: '#bac3d0',
       Reactivado: '#ed6b75'
+    }
+
+    this.priorityColor = {
+      'A++': {color:'red', weight:500},
+      A1: {color:'#575962', weight:300},
+      A2: {color:'#575962', weight:300},
+      A3: {color:'#575962', weight:300},
+      B1: {color:'#575962', weight:300},
+      B2: {color:'#575962', weight:300},
+      B3: {color:'#575962', weight:300},
+      C1: {color:'#575962', weight:300},
+      C2: {color:'#575962', weight:300},
+      C3: {color:'#575962', weight:300}
     }
 
     // retrieving last dropdown selection
