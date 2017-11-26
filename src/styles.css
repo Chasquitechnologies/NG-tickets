@@ -389,6 +389,15 @@ p-datatable.metronic-theme .ui-datatable .ui-datatable-data tr.ui-datatable-even
     background-color: #fbfbfe;
 }
 
+p-datatable.metronic-theme .ui-datatable .ui-datatable-data tr.ui-datatable-even:hover {
+    background-color: #f7f7fc;
+}
+p-datatable.metronic-theme .ui-datatable .ui-datatable-data tr.ui-datatable-odd:hover {
+    background-color: #f7f7fc;
+}
+
+/* #f7f7fc */
+
 
 /* Styling paginator */
 p-datatable.metronic-theme p-paginator .ui-paginator-bottom.ui-paginator{
@@ -430,4 +439,6 @@ p-datatable.metronic-theme p-paginator a.ui-paginator-page.ui-paginator-element.
 p-datatable.metronic-theme p-paginator .ui-paginator-bottom > a.ui-paginator-element {
     color: #716aca;
 }
+
+
 
