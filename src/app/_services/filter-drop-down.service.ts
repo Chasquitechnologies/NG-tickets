@@ -4,15 +4,20 @@ import { Store } from '../models/Store';
 import { Family } from '../models/Family';
 import { Priority } from '../models/Priority';
 import { Status } from '../models/Status';
-import { DAOmockup } from '../mockupData/DAOmockup';
 import { Subject } from 'rxjs/Subject';
 import { TicketSummaryQuery } from '../models/TicketSummaryQuery';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { IDAO } from '../DAOLayer/IDAO';
+import { DAOmockup } from '../DAOLayer/DAOmockup';
+
 
 @Injectable()
 export class FilterDropDownService {
 
   //delete if not on production build
-  public DAO: DAOmockup = new DAOmockup();
+
+  //public DAO: DAOmockup = new DAOmockup();
 
   //good
   private allPriorities: Priority[];
@@ -41,15 +46,15 @@ export class FilterDropDownService {
   }
   
 
-  constructor() {
-    this.lastSelectedBrand = { id: 0, name: 'All' };
-    this.lastSelectedStore = { id: 0, brandId: 0, name: "All" };
-    this.lastSelectedFamily = { id: 0, name: 'All' };;
-    this.lastSelectedPriority = { id: 0, name: 'All' };;
-    this.lastSelectedStatus = [{ id: 1, name: "Ingresado" },
-                              { id: 12, name: "Asignado" },
-                              { id: 2, name: "Programado" },
-                              { id: 13, name: "Reactivado" }];
+  constructor(private http : HttpClient, private DAO: IDAO) {
+    this.lastSelectedBrand = { id: 0, description: 'All' };
+    this.lastSelectedStore = { id: 0, brandId: 0, description: "All" };
+    this.lastSelectedFamily = { id: 0, description: 'All' };;
+    this.lastSelectedPriority = { id: 0, description: 'All' };;
+    this.lastSelectedStatus = [{ id: 1, description: "Ingresado" },
+                              { id: 12, description: "Asignado" },
+                              { id: 2, description: "Programado" },
+                              { id: 13, description: "Reactivado" }];
     let endDate: Date = new Date();
     let starDate: Date = new Date();
     
@@ -57,29 +62,28 @@ export class FilterDropDownService {
     this.dateRangeSelected = [starDate, endDate];
 
   }
-
-  public getBrands(): Brand[] {
+  // <<<<<--------------- ASYNCHRONOUS CALLS ------------------------>>>>>
+  public getBrands(): Observable<Brand[]> {
     return this.DAO.getAllBrands();
   }
 
-  public getStores(brandId: number): Store[] {
+  public getStores(brandId: number): Observable<Store[]> {
     return this.DAO.getAllStores(brandId);
   }
 
-  public getFamilies(): Family[] {
+  public getFamilies(): Observable<Family[]> {
     return this.DAO.getAllFamilies();
   }
 
-  public getPriorities(): Priority[] {
+  public getPriorities(): Observable<Priority[]> {
     return this.DAO.getAllPriorities();
   }
 
-
-  public getStatus(): Status[] {
+  public getStatus(): Observable<Status[]> {
     return this.DAO.getAllStatus();
   }
 
-  // SETTERS AND GETTERS FOR LASTSELECTED DROPDOWN ITEMS
+  // <<<<<--------------- SETTERS AND GETTERS FOR LASTSELECTED DROPDOWN ITEMS ------------------------>>>>>
   public setlastSelectedBrand(brand: Brand): void {
     this.lastSelectedBrand = brand;
   }

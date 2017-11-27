@@ -6,10 +6,15 @@ import { Priority } from "../models/Priority";
 import { Status } from "../models/Status";
 import { element } from "protractor";
 import { TicketCountSummary } from "../models/TicketCountSummary";
+import { Injectable } from "@angular/core";
+import { IDAO } from "./IDAO";
+import { Observable } from "rxjs/Observable";
+import { HttpClient } from "@angular/common/http";
+import { forEach } from "@angular/router/src/utils/collection";
 
 
-
-export class DAOmockup {
+@Injectable()
+export class DAOmockup implements IDAO {
 
 
     public testTickets: Ticket[];
@@ -19,7 +24,7 @@ export class DAOmockup {
     public testPriorities: Priority[];
     public testStatus: Status[];
 
-    constructor() {
+    constructor(private http: HttpClient) {
         this.testTickets = [
             {
                 id: 1, globalTicketId: 'T-001', statusId: 1, statusDescription: 'Ingresado', brandId: 1, brandDescription: 'Bembos',
@@ -135,74 +140,9 @@ export class DAOmockup {
 
         ];
 
-        this.testBrands = [
-            { id: 0, name: "All" },
-            { id: 1, name: "Bembos" },
-            { id: 2, name: "China Wok" },
-            { id: 3, name: "Don Belisario" },
-            { id: 4, name: "Dunkin' Donuts" },
-            { id: 5, name: "Papa John's" },
-            { id: 6, name: "Popeyes" }
-        ];
-
-        this.testStores = [
-            { id: 0, brandId: 0, name: "All" },
-            { id: 1, brandId: 1, name: "BB - Aurora" },
-            { id: 2, brandId: 1, name: "BB - Plaza San Miguel" },
-            { id: 3, brandId: 1, name: "BB - Regatas" },
-            { id: 6, brandId: 2, name: "CW - Store 1" },
-            { id: 7, brandId: 2, name: "CW - Store 2" },
-            { id: 7, brandId: 2, name: "CW - Store 3" },
-            { id: 7, brandId: 3, name: "DB - Store 1" },
-            { id: 7, brandId: 3, name: "DB - Store 2" },
-            { id: 7, brandId: 3, name: "DB - Store 3" },
-            { id: 7, brandId: 4, name: "DD - Store 1" },
-            { id: 7, brandId: 4, name: "DD - Store 2" },
-            { id: 7, brandId: 4, name: "DD - Modulo Plaza Vea El Cortijo (6149)" },
-            { id: 7, brandId: 5, name: "PJ - Store 1" },
-            { id: 7, brandId: 5, name: "PJ - Store 2" },
-            { id: 7, brandId: 5, name: "PJ - Store 3" },
-            { id: 7, brandId: 6, name: "PP - Store 1" },
-            { id: 7, brandId: 6, name: "PP - Store 2" },
-            { id: 7, brandId: 6, name: "PP - Store 3" },
-        ];
-
-        this.testFamilies = [
-            { id: 0, name: "All" },
-            { id: 1, name: "Family 1" },
-            { id: 2, name: "Family 2" },
-            { id: 3, name: "Family 3" },
-            { id: 4, name: "Family 4" }
-        ];
-
-
-        this.testPriorities = [
-            { id: 0, name: "All" },
-            { id: 1, name: "A++" },
-            { id: 2, name: "A1" },
-            { id: 3, name: "A2" },
-            { id: 4, name: "A3" },
-            { id: 5, name: "B1" },
-            { id: 6, name: "B2" },
-            { id: 7, name: "B3" },
-            { id: 8, name: "C1" },
-            { id: 9, name: "C2" },
-            { id: 10, name: "C3" }
-        ];
-
-        this.testStatus = [
-            { id: 1, name: "Ingresado" },
-            { id: 12, name: "Asignado" },
-            { id: 2, name: "Programado" },
-            { id: 3, name: "Atendido" },
-            { id: 4, name: "Confirmado" },
-            { id: 5, name: "Anulado" },
-            { id: 13, name: "Reactivado" },
-        ];
-
     }
 
-    public getAllAdminTickets(brandId: number,
+    public getAllAdminTicketsReplacement(brandId: number,
         storeId: number,
         familyId: number,
         priorityId: number,
@@ -247,6 +187,44 @@ export class DAOmockup {
 
 
         return filteredTickets;
+    }
+
+    public getAllAdminTickets(brandId: number,
+        storeId: number,
+        familyId: number,
+        priorityId: number,
+        statusId: Status[],
+        dateRangeSelected: Date[]): Observable<Ticket[]> {
+
+
+        let query: string;
+        query = '?'
+
+        if (brandId != 0) {
+            query += '&brandId=' + brandId.toString();
+        }
+
+        if (storeId != 0) {
+
+            query += '&storeId=' + storeId.toString();
+        }
+
+        if (familyId != 0) {
+            query += '&familyId=' + familyId.toString();
+        }
+
+        if (priorityId != 0) {
+            query += '&priorityId=' + priorityId.toString();
+        }
+
+
+        // let selectedStatus: number[] = statusId.map(status => status.id);
+        for (let status of statusId) {
+            query += '&statusId=' + status.id.toString() 
+        }
+
+        return this.http.get<Ticket[]>('http://localhost:3004/tickets' + query);
+
     }
 
 
@@ -312,7 +290,7 @@ export class DAOmockup {
                 (ticket.statusId == 1 || ticket.statusId == 12 || ticket.statusId == 2 || ticket.statusId == 13)) {
                 adminTicketsSummary.totalPriorityB += 1
             }
-            if ((ticket.priorityId == 8 || ticket.priorityId == 9 || ticket.priorityId == 10) && 
+            if ((ticket.priorityId == 8 || ticket.priorityId == 9 || ticket.priorityId == 10) &&
                 (ticket.statusId == 1 || ticket.statusId == 12 || ticket.statusId == 2 || ticket.statusId == 13)) {
                 adminTicketsSummary.totalPriorityC += 1
             }
@@ -326,37 +304,33 @@ export class DAOmockup {
 
 
 
-    public getAllBrands(): Brand[] {
+    public getAllBrands(): Observable<Brand[]> {
 
-        return this.testBrands;
+        return this.http.get<Brand[]>('http://localhost:3004/brands');
     }
 
-    public getAllStores(brandId: number): Store[] {
+    public getAllStores(brandId: number): Observable<Store[]> {
+
         if (brandId == 0) {
-            return this.testStores;
+            return this.http.get<Store[]>('http://localhost:3004/stores');
         } else {
-            let filteredStores: Store[] = this.testStores.filter(
-                store => store.brandId === brandId);
-
-            filteredStores.unshift({ id: 0, brandId: 0, name: 'All' });
-
-            return filteredStores
+            return this.http.get<Store[]>('http://localhost:3004/stores?brandId=' + brandId.toString());
         }
     }
 
-    public getAllFamilies(): Family[] {
+    public getAllFamilies(): Observable<Family[]> {
 
-        return this.testFamilies;
+        return this.http.get<Family[]>('http://localhost:3004/families');
     }
 
-    public getAllPriorities(): Priority[] {
+    public getAllPriorities(): Observable<Priority[]> {
 
-        return this.testPriorities;
+        return this.http.get<Priority[]>('http://localhost:3004/priorities');
     }
 
-    public getAllStatus(): Status[] {
+    public getAllStatus(): Observable<Status[]> {
 
-        return this.testStatus;
+        return this.http.get<Status[]>('http://localhost:3004/status');
     }
 
 }

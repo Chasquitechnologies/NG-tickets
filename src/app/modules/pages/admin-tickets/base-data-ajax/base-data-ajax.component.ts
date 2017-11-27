@@ -59,6 +59,7 @@ export class BaseDataAjaxComponent implements OnInit {
       Reactivado: '#ed6b75'
     };
 
+    // must eventually delete following lines and implement server side color schema
     this.priorityColor = {
       'A++': { color: 'red', weight: 500 },
       A1: { color: '#575962', weight: 300 },
@@ -78,16 +79,17 @@ export class BaseDataAjaxComponent implements OnInit {
     this.selectedFamily = this.dropdownService.getlastSelectedFamily();
     this.selectedPriority = this.dropdownService.getlastSelectedPriority();
     this.selectedStatus = this.dropdownService.getlastSelectedStatus();
-
-    this.brandDropdown = this.dropdownService.getBrands();
-    this.storeDropdown = this.dropdownService.getStores(this.selectedBrand.id);
-    this.familyDropdown = this.dropdownService.getFamilies();
-    this.priorityDropdown = this.dropdownService.getPriorities();
-    this.statusDropdown = this.dropdownService.getStatus();
     this.dateRangeSelected = this.dropdownService.getlastSelectedDateRange();
 
+    // GETTING DATA TO INITIALIZE DROPDOWNS ASYNCHRONOUSLY
+    this.getBrandOptions();
+    this.getStoreOptions(this.selectedBrand.id);
+    this.getFamilyOptions();
+    this.getPriorityOptions();
+    this.getStatusOptions();
+
     //needs to be modified to take in correct tickets
-    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
+    this.getTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
 
   }
 
@@ -95,34 +97,24 @@ export class BaseDataAjaxComponent implements OnInit {
 
   }
 
-  private passQuerySelectionsToMain(): void {
-    // Passing Data to Main Component to recalculate Summary Data
-    this.querySelections = {
-      selectedBrand: this.selectedBrand,
-      selectedStore: this.selectedStore,
-      selectedFamily: this.selectedFamily,
-      selectedPriority: this.selectedPriority,
-      selectedStatus: this.selectedStatus,
-      selectedDateRange: this.dateRangeSelected
-    }
-    this.dropdownService.modifyTicketSummaryQuery(this.querySelections)
-  }
-
   onBrandChange(event): void {
+    console.log('brand change event')
     console.log(event);
     // Store selected brand locally and on service singleton(to be implemented)
     this.dropdownService.setlastSelectedBrand(this.selectedBrand);
 
     // filter store dropdon and select first store
-    this.storeDropdown = this.dropdownService.getStores(parseInt(event.id))
+    this.getStoreOptions(parseInt(event.id));
+
+    // this line here may cause issues. DO NOT INPUT THIS LINE INSIDE ASYNC CALL OR IT WILL AFFECT THE BEHAVIOR WHEN CHANGING PAGES AND STORES WILL
+    // GET RESTARTED TO 0. THIS WILL WORK AS LONG AS STORE DROPDOWN ALWAYS HAVE A 0-ALL 
     this.selectedStore = this.storeDropdown[0];
 
     // Passing Data to Main Component to recalculate Summary Data
     this.passQuerySelectionsToMain();
 
     //Updating tickets
-    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
-
+    this.getTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
   }
 
   onStoreChange(event): void {
@@ -134,7 +126,7 @@ export class BaseDataAjaxComponent implements OnInit {
     this.passQuerySelectionsToMain();
 
     //Updating tickets
-    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
+    this.getTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
 
   }
 
@@ -150,8 +142,111 @@ export class BaseDataAjaxComponent implements OnInit {
     this.passQuerySelectionsToMain();
 
     //Updating tickets
-    this.adminTickets = this.adminTicketService.getAdminTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
+    this.getTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
+  }
 
+  //<<<<<<<-----------------  HELPER FUNCTIONS!!!! -------------------------------------->>>>>>>
+
+  // ASYNCHRONOUSLY RETRIEVING BRAND DROPDOWN OPTIONS
+  private getBrandOptions(): void {
+    // retrieving brand dropdown options asynchronously
+    this.dropdownService.getBrands().subscribe(
+      data => {
+        console.log(data);
+        this.brandDropdown = data;
+
+      },
+      err => console.log(err),
+      () => console.log('done retrieving brands dropdown options')
+    );
+
+  }
+
+  // ASYNCHRONOUSLY RETRIEVING STORE DROPDOWN OPTIONS
+  private getStoreOptions(brandId:number): void {
+    // retrieving store dropdown options asynchronously
+    this.dropdownService.getStores(brandId).subscribe(
+      data => {
+        let filteredStores: Store[] = data.filter(
+          store => store.brandId === 0);
+        if (!(typeof filteredStores[0] != 'undefined')) {
+          // Add "ALL selector if necessary"
+          data.unshift({ id: 0, brandId: 0, description: 'All' });
+        }
+        this.storeDropdown = data;
+      },
+      err => console.log(err),
+      () => console.log('done retrieving stores dropdown options')
+    );
+  }
+
+  // ASYNCHRONOUSLY RETRIEVING FAMILY DROPDOWN OPTIONS
+  private getFamilyOptions(): void {
+    // retrieving family dropdown options asynchronously
+    this.dropdownService.getFamilies().subscribe(
+      data => {
+        console.log(data);
+        this.familyDropdown = data;
+      },
+      err => console.log(err),
+      () => console.log('done retrieving family dropdown options')
+    );
+
+  }
+
+  // ASYNCHRONOUSLY RETRIEVING PRIORITY DROPDOWN OPTIONS
+  private getPriorityOptions(): void {
+    // retrieving priority dropdown options asynchronously
+    this.dropdownService.getPriorities().subscribe(
+      data => {
+        console.log(data);
+        this.priorityDropdown = data;
+      },
+      err => console.log(err),
+      () => console.log('done retrieving priority dropdown options')
+    );
+
+  }
+
+    // ASYNCHRONOUSLY RETRIEVING STATUS DROPDOWN OPTIONS
+    private getStatusOptions(): void {
+      // retrieving status dropdown options asynchronously
+      this.dropdownService.getStatus().subscribe(
+        data => {
+          console.log(data);
+          this.statusDropdown = data;
+        },
+        err => console.log(err),
+        () => console.log('done retrieving status dropdown options')
+      );
+  
+    }
+
+    // ASYNCHRONOUSLY RETRIEVING TICKETS
+    private getTickets(brandId:number, storeId:number, familyId: number, priorityId:number,selectedStatus:Status[],dateRangeSelected:Date[]): void {
+      // retrieving stickets asynchronously
+      this.adminTicketService.getAdminTickets(brandId, storeId, familyId, priorityId, selectedStatus, dateRangeSelected).subscribe(
+        data => {
+          console.log(data);
+          this.adminTickets = data;
+        },
+        err => console.log(err),
+        () => console.log('done retrieving tickets')
+      );
+  
+    }
+
+  private passQuerySelectionsToMain(): void {
+    // Passing Data to Main Component to recalculate Summary Data
+    this.querySelections = {
+      selectedBrand: this.selectedBrand,
+      selectedStore: this.selectedStore,
+      selectedFamily: this.selectedFamily,
+      selectedPriority: this.selectedPriority,
+      selectedStatus: this.selectedStatus,
+      selectedDateRange: this.dateRangeSelected
+    }
+    this.dropdownService.modifyTicketSummaryQuery(this.querySelections)
   }
 
 

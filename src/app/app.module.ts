@@ -16,6 +16,10 @@ import { RedirectUrlService } from './_services/redirect-url.service';
 import { RedirectComponent } from './redirect.component';
 import { FilterDropDownService } from './_services/filter-drop-down.service';
 import { AdminTicketService } from './_services/admin-ticket-service.service';
+import { HttpClientModule } from '@angular/common/http';
+import { DAOmockup } from './DAOLayer/DAOmockup';
+import { IDAO } from './DAOLayer/IDAO';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +31,7 @@ import { AdminTicketService } from './_services/admin-ticket-service.service';
   imports: [
     HttpModule,
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,    
     FormsModule,
     OAuthModule.forRoot(),
@@ -40,6 +45,7 @@ import { AdminTicketService } from './_services/admin-ticket-service.service';
     FormsModule
   ],
   providers: [
+    {provide: IDAO, useClass: DAOmockup},
     AdminTicketService,
     FilterDropDownService,
     RedirectUrlService,

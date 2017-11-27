@@ -12,7 +12,7 @@
 						</label>
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
-						<p-dropdown [options]="brandDropdown" [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange($event)" filter="true" optionLabel="name"
+						<p-dropdown [options]="brandDropdown" [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange($event)" filter="true" optionLabel="description"
 						 [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 						</label>
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
-						<p-dropdown [options]="storeDropdown" [(ngModel)]="selectedStore" (ngModelChange)="onStoreChange($event)" filter="true" optionLabel="name" 
+						<p-dropdown [options]="storeDropdown" [(ngModel)]="selectedStore" (ngModelChange)="onStoreChange($event)" filter="true" optionLabel="description" 
 						[autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
@@ -34,7 +34,7 @@
 						</label>
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
-						<p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" (ngModelChange)="onOtherDropdownChange($event)" filter="true" optionLabel="name" 
+						<p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" (ngModelChange)="onOtherDropdownChange($event)" filter="true" optionLabel="description" 
 						[autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
@@ -45,7 +45,7 @@
 						</label>
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
-						<p-dropdown [options]="priorityDropdown" [(ngModel)]="selectedPriority" (ngModelChange)="onOtherDropdownChange($event)" filter="true" optionLabel="name" 
+						<p-dropdown [options]="priorityDropdown" [(ngModel)]="selectedPriority" (ngModelChange)="onOtherDropdownChange($event)" filter="true" optionLabel="description" 
 						[autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
 					</div>
 				</div>
@@ -57,7 +57,7 @@
 					</div>
 					<div class="ui-g-12 ui-fluid dd-selector">
 						<p-multiSelect [options]="statusDropdown" [(ngModel)]="selectedStatus" (ngModelChange)="onOtherDropdownChange($event)" 
-						optionLabel="name" defaultLabel="Seleccionar" maxSelectedLabels=2 dropdownIcon="fa fa-angle-down"></p-multiSelect>
+						optionLabel="description" defaultLabel="Seleccionar" maxSelectedLabels=2 dropdownIcon="fa fa-angle-down"></p-multiSelect>
 					</div>
 				</div>
 				<div class="ui-g-4 ui-sm-12 m-form__group m-form__group--inline last">
@@ -159,7 +159,7 @@
 			<p-dataTable class="metronic-theme" [value]="adminTickets" scrollable="true" scrollWidth="100%" [rows]="10" 
 												[paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[10,25,50]">
 					<p-column field="globalTicketId" header="Ticket" [style]="{'width':'80px','text-align':'center'}"></p-column>
-					<p-column field="statusDescription" header="Estado" [style]="{'width':'150px','text-align':'center'}">
+					<p-column field="statusDescription" header="Estado" [style]="{'width':'130px','text-align':'center'}">
 							<!-- <ng-template let-col let-ticket="rowData" pTemplate="body">
 									<span [ngClass]="colorsClass[ticket[col.field]]">{{ticket[col.field]}}</span>
 							</ng-template> -->
@@ -169,7 +169,7 @@
 									{{ticket[col.field]}}</span>
 							</ng-template>
 					</p-column>
-					<p-column field="brandDescription" header="Marca" [style]="{'width':'150px','text-align':'center'}"></p-column>
+					<p-column field="brandDescription" header="Marca" [style]="{'width':'130px','text-align':'center'}"></p-column>
 					<p-column field="storeDescription" header="Tienda" [style]="{'width':'250px','text-align':'center'}"></p-column>
 					<p-column field="priorityDescitpiont" header="Prioridad" [style]="{'width':'80px','text-align':'center'}">
 							<ng-template let-col let-ticket="rowData" pTemplate="body">
