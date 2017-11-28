@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { BaseDataAjaxComponent } from '../base-data-ajax/base-data-ajax.component';
+// import { BaseDataAjaxComponent } from '../base-data-ajax/base-data-ajax.component';
 import { FilterDropDownService } from '../../../../_services/filter-drop-down.service';
 import { Subscription } from 'rxjs/Subscription';
 import { AdminTicketService } from '../../../../_services/admin-ticket-service.service';

@@ -14,12 +14,12 @@ import { TicketSummaryQuery } from '../../../../models/TicketSummaryQuery';
 // declare var $: any;
 
 @Component({
-  templateUrl: "./base-data-ajax.component.html",
+  templateUrl: "./admin-tickets-datatable.component.html",
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./base-data-ajax.component.css']
+  styleUrls: ['./admin-tickets-datatable.component.css']
 })
 
-export class BaseDataAjaxComponent implements OnInit {
+export class AdminTicketsDatatableComponent implements OnInit {
 
   public adminTickets: Ticket[];
 

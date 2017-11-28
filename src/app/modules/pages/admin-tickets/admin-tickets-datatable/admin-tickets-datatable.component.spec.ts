@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BaseDataAjaxComponent } from './base-data-ajax.component';
+import { AdminTicketsDatatableComponent } from './admin-tickets-datatable.component';
 
 describe('BaseDataAjaxComponent', () => {
-  let component: BaseDataAjaxComponent;
-  let fixture: ComponentFixture<BaseDataAjaxComponent>;
+  let component: AdminTicketsDatatableComponent;
+  let fixture: ComponentFixture<AdminTicketsDatatableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BaseDataAjaxComponent ]
+      declarations: [ AdminTicketsDatatableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BaseDataAjaxComponent);
+    fixture = TestBed.createComponent(AdminTicketsDatatableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

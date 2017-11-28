@@ -1,6 +1,5 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BaseDataAjaxComponent } from './base-data-ajax/base-data-ajax.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from '../../layout/default/default.component';
 import { LayoutModule } from '../../layout/layout.module';
@@ -18,6 +17,8 @@ import {SharedModule} from 'primeng/components/common/shared';
 import {DataTableModule} from 'primeng/components/datatable/datatable';
 import {PaginatorModule} from 'primeng/components/paginator/paginator';
 
+import { AdminTicketsDatatableComponent } from './admin-tickets-datatable/admin-tickets-datatable.component';
+
 const routes: Routes = [
   {
       "path": "",
@@ -29,7 +30,7 @@ const routes: Routes = [
               "children":[
                 {
                   "path": "",
-                  "component": BaseDataAjaxComponent,
+                  "component": AdminTicketsDatatableComponent,
                 },
                 {
                   "path": "detail",
@@ -53,7 +54,7 @@ const routes: Routes = [
     FormsModule
   ],
   declarations: [
-    BaseDataAjaxComponent,
+    AdminTicketsDatatableComponent,
     AdminTicketsMainComponent,
     AdminTicketsDetailsComponent
   ]
