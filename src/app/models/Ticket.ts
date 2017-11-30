@@ -1,57 +1,80 @@
 export interface Ticket {
 
-    id: number;
-    globalTicketId:string;
+    Id: number;
+    GlobalTicketId: string;
 
-    statusId: number;
-    statusDescription: string;
+    FlowStatusId: number;
+    Status: string;
+
+    BrandId: number;
+    Brand: string;
+
+    StoreId: number;
+    Store: string;
+
+    CostCenterId?: number;
+    CostCenter?: string;
+
+    // PriorityId: number;
+    // Priority: string;
+
+    AffectPeople?: boolean;
+    AffectStore?: boolean;
+    IsHighPriority?: boolean;
+    PriorityDisplay?: string;
+
+    EquipmentId: number;
+    Classification: string;
+
+    EquipmentFamilyId: number;
+    EquipmentFamily: string;
+
+    EquipmentDetailId: number;
+    EquipmentDetail: string;
+    EquipmentDetailCode?: string;
+
+    FailTypeId: number;
+    FailureType: string;
+
+    SupportAdminId: number;
+    SupportAdminName: string;
+    SupportAdminEmail?: string;
+
+    TicketPriorityId: number;
+    TicketPriority: string;
+
+    Comments?: string;
+    User?: string;
+
+    // LastTechnicianTypeSelectedId: number;
+
+    TechnicianTypeId?: number;
+    TechnicianType?: string;
+
+    TechnicianId?: number;
+    ProviderId?: number;
+    TechnicianOrProviderName?: string;
+
+    CreatedOn?: Date;
+    CreatedOnDisplay?: string;
+    CreatedBy?: string;
+
+    AssignedDate?: Date;
+    AssignedDateDisplay?: string;
     
-    brandId: number;
-    brandDescription: string;
+    ProgrammedDate?: Date;
+    ProgrammedDateDisplay?: string;
 
-    storeId: number;
-    storeDescription: string;
+    AtendidoDate?: Date;
+    AtendidoDateDisplay?: string;
 
-    priorityId: number;
-    priorityDescitpiont: string;
+    ConfirmationDate?: Date;
+    ConfirmationDateDisplay?: string;
 
-    classificationId: number;
-    classificationDescription: string;
+    AnuladoDate?: Date;
+    AnuladoDateDisplay?: string;
 
-    familyId: number;
-    familyDescription: string;
-    
-    equipmentId:number;
-    equipmentDescription:string;
-
-    failTypeId: number;
-    failTypeDescription: string;
-
-    supportAdminId: number;
-    supportAdminDescription:string;
-
-    createdOn?:Date;
-    createdBy?:string;
-
-    lastUpdatedOn?:Date;
-    lastUpdatedBy?:string;
-
-    assignedOn?:Date;
-    assignedBy?:string;
-
-    programmedOn?:Date;
-    programmedBy?:string;
-
-    atendidoOn?:Date;
-    atendidoBy?:string;
-
-    confirmedOn?:Date;
-    confirmedBy?:string;
-
-    cancelledOn?:Date;
-    cancelledBy?:string;
-
-    reactivatedOn?:Date;
-    reactivatedBy?:string;
+    ReactivadoDate?: Date;
+    ReactivadoDateDisplay?: string;
 
 }

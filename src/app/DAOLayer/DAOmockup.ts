@@ -27,118 +27,138 @@ export class DAOmockup implements IDAO {
     constructor(private http: HttpClient) {
         this.testTickets =[
             {
-                "id": 1, "globalTicketId": "T-001", "statusId": 1, "statusDescription": "Ingresado", "brandId": 1, "brandDescription": "Bembos",
-                "storeId": 1, "storeDescription": "BB - Aurora", "priorityId": 1, "priorityDescitpiont": "A++", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 1, "familyDescription": "Family 1", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 1",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
+              "Id": 27904,
+              "GlobalTicketId": "T0027904",
+              "FlowStatusId": 4,
+              "Status": "Confirmado",
+              "BrandId": 2,
+              "Brand": "China Wok",
+              "StoreId": 127,
+              "Store": "CW - OP Angamos",
+              "CostCenterId": 405,
+              "CostCenter": null,
+              "AffectPeople": false,
+              "AffectStore": false,
+              "IsHighPriority": false,
+              "PriorityDisplay": "C1",
+              "EquipmentId": 2,
+              "Classification": "INFRAESTRUCTURA",
+              "EquipmentFamilyId": 5,
+              "EquipmentFamily": "EDIFICACIÓN Y ESTRUCTURAS",
+              "EquipmentDetailId": 4435,
+              "EquipmentDetail": "TRABAJO EN PAREDES",
+              "EquipmentDetailCode": "CWI0027",
+              "FailTypeId": 1,
+              "FailureType": "Total",
+              "TicketPriorityId": 8,
+              "TicketPriority": "C1",
+              "Comments": null,
+              "User": "marsano.chwk@ngr.com.pe",
+              "CreatedOnDisplay": "29/11/2017 07:59 PM",
+              "CreatedBy": "0c186f77-5d32-49a5-b6c1-959b9341347f",
+              "SupportAdminId": 0,
+              "SupportAdminName": "Alejandro Rodriguez",
+              "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
+              "TechnicianId": 0,
+              "ProviderId": 0,
+              "TechnicianType": "Técnico NGR",
+              "TechnicianTypeId": 1,
+              "AssignedDateDisplay": " ",
+              "ProgrammedDateDisplay": " ",
+              "AtendidoDateDisplay": " ",
+              "ConfirmationDateDisplay": "29/11/2017 08:12 PM",
+              "AnuladoDateDisplay": " ",
+              "ReactivadoDateDisplay": " "
             },
-        
             {
-                "id": 2, "globalTicketId": "T-002", "statusId": 12, "statusDescription": "Asignado", "brandId": 1, "brandDescription": "Bembos",
-                "storeId": 2, "storeDescription": "BB - Plaza San Miguel", "priorityId": 1, "priorityDescitpiont": "A++", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 1, "familyDescription": "Family 1", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 2",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
+              "Id": 27903,
+              "GlobalTicketId": "T0027903",
+              "FlowStatusId": 4,
+              "Status": "Confirmado",
+              "BrandId": 2,
+              "Brand": "China Wok",
+              "StoreId": 127,
+              "Store": "CW - OP Angamos",
+              "CostCenterId": 405,
+              "CostCenter": null,
+              "AffectPeople": false,
+              "AffectStore": false,
+              "IsHighPriority": false,
+              "PriorityDisplay": "C1",
+              "EquipmentId": 2,
+              "Classification": "INFRAESTRUCTURA",
+              "EquipmentFamilyId": 5,
+              "EquipmentFamily": "EDIFICACIÓN Y ESTRUCTURAS",
+              "EquipmentDetailId": 4435,
+              "EquipmentDetail": "TRABAJO EN PAREDES",
+              "EquipmentDetailCode": "CWI0027",
+              "FailTypeId": 1,
+              "FailureType": "Total",
+              "TicketPriorityId": 8,
+              "TicketPriority": "C1",
+              "Comments": null,
+              "User": "marsano.chwk@ngr.com.pe",
+              "CreatedOnDisplay": "29/11/2017 07:57 PM",
+              "CreatedBy": "0c186f77-5d32-49a5-b6c1-959b9341347f",
+              "SupportAdminId": 0,
+              "SupportAdminName": "Alejandro Rodriguez",
+              "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
+              "TechnicianId": 0,
+              "ProviderId": 0,
+              "TechnicianType": "Técnico NGR",
+              "TechnicianTypeId": 1,
+              "AssignedDateDisplay": " ",
+              "ProgrammedDateDisplay": " ",
+              "AtendidoDateDisplay": " ",
+              "ConfirmationDateDisplay": "29/11/2017 08:12 PM",
+              "AnuladoDateDisplay": " ",
+              "ReactivadoDateDisplay": " "
             },
-        
             {
-                "id": 3, "globalTicketId": "T-003", "statusId": 2, "statusDescription": "Programado", "brandId": 1, "brandDescription": "Bembos",
-                "storeId": 3, "storeDescription": "BB - Regatas", "priorityId": 1, "priorityDescitpiont": "A++", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 1, "familyDescription": "Family 1", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 3",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 4, "globalTicketId": "T-004", "statusId": 3, "statusDescription": "Atendido", "brandId": 3, "brandDescription": "Don Belisario",
-                "storeId": 11, "storeDescription": "DB - Store 3", "priorityId": 2, "priorityDescitpiont": "A1", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 2, "familyDescription": "Family 2", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 4",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 5, "globalTicketId": "T-005", "statusId": 4, "statusDescription": "Confirmado", "brandId": 4, "brandDescription": "Dunkin' Donuts",
-                "storeId": 14, "storeDescription": "DD - Modulo Plaza Vea El Cortijo (6149)", "priorityId": 2, "priorityDescitpiont": "A1", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 2, "familyDescription": "Family 2", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 5",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 6, "globalTicketId": "T-006", "statusId": 5, "statusDescription": "Anulado", "brandId": 5, "brandDescription": "Papa Johns",
-                "storeId": 16, "storeDescription": "PJ - Store 2", "priorityId": 2, "priorityDescitpiont": "A1", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 3, "familyDescription": "Family 3", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 6",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 7, "globalTicketId": "T-007", "statusId": 13, "statusDescription": "Reactivado", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 6, "priorityDescitpiont": "B2", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 3, "familyDescription": "Family 3", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 8, "globalTicketId": "T-008", "statusId": 4, "statusDescription": "Confirmado", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 6, "priorityDescitpiont": "B2", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 2, "familyDescription": "Family 2", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 9, "globalTicketId": "T-009", "statusId": 4, "statusDescription": "Confirmado", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 3, "priorityDescitpiont": "A2", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 2, "familyDescription": "Family 2", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 10, "globalTicketId": "T-010", "statusId": 4, "statusDescription": "Confirmado", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 3, "priorityDescitpiont": "A2", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 2, "familyDescription": "Family 2", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 11, "globalTicketId": "T-011", "statusId": 3, "statusDescription": "Atendido", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 3, "priorityDescitpiont": "A2", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 1, "familyDescription": "Family 1", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 12, "globalTicketId": "T-012", "statusId": 3, "statusDescription": "Atendido", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 8, "priorityDescitpiont": "C1", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 1, "familyDescription": "Family 1", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 13, "globalTicketId": "T-003", "statusId": 3, "statusDescription": "Atendido", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 8, "priorityDescitpiont": "C1", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 1, "familyDescription": "Family 1", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 14, "globalTicketId": "T-014", "statusId": 2, "statusDescription": "Programado", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 8, "priorityDescitpiont": "C1", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 2, "familyDescription": "Family 2", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 15, "globalTicketId": "T-015", "statusId": 2, "statusDescription": "Programado", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 8, "priorityDescitpiont": "C1", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 1, "familyDescription": "Family 1", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
-            },
-        
-            {
-                "id": 16, "globalTicketId": "T-016", "statusId": 1, "statusDescription": "Ingresado", "brandId": 6, "brandDescription": "Popeyes",
-                "storeId": 20, "storeDescription": "PP - Store 3", "priorityId": 10, "priorityDescitpiont": "C3", "classificationId": 1, "classificationDescription": "Equipos",
-                "familyId": 3, "familyDescription": "Family 3", "equipmentId": 1000, "equipmentDescription": "Nombre de Equipo 7",
-                "failTypeId": 1, "failTypeDescription": "Total", "supportAdminId": 1, "supportAdminDescription": "Support Admin 1"
+              "Id": 27902,
+              "GlobalTicketId": "T0027902",
+              "FlowStatusId": 1,
+              "Status": "Ingresado",
+              "BrandId": 2,
+              "Brand": "China Wok",
+              "StoreId": 127,
+              "Store": "CW - OP Angamos",
+              "CostCenterId": 405,
+              "CostCenter": null,
+              "AffectPeople": false,
+              "AffectStore": false,
+              "IsHighPriority": false,
+              "PriorityDisplay": "C1",
+              "EquipmentId": 2,
+              "Classification": "INFRAESTRUCTURA",
+              "EquipmentFamilyId": 5,
+              "EquipmentFamily": "EDIFICACIÓN Y ESTRUCTURAS",
+              "EquipmentDetailId": 4440,
+              "EquipmentDetail": "VENTANA",
+              "EquipmentDetailCode": "CWI0032",
+              "FailTypeId": 1,
+              "FailureType": "Total",
+              "TicketPriorityId": 8,
+              "TicketPriority": "C1",
+              "Comments": null,
+              "User": "marsano.chwk@ngr.com.pe",
+              "CreatedOnDisplay": "29/11/2017 07:55 PM",
+              "CreatedBy": "0c186f77-5d32-49a5-b6c1-959b9341347f",
+              "SupportAdminId": 0,
+              "SupportAdminName": "Alejandro Rodriguez",
+              "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
+              "TechnicianId": 0,
+              "ProviderId": 0,
+              "TechnicianType": "Técnico NGR",
+              "TechnicianTypeId": 1,
+              "AssignedDateDisplay": " ",
+              "ProgrammedDateDisplay": " ",
+              "AtendidoDateDisplay": " ",
+              "ConfirmationDateDisplay": " ",
+              "AnuladoDateDisplay": " ",
+              "ReactivadoDateDisplay": " ",
             }
-        
-        ]
+          ]
     }
 
     public getAllAdminTickets(brandId: number,
@@ -152,19 +172,19 @@ export class DAOmockup implements IDAO {
         query = '?'
 
         if (brandId != 0) {
-            query += '&brandId=' + brandId.toString();
+            query += '&BrandId=' + brandId.toString();
         }
         if (storeId != 0) {
-            query += '&storeId=' + storeId.toString();
+            query += '&BtoreId=' + storeId.toString();
         }
         if (familyId != 0) {
-            query += '&familyId=' + familyId.toString();
+            query += '&FamilyId=' + familyId.toString();
         }
         if (priorityId != 0) {
-            query += '&priorityId=' + priorityId.toString();
+            query += '&TicketPriorityId=' + priorityId.toString();
         }
         for (let status of statusId) {
-            query += '&statusId=' + status.id.toString() 
+            query += '&FlowStatusId=' + status.id.toString() 
         }
 
         return this.http.get<Ticket[]>('http://localhost:3004/tickets' + query);
@@ -184,31 +204,31 @@ export class DAOmockup implements IDAO {
         if (brandId == 0) {
             filteredTickets = this.testTickets;
         } else {
-            filteredTickets = this.testTickets.filter(ticket => ticket.brandId == brandId);
+            filteredTickets = this.testTickets.filter(ticket => ticket.BrandId == brandId);
         }
 
         if (storeId == 0) {
             filteredTickets = filteredTickets;
         } else {
-            filteredTickets = filteredTickets.filter(ticket => ticket.storeId == storeId);
+            filteredTickets = filteredTickets.filter(ticket => ticket.StoreId == storeId);
         }
 
         if (familyId == 0) {
             filteredTickets = filteredTickets;
         } else {
-            filteredTickets = filteredTickets.filter(ticket => ticket.familyId == familyId);
+            filteredTickets = filteredTickets.filter(ticket => ticket.EquipmentFamilyId == familyId);
         }
 
         if (priorityId == 0) {
             filteredTickets = filteredTickets;
         } else {
-            filteredTickets = filteredTickets.filter(ticket => ticket.priorityId == priorityId);
+            filteredTickets = filteredTickets.filter(ticket => ticket.TicketPriorityId == priorityId);
         }
 
         if (statusId) {
             let selectedStatus: number[] = statusId.map(status => status.id);
             filteredTickets = filteredTickets.filter(function (ticket) {
-                return selectedStatus.indexOf(ticket.statusId) >= 0
+                return selectedStatus.indexOf(ticket.FlowStatusId) >= 0
             });
         } else {
             filteredTickets = filteredTickets;
@@ -225,16 +245,16 @@ export class DAOmockup implements IDAO {
         };
 
         for (let ticket of filteredTickets) {
-            if ((ticket.priorityId == 1 || ticket.priorityId == 2 || ticket.priorityId == 3 || ticket.priorityId == 4) &&
-                (ticket.statusId == 1 || ticket.statusId == 12 || ticket.statusId == 2 || ticket.statusId == 13)) {
+            if ((ticket.TicketPriorityId == 1 || ticket.TicketPriorityId == 2 || ticket.TicketPriorityId == 3 || ticket.TicketPriorityId == 4) &&
+                (ticket.FlowStatusId == 1 || ticket.FlowStatusId == 12 || ticket.FlowStatusId == 2 || ticket.FlowStatusId == 13)) {
                 adminTicketsSummary.totalPriorityA += 1
             }
-            if ((ticket.priorityId == 5 || ticket.priorityId == 6 || ticket.priorityId == 7) &&
-                (ticket.statusId == 1 || ticket.statusId == 12 || ticket.statusId == 2 || ticket.statusId == 13)) {
+            if ((ticket.TicketPriorityId == 5 || ticket.TicketPriorityId == 6 || ticket.TicketPriorityId == 7) &&
+                (ticket.FlowStatusId == 1 || ticket.FlowStatusId == 12 || ticket.FlowStatusId == 2 || ticket.FlowStatusId == 13)) {
                 adminTicketsSummary.totalPriorityB += 1
             }
-            if ((ticket.priorityId == 8 || ticket.priorityId == 9 || ticket.priorityId == 10) &&
-                (ticket.statusId == 1 || ticket.statusId == 12 || ticket.statusId == 2 || ticket.statusId == 13)) {
+            if ((ticket.TicketPriorityId == 8 || ticket.TicketPriorityId == 9 || ticket.TicketPriorityId == 10) &&
+                (ticket.FlowStatusId == 1 || ticket.FlowStatusId == 12 || ticket.FlowStatusId == 2 || ticket.FlowStatusId == 13)) {
                 adminTicketsSummary.totalPriorityC += 1
             }
         }

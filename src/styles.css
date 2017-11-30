@@ -104,6 +104,58 @@
 }
 
 
+
+/* STYLING DETAILS TICKET PORTLET */
+/* <div class="ui-g-7 portlet-details">
+<div class="form-group m-form__group">
+  <div class="ui-g-12 ml-auto">
+    <h3 class="m-form__section">
+      <i class="fa fa-flag"></i>
+      Detalles de la Solicitud
+    </h3>
+  </div>
+</div>
+<div class="ui-g-12 detail-group">
+  <div class="ui-g-3 detail-label-holder">
+    <label class="m-label detail-label">
+      Fecha de Ingreso:
+    </label>
+  </div>
+  <div class="ui-g-9 ui-fluid detail-value">
+    <p>28/11/2017 10:00 PM</p>
+  </div>
+</div> */
+
+.portlet-details h3.m-form__section.title{
+    margin-bottom: 15px;
+    margin-top: 10px;
+    color: #5867dd;
+}
+
+.portlet-details .detail-group .detail-label-holder {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.portlet-details .detail-group label.detail-label {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+
+.portlet-details .detail-group .detail-value {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.portlet-details .detail-group .detail-value p {
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
 /* Styling PrimeNG grid for dropdowns in Admin Tickets Page */
 /* Styling first dropdown lable */
 .ui-g.ticketfilters .first > .dd-label{
