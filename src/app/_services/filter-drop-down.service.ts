@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { IDAO } from '../DAOLayer/IDAO';
 import { DAOmockup } from '../DAOLayer/DAOmockup';
+import { TechnicianType } from '../models/TechnicianType';
 
 
 @Injectable()
@@ -85,6 +86,11 @@ export class FilterDropDownService {
 
   public getNextStatus(ticketId: number): Observable<Status[]> {
     return this.DAO.getNextStatus(ticketId);
+  }
+
+  public getTechnicianType():Observable<TechnicianType[]>{
+    return this.DAO.getTechnicianType();
+    
   }
 
   // <<<<<--------------- SETTERS AND GETTERS FOR LASTSELECTED DROPDOWN ITEMS ------------------------>>>>>

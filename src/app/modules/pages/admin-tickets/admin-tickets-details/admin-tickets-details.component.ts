@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import { Status } from '../../../../models/Status';
 import { FilterDropDownService } from '../../../../_services/filter-drop-down.service';
+import { TechnicianType } from '../../../../models/TechnicianType';
 
 @Component({
   selector: 'app-admin-tickets-details',
@@ -23,8 +24,8 @@ export class AdminTicketsDetailsComponent implements OnInit {
   public nextSelectedStatus: Status;
 
   // Need to change type of data
-  public nextTecnicianTypeDropdown: Observable<Status[]>;
-  public nextSelectedTecnicianType: Status[]
+  public nextTecnicianTypeDropdown: TechnicianType[];
+  public nextSelectedTecnicianType: TechnicianType
 
   // Need to change type of data
   public nextTechOrProviderNameDropdown: Observable<Status[]>;
@@ -40,9 +41,13 @@ export class AdminTicketsDetailsComponent implements OnInit {
 
     this.ticketDetails$ = this.route.paramMap
       .switchMap((params: ParamMap) => {
+
         this.selectedId = +params.get('id');
         console.log('the selected ticket id is' + this.selectedId);
+
         this.getNextStatusOptions(this.selectedId);
+        this.getTechnicianTypeOptions();
+
         return this.adminTicketsService.getAdminTicketDetails(this.selectedId);
       });
 
@@ -68,6 +73,25 @@ export class AdminTicketsDetailsComponent implements OnInit {
       err => console.log(err),
       () => console.log('done retrieving status dropdown options')
     );
+  }
+
+  private getTechnicianTypeOptions():void{
+      this.dropdownService.getTechnicianType().subscribe(
+        data => {
+          console.log(data);
+          let filteredTechType: TechnicianType[] = data.filter(status => status.Id === 0)
+          if (!(typeof filteredTechType[0] != 'undefined')) {
+            // Add "ALL selector if necessary"
+            data.unshift({ Id: 0, TechTypeName: '--- Seleccionar ---' });
+          }
+          this.nextTecnicianTypeDropdown = data
+          this.nextSelectedTecnicianType = data[0];
+          
+        },
+        err => console.log(err),
+        () => console.log('done retrieving TechnicianType dropdown options')
+
+      );
   }
 
 

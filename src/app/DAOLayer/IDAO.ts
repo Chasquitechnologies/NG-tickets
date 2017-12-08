@@ -8,6 +8,7 @@ import { Store } from '../models/Store';
 import { Family } from '../models/Family';
 import { Priority } from '../models/Priority';
 import { Observable } from 'rxjs/Observable';
+import { TechnicianType } from '../models/TechnicianType';
 
 
 @Injectable()
@@ -43,6 +44,9 @@ export abstract class IDAO {
     getAllStatus: () => Observable<Status[]>;
 
     getNextStatus: (ticketId:number) => Observable<Status[]>;
+
+    getTechnicianType: () => Observable<TechnicianType[]>;
+    
     
 
 }

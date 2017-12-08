@@ -11,6 +11,7 @@ import { IDAO } from "./IDAO";
 import { Observable } from "rxjs/Observable";
 import { HttpClient } from "@angular/common/http";
 import { forEach } from "@angular/router/src/utils/collection";
+import { TechnicianType } from "../models/TechnicianType";
 
 
 @Injectable()
@@ -302,6 +303,11 @@ export class DAOmockup implements IDAO {
     public getAllStatus(): Observable<Status[]> {
 
         return this.http.get<Status[]>('http://localhost:3000/status');
+    }
+
+    public getTechnicianType(): Observable<TechnicianType[]>{
+
+        return  this.http.get<TechnicianType[]>('http://localhost:3000/technicianType')
     }
 
 }

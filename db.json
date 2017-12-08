@@ -423,5 +423,15 @@
       "id": 13,
       "description": "Reactivado"
     }
+  ],
+  "technicianType": [
+    {
+      "Id": 1,
+      "TechTypeName": "Técnico"
+    },
+    {
+      "Id": 12,
+      "TechTypeName": "Contratista"
+    }
   ]
 }
