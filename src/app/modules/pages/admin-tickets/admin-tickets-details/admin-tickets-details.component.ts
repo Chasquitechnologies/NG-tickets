@@ -17,8 +17,8 @@ import { TechnicianType } from '../../../../models/TechnicianType';
 export class AdminTicketsDetailsComponent implements OnInit {
 
   public ticketDetails$: Observable<Ticket>;
+  public ticketDetails: Ticket
   private selectedId: number;
-  public ticketDetails: Ticket;
 
   public nextStatusDropdown: Status[];
   public nextSelectedStatus: Status;
@@ -45,13 +45,20 @@ export class AdminTicketsDetailsComponent implements OnInit {
         this.selectedId = +params.get('id');
         console.log('the selected ticket id is' + this.selectedId);
 
-        this.getNextStatusOptions(this.selectedId);
-        this.getTechnicianTypeOptions();
-
         return this.adminTicketsService.getAdminTicketDetails(this.selectedId);
       });
 
+      this.ticketDetails$.subscribe(
+        data =>{
+          this.ticketDetails = data;
+          this.getNextStatusOptions(this.selectedId);
+          this.getTechnicianTypeOptions();
+        }
+      )
+
   }
+
+//ASYNC CALLS TO RETRIEVE TICKET DETAILS
 
   // ASYNCHRONOUSLY RETRIEVING STATUS DROPDOWN OPTIONS
   private getNextStatusOptions(ticketId:number): void {
@@ -75,6 +82,7 @@ export class AdminTicketsDetailsComponent implements OnInit {
     );
   }
 
+  // ASYNCHRONOUSLY RETRIEVING TECHNICIANTYPE DROPDOWN OPTIONS
   private getTechnicianTypeOptions():void{
       this.dropdownService.getTechnicianType().subscribe(
         data => {
@@ -90,6 +98,26 @@ export class AdminTicketsDetailsComponent implements OnInit {
         },
         err => console.log(err),
         () => console.log('done retrieving TechnicianType dropdown options')
+
+      );
+  }
+
+    // ASYNCHRONOUSLY RETRIEVING TECHNICIAN NAME DROPDOWN OPTIONS
+    private getTechnicianNameOptions():void{
+      this.dropdownService.getTechnicianType().subscribe(
+        data => {
+          // console.log(data);
+          // let filteredTechType: TechnicianType[] = data.filter(status => status.Id === 0)
+          // if (!(typeof filteredTechType[0] != 'undefined')) {
+          //   // Add "ALL selector if necessary"
+          //   data.unshift({ Id: 0, TechTypeName: '--- Seleccionar ---' });
+          // }
+          // this.nextTecnicianTypeDropdown = data
+          // this.nextSelectedTecnicianType = data[0];
+          
+        },
+        err => console.log(err),
+        () => console.log('done retrieving TechnicianName dropdown options')
 
       );
   }
