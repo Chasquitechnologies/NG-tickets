@@ -7,6 +7,7 @@ import 'rxjs/add/operator/switchMap';
 import { Status } from '../../../../models/Status';
 import { FilterDropDownService } from '../../../../_services/filter-drop-down.service';
 import { TechnicianType } from '../../../../models/TechnicianType';
+import { TechnicianName } from '../../../../models/TechnicianName';
 
 @Component({
   selector: 'app-admin-tickets-details',
@@ -16,20 +17,22 @@ import { TechnicianType } from '../../../../models/TechnicianType';
 })
 export class AdminTicketsDetailsComponent implements OnInit {
 
+  // observable for ticketdetails route parameter
   public ticketDetails$: Observable<Ticket>;
   public ticketDetails: Ticket
   private selectedId: number;
 
+  // Variables for status Dropdown
   public nextStatusDropdown: Status[];
   public nextSelectedStatus: Status;
 
-  // Need to change type of data
+  // Variables for technician type Dropdown
   public nextTecnicianTypeDropdown: TechnicianType[];
   public nextSelectedTecnicianType: TechnicianType
 
-  // Need to change type of data
-  public nextTechOrProviderNameDropdown: Observable<Status[]>;
-  public nextTechOrProviderName: Status[]
+  // Variables for provider or tech name Dropdown
+  public nextTechOrProviderNameDropdown: TechnicianName[];
+  public nextTechOrProviderName: TechnicianName;
 
   constructor(private route: ActivatedRoute, private adminTicketsService: AdminTicketService, private dropdownService: FilterDropDownService) {
 
@@ -48,20 +51,31 @@ export class AdminTicketsDetailsComponent implements OnInit {
         return this.adminTicketsService.getAdminTicketDetails(this.selectedId);
       });
 
-      this.ticketDetails$.subscribe(
-        data =>{
-          this.ticketDetails = data;
-          this.getNextStatusOptions(this.selectedId);
-          this.getTechnicianTypeOptions();
-        }
-      )
+    this.ticketDetails$.subscribe(
+      data => {
+        this.ticketDetails = data;
+        this.getNextStatusOptions(this.selectedId);
+        this.getTechnicianTypeOptions();
+
+        this.getTechnicianNameOptions(0, 0, 0);
+
+      }
+    )
 
   }
 
-//ASYNC CALLS TO RETRIEVE TICKET DETAILS
+  onTechnicianTypeOptionsChange(event) {
+    console.log('heloooooo')
+    this.getTechnicianNameOptions(this.nextSelectedTecnicianType.Id,
+      this.ticketDetails[0].EquipmentFamilyId,
+      this.ticketDetails[0].SupportAdminId);
+
+  }
+
+  //ASYNC CALLS TO RETRIEVE TICKET DETAILS
 
   // ASYNCHRONOUSLY RETRIEVING STATUS DROPDOWN OPTIONS
-  private getNextStatusOptions(ticketId:number): void {
+  private getNextStatusOptions(ticketId: number): void {
     // retrieving status dropdown options asynchronously
     this.dropdownService.getNextStatus(this.selectedId).subscribe(
       data => {
@@ -75,7 +89,7 @@ export class AdminTicketsDetailsComponent implements OnInit {
         console.log(this.nextStatusDropdown);
         this.nextStatusDropdown = data
         this.nextSelectedStatus = data[0];
-        
+
       },
       err => console.log(err),
       () => console.log('done retrieving status dropdown options')
@@ -83,43 +97,47 @@ export class AdminTicketsDetailsComponent implements OnInit {
   }
 
   // ASYNCHRONOUSLY RETRIEVING TECHNICIANTYPE DROPDOWN OPTIONS
-  private getTechnicianTypeOptions():void{
-      this.dropdownService.getTechnicianType().subscribe(
-        data => {
-          console.log(data);
-          let filteredTechType: TechnicianType[] = data.filter(status => status.Id === 0)
-          if (!(typeof filteredTechType[0] != 'undefined')) {
-            // Add "ALL selector if necessary"
-            data.unshift({ Id: 0, TechTypeName: '--- Seleccionar ---' });
-          }
-          this.nextTecnicianTypeDropdown = data
-          this.nextSelectedTecnicianType = data[0];
-          
-        },
-        err => console.log(err),
-        () => console.log('done retrieving TechnicianType dropdown options')
+  private getTechnicianTypeOptions(): void {
+    this.dropdownService.getTechnicianType().subscribe(
+      data => {
+        console.log(data);
+        let filteredTechType: TechnicianType[] = data.filter(status => status.Id === 0)
+        if (!(typeof filteredTechType[0] != 'undefined')) {
+          // Add "ALL selector if necessary"
+          data.unshift({ Id: 0, TechTypeName: '--- Seleccionar ---' });
+        }
+        this.nextTecnicianTypeDropdown = data
+        this.nextSelectedTecnicianType = data[0];
 
-      );
+      },
+      err => console.log(err),
+      () => console.log('done retrieving TechnicianType dropdown options')
+
+    );
   }
 
-    // ASYNCHRONOUSLY RETRIEVING TECHNICIAN NAME DROPDOWN OPTIONS
-    private getTechnicianNameOptions():void{
-      this.dropdownService.getTechnicianType().subscribe(
-        data => {
-          // console.log(data);
-          // let filteredTechType: TechnicianType[] = data.filter(status => status.Id === 0)
-          // if (!(typeof filteredTechType[0] != 'undefined')) {
-          //   // Add "ALL selector if necessary"
-          //   data.unshift({ Id: 0, TechTypeName: '--- Seleccionar ---' });
-          // }
-          // this.nextTecnicianTypeDropdown = data
-          // this.nextSelectedTecnicianType = data[0];
-          
-        },
-        err => console.log(err),
-        () => console.log('done retrieving TechnicianName dropdown options')
+  // ASYNCHRONOUSLY RETRIEVING TECHNICIAN NAME DROPDOWN OPTIONS
+  private getTechnicianNameOptions(techTypeId: number, equipmentFamilyId: number, supportAdminId: number): void {
+    console.log('hi in here')
+    console.log(techTypeId);
+    console.log(equipmentFamilyId);
+    console.log(supportAdminId);
+    this.dropdownService.getTechnicianName(techTypeId, equipmentFamilyId, supportAdminId).subscribe(
+      data => {
+        console.log(data);
+        let filteredTechName: TechnicianName[] = data.filter(techName => techName.Id === 0);
+        if (!(typeof filteredTechName[0] != 'undefined')) {
+          // Add "ALL selector if necessary"
+          data.unshift({ Id: 0, Name: '--- Seleccionar ---' });
+        }
+        this.nextTechOrProviderNameDropdown = data;
+        this.nextTechOrProviderName = data[0];
 
-      );
+      },
+      err => console.log(err),
+      () => console.log('done retrieving TechnicianName dropdown options')
+
+    );
   }
 
 

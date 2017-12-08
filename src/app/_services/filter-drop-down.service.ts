@@ -11,6 +11,7 @@ import { Observable } from 'rxjs/Observable';
 import { IDAO } from '../DAOLayer/IDAO';
 import { DAOmockup } from '../DAOLayer/DAOmockup';
 import { TechnicianType } from '../models/TechnicianType';
+import { TechnicianName } from '../models/TechnicianName';
 
 
 @Injectable()
@@ -92,7 +93,10 @@ export class FilterDropDownService {
     return this.DAO.getTechnicianType();
     
   }
-
+  
+  public getTechnicianName(techTypeId:number, equipmentFamilyId: number, supportAdminId: number):Observable<TechnicianName[]>{
+      return this.DAO.getTechnicianName(techTypeId, equipmentFamilyId, supportAdminId);
+  }
   // <<<<<--------------- SETTERS AND GETTERS FOR LASTSELECTED DROPDOWN ITEMS ------------------------>>>>>
   public setlastSelectedBrand(brand: Brand): void {
     this.lastSelectedBrand = brand;

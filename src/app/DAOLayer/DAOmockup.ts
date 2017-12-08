@@ -12,6 +12,7 @@ import { Observable } from "rxjs/Observable";
 import { HttpClient } from "@angular/common/http";
 import { forEach } from "@angular/router/src/utils/collection";
 import { TechnicianType } from "../models/TechnicianType";
+import { TechnicianName } from "../models/TechnicianName";
 
 
 @Injectable()
@@ -308,6 +309,13 @@ export class DAOmockup implements IDAO {
     public getTechnicianType(): Observable<TechnicianType[]>{
 
         return  this.http.get<TechnicianType[]>('http://localhost:3000/technicianType')
+    }
+
+    public getTechnicianName (techTypeId:number, equipmentFamilyId: number, supportAdminId: number): Observable<TechnicianName[]>{
+
+        return this.http.get<TechnicianName[]>('http://localhost:3000/technicianName?'+'equipmentFamilyId='+equipmentFamilyId.toString() +
+                                                '&techTypeId='+techTypeId.toString() +
+                                                '&supportAdminId=' + supportAdminId)
     }
 
 }

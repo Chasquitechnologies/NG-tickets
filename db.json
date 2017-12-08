@@ -244,7 +244,7 @@
       "PriorityDisplay": "C1",
       "EquipmentId": 2,
       "Classification": "INFRAESTRUCTURA",
-      "EquipmentFamilyId": 5,
+      "EquipmentFamilyId": 1,
       "EquipmentFamily": "EDIFICACIÓN Y ESTRUCTURAS",
       "EquipmentDetailId": 4435,
       "EquipmentDetail": "TRABAJO EN PAREDES",
@@ -258,7 +258,7 @@
       "CreatedOn": "\/Date(1512003565957)\/",
       "CreatedOnDisplay": "29/11/2017 07:59 PM",
       "CreatedBy": "0c186f77-5d32-49a5-b6c1-959b9341347f",
-      "SupportAdminId": 0,
+      "SupportAdminId": 1,
       "SupportAdminName": "Alejandro Rodriguez",
       "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
       "LastTechnicianTypeSelectedId": 0,
@@ -315,7 +315,7 @@
       "CreatedOn": "\/Date(1512003476773)\/",
       "CreatedOnDisplay": "29/11/2017 07:57 PM",
       "CreatedBy": "0c186f77-5d32-49a5-b6c1-959b9341347f",
-      "SupportAdminId": 0,
+      "SupportAdminId": 1,
       "SupportAdminName": "Alejandro Rodriguez",
       "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
       "LastTechnicianTypeSelectedId": 0,
@@ -372,7 +372,7 @@
       "CreatedOn": "\/Date(1512003324793)\/",
       "CreatedOnDisplay": "29/11/2017 07:55 PM",
       "CreatedBy": "0c186f77-5d32-49a5-b6c1-959b9341347f",
-      "SupportAdminId": 0,
+      "SupportAdminId": 1,
       "SupportAdminName": "Alejandro Rodriguez",
       "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
       "LastTechnicianTypeSelectedId": 0,
@@ -430,8 +430,68 @@
       "TechTypeName": "Técnico"
     },
     {
-      "Id": 12,
+      "Id": 2,
       "TechTypeName": "Contratista"
     }
-  ]
+  ],
+
+  "technicianName": [
+    {
+      "equipmentFamilyId":5,
+      "techTypeId": 1,
+      "supportAdminId":1,
+      "Id": 1,
+      "Name": "Tecnico 1"
+    },
+    {
+      "equipmentFamilyId":5,
+      "techTypeId": 1,
+      "supportAdminId":1,
+      "Id": 1,
+      "Name": "Tecnico 2"
+    },
+    {
+      "equipmentFamilyId":5,
+      "techTypeId": 2,
+      "supportAdminId":1,
+      "Id": 1,
+      "Name": "Prov 1"
+    },
+    {
+      "equipmentFamilyId":5,
+      "techTypeId": 2,
+      "supportAdminId":1,
+      "Id": 1,
+      "Name": "Prov 1"
+    },
+
+    {
+      "equipmentFamilyId":5,
+      "techTypeId": 1,
+      "supportAdminId":1,
+      "Id": 1,
+      "Name": "Tecnico 3"
+    },
+    {
+      "equipmentFamilyId":5,
+      "techTypeId": 1,
+      "supportAdminId":1,
+      "Id": 1,
+      "Name": "Tecnico 4"
+    },
+    {
+      "equipmentFamilyId":1,
+      "techTypeId": 2,
+      "supportAdminId":1,
+      "Id": 1,
+      "Name": "Prov 3"
+    },
+    {
+      "equipmentFamilyId":1,
+      "techTypeId": 2,
+      "supportAdminId":1,
+      "Id": 1,
+      "Name": "Prov 4"
+    }
+      ]
 }
