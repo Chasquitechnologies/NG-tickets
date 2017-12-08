@@ -126,10 +126,20 @@
   </div>
 </div> */
 
+.portlet-details .detail-group {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.portlet-details .detail-group.detail-last {
+    padding-bottom: 18px;
+}
+
 .portlet-details h3.m-form__section.title{
-    margin-bottom: 15px;
-    margin-top: 10px;
-    color: #5867dd;
+    /* margin-bottom: 15px;
+    margin-top: 10px; */
+    color: #36a3f7;
+    padding-top: 0px;
+    padding-bottom: 20px;
 }
 
 .portlet-details .detail-group .detail-label-holder {
@@ -149,6 +159,8 @@
 .portlet-details .detail-group .detail-value p {
     margin-bottom: 0;
 }
+
+/* 0.0em 0.5em 0.0em 0.5em */
 
 
 

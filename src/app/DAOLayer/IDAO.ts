@@ -21,6 +21,7 @@ export abstract class IDAO {
         statusId: Status[],
         dateRangeSelected: Date[]) => Observable<Ticket[]>;
 
+    getAdminTicketDetails: (ticketId: number) => Observable<Ticket>;
 
     getAdminTicketsSummaryCount: (brandId: number,
         storeId: number,
@@ -29,6 +30,7 @@ export abstract class IDAO {
         statusId: Status[],
         dateRangeSelected: Date[]) => TicketCountSummary;
 
+  
     // DROPDOWN RELATED INTERFACES    
     getAllBrands: () => Observable<Brand[]>;
 
@@ -39,4 +41,8 @@ export abstract class IDAO {
     getAllPriorities: () => Observable<Priority[]>;
 
     getAllStatus: () => Observable<Status[]>;
+
+    getNextStatus: (ticketId:number) => Observable<Status[]>;
+    
+
 }

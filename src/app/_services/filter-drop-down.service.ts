@@ -83,6 +83,10 @@ export class FilterDropDownService {
     return this.DAO.getAllStatus();
   }
 
+  public getNextStatus(ticketId: number): Observable<Status[]> {
+    return this.DAO.getNextStatus(ticketId);
+  }
+
   // <<<<<--------------- SETTERS AND GETTERS FOR LASTSELECTED DROPDOWN ITEMS ------------------------>>>>>
   public setlastSelectedBrand(brand: Brand): void {
     this.lastSelectedBrand = brand;

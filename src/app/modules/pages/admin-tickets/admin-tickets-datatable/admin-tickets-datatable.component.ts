@@ -9,6 +9,9 @@ import { Status } from '../../../../models/Status';
 import { AdminTicketService } from '../../../../_services/admin-ticket-service.service'
 import { Ticket } from '../../../../models/Ticket';
 import { TicketSummaryQuery } from '../../../../models/TicketSummaryQuery';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 // declare var jquery: any;
 // declare var $: any;
@@ -43,7 +46,7 @@ export class AdminTicketsDatatableComponent implements OnInit {
 
 
   constructor(private dropdownService: FilterDropDownService,
-    private adminTicketService: AdminTicketService) {
+    private adminTicketService: AdminTicketService, private router: Router, private route: ActivatedRoute ) {
 
   }
   ngOnInit() {
@@ -143,6 +146,13 @@ export class AdminTicketsDatatableComponent implements OnInit {
 
     //Updating tickets
     this.getTickets(this.selectedBrand.id, this.selectedStore.id, this.selectedFamily.id, this.selectedPriority.id, this.selectedStatus, this.dateRangeSelected);
+  }
+
+
+  onRowSelect(event) {
+    console.log(event)
+    console.log(event.data.Id);
+    this.router.navigate(['detail',{id: event.data.Id}], { relativeTo: this.route });
   }
 
   //<<<<<<<-----------------  HELPER FUNCTIONS!!!! -------------------------------------->>>>>>>

@@ -65,16 +65,17 @@
       </div>
       <div class="tab-content">
         <div class="tab-pane active" id="m_user_profile_tab_1">
-          <form class="m-form">
+          <div class="m-form">
 
             <div class="m-portlet__body">
 
 
-              <div class="ui-g">
+              <div *ngIf="ticketDetails$ | async; let ticketDetails" class="ui-g" >
+                
                 <div class="ui-sm-12 ui-md-12 ui-g-6 ui-lg-6 portlet-details">
-                  <div class="ui-g-12 detail-group">
+                  <div class="ui-g-12 detail-group title">
                     <h3 class="m-form__section title">
-                      <i class="fa fa-flag"></i>
+                      <i class="la la-info-circle"></i>
                       Detalles de Solicitud:
                     </h3>
                   </div>
@@ -85,7 +86,7 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>28/11/2017 10:00 PM</p>
+                      <p>{{ticketDetails[0].CreatedOnDisplay}}</p>
                     </div>
                   </div>
                   <div class="ui-g-12 detail-group">
@@ -95,7 +96,7 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>marsano.chwk@ngr.com.pe</p>
+                      <p>marsano.chwk@ngr.com.pe - TBD</p>
                     </div>
                   </div>
                   <div class="ui-g-12 detail-group">
@@ -105,7 +106,7 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>China Wok - CW - OP Angamos</p>
+                      <p>{{ticketDetails[0].Brand}} - {{ticketDetails[0].Store}}</p>
                     </div>
                   </div>
                   <div class="ui-g-12 detail-group">
@@ -115,7 +116,7 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>80005583550</p>
+                      <p>{{ticketDetails[0].CostCenter}}</p>
                     </div>
                   </div>
                   <div class="ui-g-12 detail-group">
@@ -125,7 +126,7 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>A1</p>
+                      <p>{{ticketDetails[0].TicketPriority}}</p>
                     </div>
                   </div>
 
@@ -136,18 +137,7 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>Equipos</p>
-                    </div>
-                  </div>
-
-                  <div class="ui-g-12 detail-group">
-                    <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 detail-label-holder">
-                      <label class="m-label detail-label">
-                        ID de Equipo:
-                      </label>
-                    </div>
-                    <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>CWE0012</p>
+                      <p>{{ticketDetails[0].Classification}}</p>
                     </div>
                   </div>
 
@@ -158,7 +148,7 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>MESA REFRIGERADA</p>
+                      <p>{{ticketDetails[0].EquipmentDetail}}</p>
                     </div>
                   </div>
 
@@ -169,11 +159,11 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>Total</p>
+                      <p>{{ticketDetails[0].FailureType}}</p>
                     </div>
                   </div>
 
-                  <div class="ui-g-12 detail-group">
+                  <div class="ui-g-12 detail-group detail-last">
                     <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 detail-label-holder">
                       <label class="m-label detail-label">
                         Estado:
@@ -181,14 +171,14 @@
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
                       <p>
-                        <span class="m-badge m-badge--wide" style="background: #ed6b75; color: #ffffff;">Ingresado</span>
+                        <span class="m-badge m-badge--wide" style="background: #ed6b75; color: #ffffff;">{{ticketDetails[0].Status}}</span>
                       </p>
                     </div>
                   </div>
 
                   <div class="ui-g-12 detail-group">
                     <h3 class="m-form__section title">
-                      <i class="fa fa-flag"></i>
+                      <i class="la la-user-secret"></i>
                       Detalles de Responsables:
                     </h3>
                   </div>
@@ -201,7 +191,7 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>Abel Meza</p>
+                      <p>{{ticketDetails[0].SupportAdminName}}</p>
                     </div>
                   </div>
 
@@ -212,18 +202,62 @@
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>Contratista</p>
+                      <p>{{ticketDetails[0].TechnicianType}}</p>
                     </div>
                   </div>
 
-                  <div class="ui-g-12 detail-group">
+                  <div class="ui-g-12 detail-group detail-last">
                     <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 detail-label-holder">
                       <label class="m-label detail-label">
                         Responsable:
                       </label>
                     </div>
                     <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
-                      <p>Climasol</p>
+                      <p>{{ticketDetails[0].TechnicianOrProviderName}}</p>
+                    </div>
+                  </div>
+
+                  <div class="ui-g-12 detail-group">
+                    <h3 class="m-form__section title">
+                      <i class="la la-fighter-jet"></i>
+                      Acciones a Tomar:
+                    </h3>
+                  </div>
+
+
+                  <div class="ui-g-12 detail-group">
+                    <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 detail-label-holder">
+                      <label class="m-label detail-label">
+                        Nuevo Estado:
+                      </label>
+                    </div>
+                    <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
+                      <p-dropdown [options]="nextStatusDropdown" [(ngModel)]="nextSelectedStatus" optionLabel="description" 
+                      [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                    </div>
+                  </div>
+
+                  <div class="ui-g-12 detail-group">
+                    <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 detail-label-holder">
+                      <label class="m-label detail-label">
+                        Asignar a:
+                      </label>
+                    </div>
+                    <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
+                      <!-- <p-dropdown [options]="nextStatusDropdown" [(ngModel)]="nextSelectedStatus" optionLabel="description" 
+                      [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown> -->
+                    </div>
+                  </div>
+
+                  <div class="ui-g-12 detail-group detail-last">
+                    <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 detail-label-holder">
+                      <label class="m-label detail-label">
+                        Nuevo Responsable:
+                      </label>
+                    </div>
+                    <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid detail-value">
+                      <!-- <p-dropdown [options]="nextStatusDropdown" [(ngModel)]="nextSelectedStatus" optionLabel="description" 
+                      [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown> -->
                     </div>
                   </div>
 
@@ -234,110 +268,77 @@
 
                   <!-- begin::Quick Sidebar -->
                   <div class="ui-g-12 detail-group">
-                      <h3 class="m-form__section title">
-                        <i class="fa fa-flag"></i>
-                        Comentarios:
-                      </h3>
-                    </div>
-                    <div class=" m-scrollable" style="overflow-y: auto; height: 400px; width: 400px;">
-                      <div class="m-messenger m-messenger--message-arrow m-messenger--skin-light">
-                        <div class="m-messenger__messages">
-                          <div class="m-messenger__message m-messenger__message--in">
-                            <div class="m-messenger__message-pic">
-                              <img src="./assets/app/media/img//users/user3.jpg" alt="" />
-                            </div>
-                            <div class="m-messenger__message-body">
-                              <div class="m-messenger__message-arrow"></div>
-                              <div class="m-messenger__message-content">
-                                <div class="m-messenger__message-username">
-                                  Megan wrote
-                                </div>
-                                <div class="m-messenger__message-text">
-                                  Hi Bob. What time will be the meeting ?
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="m-messenger__message m-messenger__message--out">
-                            <div class="m-messenger__message-body">
-                              <div class="m-messenger__message-arrow"></div>
-                              <div class="m-messenger__message-content">
-                                  <div class="m-messenger__message-username">
-                                      Bob wrote
-                                    </div>
-                                <div class="m-messenger__message-text">
-                                  Hi Megan. It's at 2.30PM
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="m-messenger__message m-messenger__message--in">
-                            <div class="m-messenger__message-pic">
-                              <img src="./assets/app/media/img//users/user3.jpg" alt="" />
-                            </div>
-                            <div class="m-messenger__message-body">
-                              <div class="m-messenger__message-arrow"></div>
-                              <div class="m-messenger__message-content">
-                                <div class="m-messenger__message-username">
-                                  Megan wrote
-                                </div>
-                                <div class="m-messenger__message-text">
-                                  Will the development team be joining ?
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="m-messenger__message m-messenger__message--out">
-                            <div class="m-messenger__message-body">
-                              <div class="m-messenger__message-arrow"></div>
-                              <div class="m-messenger__message-content">
-                                  <div class="m-messenger__message-username">
-                                      Bob wrote
-                                    </div>
-                                <div class="m-messenger__message-text">
-                                  Yes sure. I invited them as well
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="m-messenger__datetime">
-                            2:30PM
-                          </div>
-                          <div class="m-messenger__message m-messenger__message--in">
-                            <div class="m-messenger__message-pic">
-                              <img src="./assets/app/media/img//users/user3.jpg" alt="" />
-                            </div>
-                            <div class="m-messenger__message-body">
-                              <div class="m-messenger__message-arrow"></div>
-                              <div class="m-messenger__message-content">
-                                <div class="m-messenger__message-username">
-                                  Megan wrote
-                                </div>
-                                <div class="m-messenger__message-text">
-                                  Noted. For the Coca-Cola Mobile App project as well ?
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                        
-                    </div>
+                    <h3 class="m-form__section title">
+                      <i class="la la-comments"></i>
+                      Comentarios:
+                    </h3>
                   </div>
+
+                  <div class="m-widget3">
+                      <div class="m-widget3__item">
+                        <div class="m-widget3__header">
+                          <div class="m-widget3__user-img">
+                            <img class="m-widget3__img" src="./assets/img/users/user1.jpg" alt="">
+                          </div>
+                          <div class="m-widget3__info">
+                            <span class="m-widget3__username">
+                              marsano.chwk@ngr.com.pe
+                            </span>
+                            <br>
+                            <span class="m-widget3__time">
+                              28/11/2017 10:00 PM
+                            </span>
+                          </div>
+                        </div>
+                        <div class="m-widget3__body">
+                          <p class="m-widget3__text">
+                              cambio de campana de servicio deteriorada
+                          </p>
+                        </div>
+                      </div>
+                      <div class="m-widget3__item">
+                        <div class="m-widget3__header">
+                          <div class="m-widget3__user-img">
+                            <img class="m-widget3__img" src="./assets/img/users/user2.jpg" alt="">
+                          </div>
+                          <div class="m-widget3__info">
+                            <span class="m-widget3__username">
+                                ameza@ngr.com.pe
+                            </span>
+                            <br>
+                            <span class="m-widget3__time">
+                              30/11/2017 11:50 PM
+                            </span>
+                          </div>
+                        </div>
+                        <div class="m-widget3__body">
+                          <p class="m-widget3__text">
+                            Se realizo el cambio de campana solicitado por la tienda. Ademas se hizo anotaciones de otras ventanas que necesitaran cambio y se solicito a la tienda ingresar un nuevo ticket.
+                          </p>
+                        </div>
+                      </div>
+                      
+                    </div>
+
+
+
+
+
+
                   <!-- end::Quick Sidebar -->
                   <div class="m-messenger m-messenger--message-arrow m-messenger--skin-light">
-                  <div class="m-messenger__seperator"></div>
-                  <div class="m-messenger__form">
+                    <div class="m-messenger__seperator"></div>
+                    <div class="m-messenger__form">
                       <div class="m-messenger__form-controls">
-                          <input type="text" name="" placeholder="Type here..." class="m-messenger__form-input">
-                        </div>
-                        <div class="m-messenger__form-tools">
-                          <a href="" class="m-messenger__form-attachment">
-                            <i class="la la-paperclip"></i>
-                          </a>
-                        </div>
+                        <input type="text" name="" placeholder="Ingresar un comentario..." class="m-messenger__form-input">
+                      </div>
+                      <div class="m-messenger__form-tools">
+                        <a class="m-messenger__form-attachment">
+                          <i class="la la-send"></i>
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </div>
 
                 </div>
 
@@ -361,7 +362,7 @@
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
         <div class="tab-pane active" id="m_user_profile_tab_2"></div>
       </div>

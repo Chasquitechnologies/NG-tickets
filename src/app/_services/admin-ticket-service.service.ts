@@ -43,4 +43,10 @@ export class AdminTicketService {
     return ticketCountSummary;
   }
 
+  getAdminTicketDetails(ticketId:number): Observable<Ticket>
+  {
+
+    return this.DAO.getAdminTicketDetails(ticketId);
+  }
+
 }

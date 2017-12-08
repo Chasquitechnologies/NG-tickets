@@ -187,9 +187,13 @@ export class DAOmockup implements IDAO {
             query += '&FlowStatusId=' + status.id.toString() 
         }
 
-        return this.http.get<Ticket[]>('http://localhost:3004/tickets' + query);
+        return this.http.get<Ticket[]>('http://localhost:3000/tickets' + query);
     }
 
+
+    public getAdminTicketDetails(ticketId: number):Observable<Ticket>{
+        return this.http.get<Ticket>('http://localhost:3000/tickets?Id=' + ticketId.toString());
+    }
 
     public getAdminTicketsSummaryCount(brandId: number,
         storeId: number,
@@ -266,34 +270,38 @@ export class DAOmockup implements IDAO {
 
 
 
+    public getNextStatus(ticketId: number): Observable<Status[]>{
+        return this.http.get<Status[]>('http://localhost:3000/nextStatus?ticketId='+ ticketId.toString())
+    };
+    
 
     public getAllBrands(): Observable<Brand[]> {
 
-        return this.http.get<Brand[]>('http://localhost:3004/brands');
+        return this.http.get<Brand[]>('http://localhost:3000/brands');
     }
 
     public getAllStores(brandId: number): Observable<Store[]> {
 
         if (brandId == 0) {
-            return this.http.get<Store[]>('http://localhost:3004/stores');
+            return this.http.get<Store[]>('http://localhost:3000/stores');
         } else {
-            return this.http.get<Store[]>('http://localhost:3004/stores?brandId=' + brandId.toString());
+            return this.http.get<Store[]>('http://localhost:3000/stores?brandId=' + brandId.toString());
         }
     }
 
     public getAllFamilies(): Observable<Family[]> {
 
-        return this.http.get<Family[]>('http://localhost:3004/families');
+        return this.http.get<Family[]>('http://localhost:3000/families');
     }
 
     public getAllPriorities(): Observable<Priority[]> {
 
-        return this.http.get<Priority[]>('http://localhost:3004/priorities');
+        return this.http.get<Priority[]>('http://localhost:3000/priorities');
     }
 
     public getAllStatus(): Observable<Status[]> {
 
-        return this.http.get<Status[]>('http://localhost:3004/status');
+        return this.http.get<Status[]>('http://localhost:3000/status');
     }
 
 }

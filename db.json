@@ -235,7 +235,7 @@
       "StoreId": 127,
       "Store": "CW - OP Angamos",
       "CostCenterId": 405,
-      "CostCenter": null,
+      "CostCenter": "302010021",
       "PriorityId": 3,
       "Priority": "Prioridad C",
       "AffectPeople": false,
@@ -272,6 +272,7 @@
       "ReactivadoDate": null,
       "TechnicianType": "Técnico NGR",
       "TechnicianTypeId": 1,
+      "TechnicianOrProviderName":"Jose Miguel Arce",
       "AssignedDateDisplay": " ",
       "ProgrammedDateDisplay": " ",
       "AtendidoDateDisplay": " ",
@@ -291,7 +292,7 @@
       "StoreId": 127,
       "Store": "CW - OP Angamos",
       "CostCenterId": 405,
-      "CostCenter": null,
+      "CostCenter": "302010021",
       "PriorityId": 3,
       "Priority": "Prioridad C",
       "AffectPeople": false,
@@ -319,6 +320,7 @@
       "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
       "LastTechnicianTypeSelectedId": 0,
       "TechnicianId": 0,
+      "TechnicianOrProviderName":"Jose LALALA",
       "ProviderId": 0,
       "AssignedDate": null,
       "ProgrammedDate": null,
@@ -347,7 +349,7 @@
       "StoreId": 127,
       "Store": "CW - OP Angamos",
       "CostCenterId": 405,
-      "CostCenter": null,
+      "CostCenter": "302010021",
       "PriorityId": 3,
       "Priority": "Prioridad C",
       "AffectPeople": false,
@@ -376,13 +378,14 @@
       "LastTechnicianTypeSelectedId": 0,
       "TechnicianId": 0,
       "ProviderId": 0,
+      "TechnicianOrProviderName":"Proveedor 1",
       "AssignedDate": null,
       "ProgrammedDate": null,
       "AtendidoDate": null,
       "ConfirmationDate": "\/Date(1512004306510)\/",
       "AnuladoDate": null,
       "ReactivadoDate": null,
-      "TechnicianType": "Técnico NGR",
+      "TechnicianType": "Contratista",
       "TechnicianTypeId": 1,
       "AssignedDateDisplay": " ",
       "ProgrammedDateDisplay": " ",
@@ -392,6 +395,33 @@
       "ReactivadoDateDisplay": " ",
       "LastStatusDate": "\/Date(1512004306510)\/",
       "MaxRows": 23206
+    }
+  ],
+  "nextStatus": [
+    {
+      "ticketId":27904,
+      "id": 12,
+      "description": "Asignado"
+    },
+    {
+      "ticketId":27902,
+      "id": 12,
+      "description": "Asignado"
+    },
+    {
+      "ticketId":27902,
+      "id": 5,
+      "description": "Anulado"
+    },
+    {
+      "ticketId":27904,
+      "id": 5,
+      "description": "Anulado"
+    },
+    {
+      "ticketId":27903,
+      "id": 13,
+      "description": "Reactivado"
     }
   ]
 }

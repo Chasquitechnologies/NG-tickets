@@ -33,6 +33,10 @@ const routes: Routes = [
                   "component": AdminTicketsDatatableComponent,
                 },
                 {
+                  "path": "detail/:id",
+                  "component": AdminTicketsDetailsComponent,
+                },
+                {
                   "path": "detail",
                   "component": AdminTicketsDetailsComponent,
                 }
