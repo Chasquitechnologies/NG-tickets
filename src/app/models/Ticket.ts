@@ -43,7 +43,7 @@ export interface Ticket {
     TicketPriorityId: number;
     TicketPriority: string;
 
-    Comments?: string;
+    Comments?: Comment[];
     User?: string;
 
     // LastTechnicianTypeSelectedId: number;

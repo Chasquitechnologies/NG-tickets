@@ -253,7 +253,29 @@
       "FailureType": "Total",
       "TicketPriorityId": 8,
       "TicketPriority": "C1",
-      "Comments": null,
+      "Comments": [
+        {
+          "id": 1,
+          "description": "Comentario 1 sobre algun topic",
+          "displayDate": "28/11/2017 10:00 PM",
+          "createdBy": "marsano.chwk@ngr.com.pe",
+          "imgUrl": "./assets/img/users/user1.jpg"
+        },
+        {
+          "id": 2,
+          "description": "Comentario 2 sobre algun topic",
+          "displayDate": "30/11/2017 9:00 PM",
+          "createdBy": "ameza@ngr.com.pe",
+          "imgUrl": "./assets/img/users/user2.jpg"
+        },
+        {
+          "id": 3,
+          "description": "Comentario 3 sobre algun topic",
+          "displayDate": "30/11/2017 11:00 PM",
+          "createdBy": "marsano.chwk@ngr.com.pe",
+          "imgUrl": "./assets/img/users/user1.jpg"
+        }
+      ],
       "User": "marsano.chwk@ngr.com.pe",
       "CreatedOn": "\/Date(1512003565957)\/",
       "CreatedOnDisplay": "29/11/2017 07:59 PM",
@@ -272,7 +294,7 @@
       "ReactivadoDate": null,
       "TechnicianType": "Técnico NGR",
       "TechnicianTypeId": 1,
-      "TechnicianOrProviderName":"Jose Miguel Arce",
+      "TechnicianOrProviderName": "Jose Miguel Arce",
       "AssignedDateDisplay": " ",
       "ProgrammedDateDisplay": " ",
       "AtendidoDateDisplay": " ",
@@ -310,7 +332,29 @@
       "FailureType": "Total",
       "TicketPriorityId": 8,
       "TicketPriority": "C1",
-      "Comments": null,
+      "Comments": [
+        {
+          "id": 1,
+          "description": "Comentario 1 sobre algun topic",
+          "displayDate": "28/11/2017 10:00 PM",
+          "createdBy": "marsano.chwk@ngr.com.pe",
+          "imgUrl": "./assets/img/users/user1.jpg"
+        },
+        {
+          "id": 2,
+          "description": "Comentario 2 sobre algun topic",
+          "displayDate": "30/11/2017 9:00 PM",
+          "createdBy": "ameza@ngr.com.pe",
+          "imgUrl": "./assets/img/users/user2.jpg"
+        },
+        {
+          "id": 3,
+          "description": "Comentario 3 sobre algun topic",
+          "displayDate": "30/11/2017 11:00 PM",
+          "createdBy": "marsano.chwk@ngr.com.pe",
+          "imgUrl": "./assets/img/users/user1.jpg"
+        }
+      ],
       "User": "marsano.chwk@ngr.com.pe",
       "CreatedOn": "\/Date(1512003476773)\/",
       "CreatedOnDisplay": "29/11/2017 07:57 PM",
@@ -320,7 +364,7 @@
       "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
       "LastTechnicianTypeSelectedId": 0,
       "TechnicianId": 0,
-      "TechnicianOrProviderName":"Jose LALALA",
+      "TechnicianOrProviderName": "Jose LALALA",
       "ProviderId": 0,
       "AssignedDate": null,
       "ProgrammedDate": null,
@@ -367,7 +411,29 @@
       "FailureType": "Total",
       "TicketPriorityId": 8,
       "TicketPriority": "C1",
-      "Comments": null,
+      "Comments": [
+        {
+          "id": 1,
+          "description": "Comentario 1 sobre algun topic lalalalalala",
+          "displayDate": "28/11/2017 10:00 PM",
+          "createdBy": "marsano.chwk@ngr.com.pe",
+          "imgUrl": "./assets/img/users/user1.jpg"
+        },
+        {
+          "id": 2,
+          "description": "Comentario 2 sobre algun topic lelelele",
+          "displayDate": "30/11/2017 9:00 PM",
+          "createdBy": "ameza@ngr.com.pe",
+          "imgUrl": "./assets/img/users/user2.jpg"
+        },
+        {
+          "id": 3,
+          "description": "Comentario 3 sobre algun topic lilili",
+          "displayDate": "30/11/2017 11:00 PM",
+          "createdBy": "marsano.chwk@ngr.com.pe",
+          "imgUrl": "./assets/img/users/user1.jpg"
+        }
+      ],
       "User": "marsano.chwk@ngr.com.pe",
       "CreatedOn": "\/Date(1512003324793)\/",
       "CreatedOnDisplay": "29/11/2017 07:55 PM",
@@ -378,7 +444,7 @@
       "LastTechnicianTypeSelectedId": 0,
       "TechnicianId": 0,
       "ProviderId": 0,
-      "TechnicianOrProviderName":"Proveedor 1",
+      "TechnicianOrProviderName": "Proveedor 1",
       "AssignedDate": null,
       "ProgrammedDate": null,
       "AtendidoDate": null,
@@ -399,27 +465,27 @@
   ],
   "nextStatus": [
     {
-      "ticketId":27904,
+      "ticketId": 27904,
       "id": 12,
       "description": "Asignado"
     },
     {
-      "ticketId":27902,
+      "ticketId": 27902,
       "id": 12,
       "description": "Asignado"
     },
     {
-      "ticketId":27902,
+      "ticketId": 27902,
       "id": 5,
       "description": "Anulado"
     },
     {
-      "ticketId":27904,
+      "ticketId": 27904,
       "id": 5,
       "description": "Anulado"
     },
     {
-      "ticketId":27903,
+      "ticketId": 27903,
       "id": 13,
       "description": "Reactivado"
     }
@@ -434,64 +500,62 @@
       "TechTypeName": "Contratista"
     }
   ],
-
   "technicianName": [
     {
-      "equipmentFamilyId":5,
+      "equipmentFamilyId": 5,
       "techTypeId": 1,
-      "supportAdminId":1,
+      "supportAdminId": 1,
       "Id": 1,
       "Name": "Tecnico 1"
     },
     {
-      "equipmentFamilyId":5,
+      "equipmentFamilyId": 5,
       "techTypeId": 1,
-      "supportAdminId":1,
+      "supportAdminId": 1,
       "Id": 1,
       "Name": "Tecnico 2"
     },
     {
-      "equipmentFamilyId":5,
+      "equipmentFamilyId": 5,
       "techTypeId": 2,
-      "supportAdminId":1,
+      "supportAdminId": 1,
       "Id": 1,
       "Name": "Prov 1"
     },
     {
-      "equipmentFamilyId":5,
+      "equipmentFamilyId": 5,
       "techTypeId": 2,
-      "supportAdminId":1,
+      "supportAdminId": 1,
       "Id": 1,
       "Name": "Prov 1"
     },
-
     {
-      "equipmentFamilyId":5,
+      "equipmentFamilyId": 5,
       "techTypeId": 1,
-      "supportAdminId":1,
+      "supportAdminId": 1,
       "Id": 1,
       "Name": "Tecnico 3"
     },
     {
-      "equipmentFamilyId":5,
+      "equipmentFamilyId": 5,
       "techTypeId": 1,
-      "supportAdminId":1,
+      "supportAdminId": 1,
       "Id": 1,
       "Name": "Tecnico 4"
     },
     {
-      "equipmentFamilyId":1,
+      "equipmentFamilyId": 1,
       "techTypeId": 2,
-      "supportAdminId":1,
+      "supportAdminId": 1,
       "Id": 1,
       "Name": "Prov 3"
     },
     {
-      "equipmentFamilyId":1,
+      "equipmentFamilyId": 1,
       "techTypeId": 2,
-      "supportAdminId":1,
+      "supportAdminId": 1,
       "Id": 1,
       "Name": "Prov 4"
     }
-      ]
+  ]
 }

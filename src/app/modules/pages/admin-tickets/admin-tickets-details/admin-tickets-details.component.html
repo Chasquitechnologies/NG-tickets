@@ -276,28 +276,30 @@
                   </div>
 
                   <div class="m-widget3">
-                      <div class="m-widget3__item">
+
+
+                      <div *ngFor="let comment of comments" class="m-widget3__item">
                         <div class="m-widget3__header">
                           <div class="m-widget3__user-img">
-                            <img class="m-widget3__img" src="./assets/img/users/user1.jpg" alt="">
+                            <img class="m-widget3__img" src={{comment.imgUrl}} alt="">
                           </div>
                           <div class="m-widget3__info">
                             <span class="m-widget3__username">
-                              marsano.chwk@ngr.com.pe
+                                {{comment.createdBy}}
                             </span>
                             <br>
                             <span class="m-widget3__time">
-                              28/11/2017 10:00 PM
+                              {{comment.displayDate}}
                             </span>
                           </div>
                         </div>
                         <div class="m-widget3__body">
                           <p class="m-widget3__text">
-                              cambio de campana de servicio deteriorada
+                              {{comment.description}}
                           </p>
                         </div>
                       </div>
-                      <div class="m-widget3__item">
+                      <!-- <div class="m-widget3__item">
                         <div class="m-widget3__header">
                           <div class="m-widget3__user-img">
                             <img class="m-widget3__img" src="./assets/img/users/user2.jpg" alt="">
@@ -317,7 +319,7 @@
                             Se realizo el cambio de campana solicitado por la tienda. Ademas se hizo anotaciones de otras ventanas que necesitaran cambio y se solicito a la tienda ingresar un nuevo ticket.
                           </p>
                         </div>
-                      </div>
+                      </div> -->
                       
                     </div>
 

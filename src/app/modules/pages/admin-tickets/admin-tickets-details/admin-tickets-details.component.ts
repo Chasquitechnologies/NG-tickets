@@ -20,6 +20,7 @@ export class AdminTicketsDetailsComponent implements OnInit {
   // observable for ticketdetails route parameter
   public ticketDetails$: Observable<Ticket>;
   public ticketDetails: Ticket
+  public comments: Comment[];
   private selectedId: number;
 
   // Variables for status Dropdown
@@ -54,6 +55,10 @@ export class AdminTicketsDetailsComponent implements OnInit {
     this.ticketDetails$.subscribe(
       data => {
         this.ticketDetails = data;
+        this.comments = this.ticketDetails[0].Comments;
+        console.log('commentInfo');
+        console.log(this.ticketDetails[0].Comments);
+        console.log(this.comments);
         this.getNextStatusOptions(this.selectedId);
         this.getTechnicianTypeOptions();
 
