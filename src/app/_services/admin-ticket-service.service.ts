@@ -35,12 +35,9 @@ export class AdminTicketService {
     familyId: number,
     priorityId: number,
     statusId: Status[],
-    dateRangeSelected: Date[]): TicketCountSummary {
+    dateRangeSelected: Date[]): Observable<TicketCountSummary>{
 
-    let ticketCountSummary: TicketCountSummary = this.DAO.getAdminTicketsSummaryCount(brandId, storeId, familyId, priorityId, statusId, dateRangeSelected);
-
-
-    return ticketCountSummary;
+    return this.DAO.getAdminTicketsSummaryCount(brandId, storeId, familyId, priorityId, statusId, dateRangeSelected);;
   }
 
   getAdminTicketDetails(ticketId:number): Observable<Ticket>

@@ -224,6 +224,17 @@
       "description": "PP - Store 3"
     }
   ],
+  "ticketCountSummary": 
+    {
+      "totalPendingTickets": 100.0,
+      "totalPriorityA": 20,
+      "totalPriorityB": 40,
+      "totalPriorityC": 40,
+      "percentPriorityA?": 20,
+      "percentPriorityB?": 40,
+      "percentPriorityC?": 40,
+      "BrandId": 0
+    },
   "tickets": [
     {
       "Id": 27904,

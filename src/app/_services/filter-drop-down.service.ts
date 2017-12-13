@@ -97,6 +97,7 @@ export class FilterDropDownService {
   public getTechnicianName(techTypeId:number, equipmentFamilyId: number, supportAdminId: number):Observable<TechnicianName[]>{
       return this.DAO.getTechnicianName(techTypeId, equipmentFamilyId, supportAdminId);
   }
+  
   // <<<<<--------------- SETTERS AND GETTERS FOR LASTSELECTED DROPDOWN ITEMS ------------------------>>>>>
   public setlastSelectedBrand(brand: Brand): void {
     this.lastSelectedBrand = brand;

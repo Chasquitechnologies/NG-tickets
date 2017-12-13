@@ -30,7 +30,7 @@ export abstract class IDAO {
         familyId: number,
         priorityId: number,
         statusId: Status[],
-        dateRangeSelected: Date[]) => TicketCountSummary;
+        dateRangeSelected: Date[]) => Observable<TicketCountSummary>;
 
   
     // DROPDOWN RELATED INTERFACES    

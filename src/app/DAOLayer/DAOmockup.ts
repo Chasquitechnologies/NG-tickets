@@ -202,72 +202,28 @@ export class DAOmockup implements IDAO {
         familyId: number,
         priorityId: number,
         statusId: Status[],
-        dateRangeSelected: Date[]): TicketCountSummary {
+        dateRangeSelected: Date[]): Observable<TicketCountSummary> {
 
+        let query: string;
+        query = '?'
 
-        let filteredTickets: Ticket[];
-
-        if (brandId == 0) {
-            filteredTickets = this.testTickets;
-        } else {
-            filteredTickets = this.testTickets.filter(ticket => ticket.BrandId == brandId);
+        if (brandId != 0) {
+            query += '&BrandId=' + brandId.toString();
+        }
+        if (storeId != 0) {
+            query += '&BtoreId=' + storeId.toString();
+        }
+        if (familyId != 0) {
+            query += '&FamilyId=' + familyId.toString();
+        }
+        if (priorityId != 0) {
+            query += '&TicketPriorityId=' + priorityId.toString();
+        }
+        for (let status of statusId) {
+            query += '&FlowStatusId=' + status.id.toString() 
         }
 
-        if (storeId == 0) {
-            filteredTickets = filteredTickets;
-        } else {
-            filteredTickets = filteredTickets.filter(ticket => ticket.StoreId == storeId);
-        }
-
-        if (familyId == 0) {
-            filteredTickets = filteredTickets;
-        } else {
-            filteredTickets = filteredTickets.filter(ticket => ticket.EquipmentFamilyId == familyId);
-        }
-
-        if (priorityId == 0) {
-            filteredTickets = filteredTickets;
-        } else {
-            filteredTickets = filteredTickets.filter(ticket => ticket.TicketPriorityId == priorityId);
-        }
-
-        if (statusId) {
-            let selectedStatus: number[] = statusId.map(status => status.id);
-            filteredTickets = filteredTickets.filter(function (ticket) {
-                return selectedStatus.indexOf(ticket.FlowStatusId) >= 0
-            });
-        } else {
-            filteredTickets = filteredTickets;
-        }
-
-        let adminTicketsSummary: TicketCountSummary = {
-            totalPriorityA: 0,
-            totalPriorityB: 0,
-            totalPriorityC: 0,
-            totalPendingTickets: 0,
-            percentPriorityA: 0,
-            percentPriorityB: 0,
-            percentPriorityC: 0
-        };
-
-        for (let ticket of filteredTickets) {
-            if ((ticket.TicketPriorityId == 1 || ticket.TicketPriorityId == 2 || ticket.TicketPriorityId == 3 || ticket.TicketPriorityId == 4) &&
-                (ticket.FlowStatusId == 1 || ticket.FlowStatusId == 12 || ticket.FlowStatusId == 2 || ticket.FlowStatusId == 13)) {
-                adminTicketsSummary.totalPriorityA += 1
-            }
-            if ((ticket.TicketPriorityId == 5 || ticket.TicketPriorityId == 6 || ticket.TicketPriorityId == 7) &&
-                (ticket.FlowStatusId == 1 || ticket.FlowStatusId == 12 || ticket.FlowStatusId == 2 || ticket.FlowStatusId == 13)) {
-                adminTicketsSummary.totalPriorityB += 1
-            }
-            if ((ticket.TicketPriorityId == 8 || ticket.TicketPriorityId == 9 || ticket.TicketPriorityId == 10) &&
-                (ticket.FlowStatusId == 1 || ticket.FlowStatusId == 12 || ticket.FlowStatusId == 2 || ticket.FlowStatusId == 13)) {
-                adminTicketsSummary.totalPriorityC += 1
-            }
-        }
-
-        adminTicketsSummary.totalPendingTickets = adminTicketsSummary.totalPriorityA + adminTicketsSummary.totalPriorityB + adminTicketsSummary.totalPriorityC
-
-        return adminTicketsSummary;
+        return this.http.get<TicketCountSummary>('http://localhost:3000/ticketCountSummary' + query);
     }
 
 

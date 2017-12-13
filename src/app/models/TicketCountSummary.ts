@@ -3,7 +3,7 @@ export interface TicketCountSummary {
     totalPriorityA: number,
     totalPriorityB: number,
     totalPriorityC: number,
-    percentPriorityA?: number
+    percentPriorityA?: number,
     percentPriorityB?: number,
     percentPriorityC?: number
 }
