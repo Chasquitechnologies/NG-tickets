@@ -31,6 +31,7 @@ export class AdminTicketsMainComponent implements OnInit {
       percentPriorityC: 0
 
     };
+    
     this.subscription = filterDropdownService.ticketSummaryQuery$.subscribe(
       ticketSummaryQuery => {
         console.log('on main component');

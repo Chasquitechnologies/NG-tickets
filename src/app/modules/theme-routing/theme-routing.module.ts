@@ -48,6 +48,10 @@ const routes: Routes = [
                 loadChildren: "../pages/admin-tickets/admin-tickets.module#AdminTicketsModule",
             },
             {
+                path: "newTicket",
+                loadChildren: "../pages/new-ticket/new-ticket.module#NewTicketModule",
+            },
+            {
                 path: "",
                 redirectTo: "index",
                 pathMatch: "full"

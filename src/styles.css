@@ -106,25 +106,6 @@
 
 
 /* STYLING DETAILS TICKET PORTLET */
-/* <div class="ui-g-7 portlet-details">
-<div class="form-group m-form__group">
-  <div class="ui-g-12 ml-auto">
-    <h3 class="m-form__section">
-      <i class="fa fa-flag"></i>
-      Detalles de la Solicitud
-    </h3>
-  </div>
-</div>
-<div class="ui-g-12 detail-group">
-  <div class="ui-g-3 detail-label-holder">
-    <label class="m-label detail-label">
-      Fecha de Ingreso:
-    </label>
-  </div>
-  <div class="ui-g-9 ui-fluid detail-value">
-    <p>28/11/2017 10:00 PM</p>
-  </div>
-</div> */
 
 .portlet-details .detail-group {
     padding-top: 0px;
@@ -162,7 +143,75 @@
 
 /* 0.0em 0.5em 0.0em 0.5em */
 
+/* STYLING NEW TICKET PORTLET */
+/* Styling the main portlet */
+.portlet-new-ticket .new-ticket-group{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+/* Styling the portlet title */
+.portlet-new-ticket h3.m-form__section.title{
+    color: #36a3f7;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+/* .portlet-details .detail-group.detail-last {
+    padding-bottom: 18px;
+} */
 
+/* .portlet-details h3.m-form__section.title{
+    color: #36a3f7;
+    padding-top: 0px;
+    padding-bottom: 20px;
+} */
+/* Styling the dropdown labels */
+.portlet-new-ticket .new-ticket-group .new-ticket-label-holder {
+    padding-top: 1em;
+    padding-bottom: 0px;
+    text-align: right;
+    
+}
+.portlet-new-ticket .new-ticket-group label.new-ticket-label {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.portlet-new-ticket .new-ticket-group .new-ticket-value > textarea.new-ticket-comment {
+    width: 100%;
+    border-color: #EBEDF3;
+    border-radius: 0.25em;
+}
+
+.portlet-new-ticket .new-ticket-group .new-ticket-value > textarea.new-ticket-comment:focus {
+    width: 100%;
+    border-color: #716aca;
+    border-radius: 0.25em;
+    outline: none;
+    
+}
+
+/* Styling dropdown label when in mobile size */
+@media only screen and (max-width: 640px) {
+    
+    /* STYLING DROPDOWN LABELS */
+    /* Styling first dropdown label */
+    .portlet-new-ticket .new-ticket-group .new-ticket-label-holder {
+        padding-top: 1em;
+        padding-bottom: 0px;
+        text-align: left;
+        
+    }
+    
+}
+
+
+/* 
+.portlet-details .detail-group .detail-value {
+    padding-top: 0px;
+    padding-bottom: 0px;
+} */
+/* .portlet-details .detail-group .detail-value p {
+    margin-bottom: 0; */
 
 
 

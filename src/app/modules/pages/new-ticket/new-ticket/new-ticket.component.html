@@ -1,3 +1,147 @@
-<p>
-  new-ticket works!
-</p>
+<!-- END: Subheader -->
+<div class="row animationtest">
+  
+    <div class="col-lg-12">
+      <div class="m-portlet m-portlet--full-height">
+        <!-- <div class="m-portlet__head">
+        </div> -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="m_user_profile_tab_1">
+            <div class="m-form">
+  
+              <div class="m-portlet__body">
+  
+  
+                <!-- <div *ngIf="ticketDetails$ | async; let ticketDetails" class="ui-g" > -->
+                <div class="ui-g" >  
+                  <div class="ui-sm-12 ui-md-12 ui-lg-offset-2 ui-lg-8 portlet-new-ticket">
+                    <div class="ui-g-12 new-ticket-group title">
+                      <h3 class="m-form__section title">
+                        <i class="la la-cog"></i>
+                        INGRESA TU NUEVA SOLICITUD
+                      </h3>
+                      <div class="m-form__seperator m-form__seperator m-form__seperator--space-2x"></div>
+                    </div>
+                    <div class="ui-g-12 new-ticket-group">
+                      <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 new-ticket-label-holder">
+                        <label class="m-label new-ticket-label">
+                          Marca
+                        </label>
+                      </div>
+                      <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
+                        <p-dropdown [options]="brandDropdown" [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange($event)" optionLabel="description"
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 new-ticket-group">
+                      <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 new-ticket-label-holder">
+                        <label class="m-label new-ticket-label">
+                          Tienda
+                        </label>
+                      </div>
+                      <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
+                        <p-dropdown [options]="storeDropdown" [(ngModel)]="selectedStore" (ngModelChange)="onStoreChange($event)" filter="true" optionLabel="description" 
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 new-ticket-group">
+                      <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 new-ticket-label-holder">
+                        <label class="m-label new-ticket-label">
+                          Clasificación
+                        </label>
+                      </div>
+                      <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
+                        <p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" (ngModelChange)="onOtherDropdownChange($event)" optionLabel="description" 
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 new-ticket-group">
+                      <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 new-ticket-label-holder">
+                        <label class="m-label new-ticket-label">
+                          Familia
+                        </label>
+                      </div>
+                      <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
+                        <p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" (ngModelChange)="onOtherDropdownChange($event)" filter="true" optionLabel="description" 
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                      </div>
+                    </div>
+                    <div class="ui-g-12 new-ticket-group">
+                      <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 new-ticket-label-holder">
+                        <label class="m-label new-ticket-label">
+                          Equipo
+                        </label>
+                      </div>
+                      <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
+                        <p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" (ngModelChange)="onOtherDropdownChange($event)" filter="true" optionLabel="description" 
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                      </div>
+                    </div>
+  
+                    <div class="ui-g-12 new-ticket-group">
+                      <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 new-ticket-label-holder">
+                        <label class="m-label new-ticket-label">
+                          Tipo de Falla
+                        </label>
+                      </div>
+                      <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
+                        <p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" (ngModelChange)="onOtherDropdownChange($event)" optionLabel="description" 
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                      </div>
+                    </div>
+  
+                    <div class="ui-g-12 new-ticket-group">
+                      <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 new-ticket-label-holder">
+                        <label class="m-label new-ticket-label">
+                          Comentario
+                        </label>
+                      </div>
+                      <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
+                        <textarea [rows]="5" pInputTextarea [(ngModel)]="comment" class="new-ticket-comment"></textarea>
+                      </div>
+                    </div>
+  
+                    <div class="ui-g-12 new-ticket-group">
+                      <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 new-ticket-label-holder">
+                        <label class="m-label new-ticket-label">
+                          Sólo Marcar si es Emergencia Grave
+                        </label>
+                      </div>
+                      <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
+                        <!-- <p>{{ticketDetails[0].FailureType}}</p> -->
+                      </div>
+                    </div>
+                    
+  
+  
+                  </div>
+  
+                  
+  
+  
+  
+                </div>
+                <!-- <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div> -->
+              </div>
+              <div class="m-portlet__foot m-portlet__foot--fit">
+                <div class="m-form__actions">
+                  <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-8">
+                      <button routerLink="/tickets" type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                        Ingresar
+                      </button> &nbsp;&nbsp;
+                      <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                        Cancelar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane active" id="m_user_profile_tab_2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
