@@ -97,6 +97,204 @@
       "description": "C3"
     }
   ],
+
+  "newTicketBrands": [
+    {
+      "id": 1,
+      "description": "Brand1"
+    },
+    {
+      "id": 2,
+      "description": "Brand2"
+    }
+  ],
+
+  "newTicketStores1": [
+    {
+      "id": 1,
+      "brandId": 1,
+      "description": "Store11"
+    },
+    {
+      "id": 2,
+      "brandId": 1,
+      "description": "Store12"
+    }
+  ],
+  "newTicketStores2": [
+    {
+      "id": 1,
+      "brandId": 1,
+      "description": "Store21"
+    },
+    {
+      "id": 2,
+      "brandId": 1,
+      "description": "Store22"
+    }
+  ],
+  "newTicketClassification1": [
+    {
+      "id": 1,
+      "brandId": 1,
+      "description": "Class1"
+    },
+    {
+      "id": 2,
+      "brandId": 1,
+      "description": "Class2"
+    }
+  ],
+
+  "newTicketFamilies21": [
+    {
+      "id": 1,
+      "description": "Family 11"
+    },
+    {
+      "id": 2,
+      "description": "Family 12"
+    },
+    {
+      "id": 3,
+      "description": "Family 13"
+    },
+    {
+      "id": 4,
+      "description": "Family 14"
+    }
+  ],
+  "newTicketFamilies22": [
+    {
+      "id": 1,
+      "description": "Family 21"
+    },
+    {
+      "id": 2,
+      "description": "Family 22"
+    },
+    {
+      "id": 3,
+      "description": "Family 23"
+    },
+    {
+      "id": 4,
+      "description": "Family 24"
+    }
+  ],
+
+  "newTicketEquipment21": [
+    {
+      "id": 1,
+      "description": "Equipment11"
+    },
+    {
+      "id": 2,
+      "description": "Equipment12"
+    },
+    {
+      "id": 3,
+      "description": "Equipment13"
+    }
+  ],
+
+  "newTicketEquipment22": [
+    {
+      "id": 1,
+      "description": "Equipment21"
+    },
+    {
+      "id": 2,
+      "description": "Equipment22"
+    },
+    {
+      "id": 3,
+      "description": "Equipment23"
+    }
+  ],
+
+  "newTicketFamilies11": [
+    {
+      "id": 1,
+      "description": "Family 11"
+    },
+    {
+      "id": 2,
+      "description": "Family 12"
+    },
+    {
+      "id": 3,
+      "description": "Family 13"
+    },
+    {
+      "id": 4,
+      "description": "Family 14"
+    }
+  ],
+  "newTicketFamilies12": [
+    {
+      "id": 1,
+      "description": "Family 21"
+    },
+    {
+      "id": 2,
+      "description": "Family 22"
+    },
+    {
+      "id": 3,
+      "description": "Family 23"
+    },
+    {
+      "id": 4,
+      "description": "Family 24"
+    }
+  ],
+
+  "newTicketEquipment11": [
+    {
+      "id": 1,
+      "description": "Equipment11"
+    },
+    {
+      "id": 2,
+      "description": "Equipment12"
+    },
+    {
+      "id": 3,
+      "description": "Equipment13"
+    }
+  ],
+
+  "newTicketEquipment12": [
+    {
+      "id": 1,
+      "description": "Equipment21"
+    },
+    {
+      "id": 2,
+      "description": "Equipment22"
+    },
+    {
+      "id": 3,
+      "description": "Equipment23"
+    }
+  ],
+
+  "newTicketFailureType": [
+    {
+      "id": 1,
+      "description": "FailureType1"
+    },
+    {
+      "id": 2,
+      "description": "FailureType2"
+    },
+    {
+      "id": 3,
+      "description": "FailureType3"
+    }
+  ],
+
   "status": [
     {
       "id": 1,

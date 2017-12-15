@@ -19,6 +19,7 @@ import { AdminTicketService } from './_services/admin-ticket-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DAOmockup } from './DAOLayer/DAOmockup';
 import { IDAO } from './DAOLayer/IDAO';
+import { NewTicketServiceService } from './_services/new-ticket-service.service';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { IDAO } from './DAOLayer/IDAO';
   ],
   providers: [
     {provide: IDAO, useClass: DAOmockup},
+    NewTicketServiceService,
     AdminTicketService,
     FilterDropDownService,
     RedirectUrlService,

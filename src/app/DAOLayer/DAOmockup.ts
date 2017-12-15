@@ -13,13 +13,14 @@ import { HttpClient } from "@angular/common/http";
 import { forEach } from "@angular/router/src/utils/collection";
 import { TechnicianType } from "../models/TechnicianType";
 import { TechnicianName } from "../models/TechnicianName";
+import { EquipmentClassification } from "../models/EquipmentClassification";
+import { FailureType } from "../models/FailureType";
+import { EquipmentDetail } from "../models/EquipmentDetail";
 
 
 @Injectable()
 export class DAOmockup implements IDAO {
 
-
-    public testTickets: Ticket[];
     public testBrands: Brand[];
     public testStores: Store[];
     public testFamilies: Family[];
@@ -27,140 +28,7 @@ export class DAOmockup implements IDAO {
     public testStatus: Status[];
 
     constructor(private http: HttpClient) {
-        this.testTickets =[
-            {
-              "Id": 27904,
-              "GlobalTicketId": "T0027904",
-              "FlowStatusId": 4,
-              "Status": "Confirmado",
-              "BrandId": 2,
-              "Brand": "China Wok",
-              "StoreId": 127,
-              "Store": "CW - OP Angamos",
-              "CostCenterId": 405,
-              "CostCenter": null,
-              "AffectPeople": false,
-              "AffectStore": false,
-              "IsHighPriority": false,
-              "PriorityDisplay": "C1",
-              "EquipmentId": 2,
-              "Classification": "INFRAESTRUCTURA",
-              "EquipmentFamilyId": 5,
-              "EquipmentFamily": "EDIFICACIÓN Y ESTRUCTURAS",
-              "EquipmentDetailId": 4435,
-              "EquipmentDetail": "TRABAJO EN PAREDES",
-              "EquipmentDetailCode": "CWI0027",
-              "FailTypeId": 1,
-              "FailureType": "Total",
-              "TicketPriorityId": 8,
-              "TicketPriority": "C1",
-              "Comments": null,
-              "User": "marsano.chwk@ngr.com.pe",
-              "CreatedOnDisplay": "29/11/2017 07:59 PM",
-              "CreatedBy": "0c186f77-5d32-49a5-b6c1-959b9341347f",
-              "SupportAdminId": 0,
-              "SupportAdminName": "Alejandro Rodriguez",
-              "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
-              "TechnicianId": 0,
-              "ProviderId": 0,
-              "TechnicianType": "Técnico NGR",
-              "TechnicianTypeId": 1,
-              "AssignedDateDisplay": " ",
-              "ProgrammedDateDisplay": " ",
-              "AtendidoDateDisplay": " ",
-              "ConfirmationDateDisplay": "29/11/2017 08:12 PM",
-              "AnuladoDateDisplay": " ",
-              "ReactivadoDateDisplay": " "
-            },
-            {
-              "Id": 27903,
-              "GlobalTicketId": "T0027903",
-              "FlowStatusId": 4,
-              "Status": "Confirmado",
-              "BrandId": 2,
-              "Brand": "China Wok",
-              "StoreId": 127,
-              "Store": "CW - OP Angamos",
-              "CostCenterId": 405,
-              "CostCenter": null,
-              "AffectPeople": false,
-              "AffectStore": false,
-              "IsHighPriority": false,
-              "PriorityDisplay": "C1",
-              "EquipmentId": 2,
-              "Classification": "INFRAESTRUCTURA",
-              "EquipmentFamilyId": 5,
-              "EquipmentFamily": "EDIFICACIÓN Y ESTRUCTURAS",
-              "EquipmentDetailId": 4435,
-              "EquipmentDetail": "TRABAJO EN PAREDES",
-              "EquipmentDetailCode": "CWI0027",
-              "FailTypeId": 1,
-              "FailureType": "Total",
-              "TicketPriorityId": 8,
-              "TicketPriority": "C1",
-              "Comments": null,
-              "User": "marsano.chwk@ngr.com.pe",
-              "CreatedOnDisplay": "29/11/2017 07:57 PM",
-              "CreatedBy": "0c186f77-5d32-49a5-b6c1-959b9341347f",
-              "SupportAdminId": 0,
-              "SupportAdminName": "Alejandro Rodriguez",
-              "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
-              "TechnicianId": 0,
-              "ProviderId": 0,
-              "TechnicianType": "Técnico NGR",
-              "TechnicianTypeId": 1,
-              "AssignedDateDisplay": " ",
-              "ProgrammedDateDisplay": " ",
-              "AtendidoDateDisplay": " ",
-              "ConfirmationDateDisplay": "29/11/2017 08:12 PM",
-              "AnuladoDateDisplay": " ",
-              "ReactivadoDateDisplay": " "
-            },
-            {
-              "Id": 27902,
-              "GlobalTicketId": "T0027902",
-              "FlowStatusId": 1,
-              "Status": "Ingresado",
-              "BrandId": 2,
-              "Brand": "China Wok",
-              "StoreId": 127,
-              "Store": "CW - OP Angamos",
-              "CostCenterId": 405,
-              "CostCenter": null,
-              "AffectPeople": false,
-              "AffectStore": false,
-              "IsHighPriority": false,
-              "PriorityDisplay": "C1",
-              "EquipmentId": 2,
-              "Classification": "INFRAESTRUCTURA",
-              "EquipmentFamilyId": 5,
-              "EquipmentFamily": "EDIFICACIÓN Y ESTRUCTURAS",
-              "EquipmentDetailId": 4440,
-              "EquipmentDetail": "VENTANA",
-              "EquipmentDetailCode": "CWI0032",
-              "FailTypeId": 1,
-              "FailureType": "Total",
-              "TicketPriorityId": 8,
-              "TicketPriority": "C1",
-              "Comments": null,
-              "User": "marsano.chwk@ngr.com.pe",
-              "CreatedOnDisplay": "29/11/2017 07:55 PM",
-              "CreatedBy": "0c186f77-5d32-49a5-b6c1-959b9341347f",
-              "SupportAdminId": 0,
-              "SupportAdminName": "Alejandro Rodriguez",
-              "SupportAdminEmail": "alejandro.rodriguez@ngr.com.pe",
-              "TechnicianId": 0,
-              "ProviderId": 0,
-              "TechnicianType": "Técnico NGR",
-              "TechnicianTypeId": 1,
-              "AssignedDateDisplay": " ",
-              "ProgrammedDateDisplay": " ",
-              "AtendidoDateDisplay": " ",
-              "ConfirmationDateDisplay": " ",
-              "AnuladoDateDisplay": " ",
-              "ReactivadoDateDisplay": " ",
-            }
-          ]
+    
     }
 
     public getAllAdminTickets(brandId: number,
@@ -227,6 +95,7 @@ export class DAOmockup implements IDAO {
     }
 
 
+    // DROPDOWN OPTIONS FOR ADMIN TICKET PAGE, MY TICKETS PAGE AND DETAIL PAGE
 
     public getNextStatus(ticketId: number): Observable<Status[]>{
         return this.http.get<Status[]>('http://localhost:3000/nextStatus?ticketId='+ ticketId.toString())
@@ -272,6 +141,33 @@ export class DAOmockup implements IDAO {
         return this.http.get<TechnicianName[]>('http://localhost:3000/technicianName?'+'equipmentFamilyId='+equipmentFamilyId.toString() +
                                                 '&techTypeId='+techTypeId.toString() +
                                                 '&supportAdminId=' + supportAdminId)
+    }
+
+
+
+
+    // DROPDOWN OPTIONS FOR NEW TICKET PAGE 
+
+    public getBrandDropdownOptions () : Observable<Brand[]>{
+        return this.http.get<Brand[]>('http://localhost:3000/newTicketBrands');
+        
+    }
+    public getStoreDropdownOptions(brandId: number): Observable<Store[]>{
+        return this.http.get<Store[]>('http://localhost:3000/newTicketStores'+brandId.toString());;
+    }
+    
+    public getClassificationOptions (): Observable<EquipmentClassification[]>{
+        return this.http.get<EquipmentClassification[]>('http://localhost:3000/newTicketClassification1');;
+    }
+
+    public getFamilyDropdownOptions (storeId: number, classificationId: number): Observable<Family[]>{
+        return this.http.get<Family[]>('http://localhost:3000/newTicketFamilies11');;
+    }
+    public getEquipmentDropdownOptions (storeId: number, classificationId: number, familyId: number): Observable<EquipmentDetail[]>{
+        return this.http.get<EquipmentDetail[]>('http://localhost:3000/newTicketEquipment11');;
+    }
+    public getFailureTypeDropdownOptions (): Observable<FailureType[]>{
+        return this.http.get<FailureType[]>('http://localhost:3000/newTicketFailureType');;
     }
 
 }
