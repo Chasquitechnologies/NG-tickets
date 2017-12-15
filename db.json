@@ -97,7 +97,6 @@
       "description": "C3"
     }
   ],
-
   "newTicketBrands": [
     {
       "id": 1,
@@ -108,7 +107,6 @@
       "description": "Brand2"
     }
   ],
-
   "newTicketStores1": [
     {
       "id": 1,
@@ -145,74 +143,7 @@
       "description": "Class2"
     }
   ],
-
-  "newTicketFamilies21": [
-    {
-      "id": 1,
-      "description": "Family 11"
-    },
-    {
-      "id": 2,
-      "description": "Family 12"
-    },
-    {
-      "id": 3,
-      "description": "Family 13"
-    },
-    {
-      "id": 4,
-      "description": "Family 14"
-    }
-  ],
-  "newTicketFamilies22": [
-    {
-      "id": 1,
-      "description": "Family 21"
-    },
-    {
-      "id": 2,
-      "description": "Family 22"
-    },
-    {
-      "id": 3,
-      "description": "Family 23"
-    },
-    {
-      "id": 4,
-      "description": "Family 24"
-    }
-  ],
-
-  "newTicketEquipment21": [
-    {
-      "id": 1,
-      "description": "Equipment11"
-    },
-    {
-      "id": 2,
-      "description": "Equipment12"
-    },
-    {
-      "id": 3,
-      "description": "Equipment13"
-    }
-  ],
-
-  "newTicketEquipment22": [
-    {
-      "id": 1,
-      "description": "Equipment21"
-    },
-    {
-      "id": 2,
-      "description": "Equipment22"
-    },
-    {
-      "id": 3,
-      "description": "Equipment23"
-    }
-  ],
-
+  "newTicketFamilies00": [],
   "newTicketFamilies11": [
     {
       "id": 1,
@@ -221,14 +152,6 @@
     {
       "id": 2,
       "description": "Family 12"
-    },
-    {
-      "id": 3,
-      "description": "Family 13"
-    },
-    {
-      "id": 4,
-      "description": "Family 14"
     }
   ],
   "newTicketFamilies12": [
@@ -239,18 +162,99 @@
     {
       "id": 2,
       "description": "Family 22"
+    }
+  ],
+  "newTicketEquipment111": [
+    {
+      "id": 1,
+      "description": "Equipment111"
+    },
+    {
+      "id": 2,
+      "description": "Equipment121"
     },
     {
       "id": 3,
-      "description": "Family 23"
-    },
-    {
-      "id": 4,
-      "description": "Family 24"
+      "description": "Equipment131"
     }
   ],
-
-  "newTicketEquipment11": [
+  "newTicketEquipment121": [
+    {
+      "id": 1,
+      "description": "Equipment211"
+    },
+    {
+      "id": 2,
+      "description": "Equipment221"
+    },
+    {
+      "id": 3,
+      "description": "Equipment231"
+    }
+  ],
+  "newTicketEquipment112": [
+    {
+      "id": 1,
+      "description": "Equipment112"
+    },
+    {
+      "id": 2,
+      "description": "Equipment122"
+    },
+    {
+      "id": 3,
+      "description": "Equipment132"
+    }
+  ],
+  "newTicketEquipment122": [
+    {
+      "id": 1,
+      "description": "Equipment212"
+    },
+    {
+      "id": 2,
+      "description": "Equipment222"
+    },
+    {
+      "id": 3,
+      "description": "Equipment232"
+    }
+  ],
+  "newTicketFamilies21": [
+    {
+      "id": 1,
+      "description": "Family 11"
+    },
+    {
+      "id": 2,
+      "description": "Family 12"
+    }
+  ],
+  "newTicketFamilies22": [
+    {
+      "id": 1,
+      "description": "Family 21"
+    },
+    {
+      "id": 2,
+      "description": "Family 22"
+    }
+  ],
+  "newTicketEquipment211": [
+    {
+      "id": 1,
+      "description": "Equipment211"
+    },
+    {
+      "id": 2,
+      "description": "Equipment212"
+    },
+    {
+      "id": 3,
+      "description": "Equipment213"
+    }
+  ],
+  "newTicketEquipment212": [
     {
       "id": 1,
       "description": "Equipment11"
@@ -264,8 +268,7 @@
       "description": "Equipment13"
     }
   ],
-
-  "newTicketEquipment12": [
+  "newTicketEquipment221": [
     {
       "id": 1,
       "description": "Equipment21"
@@ -279,7 +282,20 @@
       "description": "Equipment23"
     }
   ],
-
+  "newTicketEquipment222": [
+    {
+      "id": 1,
+      "description": "Equipment21"
+    },
+    {
+      "id": 2,
+      "description": "Equipment22"
+    },
+    {
+      "id": 3,
+      "description": "Equipment23"
+    }
+  ],
   "newTicketFailureType": [
     {
       "id": 1,
@@ -294,7 +310,6 @@
       "description": "FailureType3"
     }
   ],
-
   "status": [
     {
       "id": 1,
@@ -422,17 +437,16 @@
       "description": "PP - Store 3"
     }
   ],
-  "ticketCountSummary": 
-    {
-      "totalPendingTickets": 100.0,
-      "totalPriorityA": 20,
-      "totalPriorityB": 40,
-      "totalPriorityC": 40,
-      "percentPriorityA?": 20,
-      "percentPriorityB?": 40,
-      "percentPriorityC?": 40,
-      "BrandId": 0
-    },
+  "ticketCountSummary": {
+    "totalPendingTickets": 100.0,
+    "totalPriorityA": 20,
+    "totalPriorityB": 40,
+    "totalPriorityC": 40,
+    "percentPriorityA?": 20,
+    "percentPriorityB?": 40,
+    "percentPriorityC?": 40,
+    "BrandId": 0
+  },
   "tickets": [
     {
       "Id": 27904,

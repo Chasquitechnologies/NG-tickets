@@ -144,8 +144,6 @@ export class DAOmockup implements IDAO {
     }
 
 
-
-
     // DROPDOWN OPTIONS FOR NEW TICKET PAGE 
 
     public getBrandDropdownOptions () : Observable<Brand[]>{
@@ -161,10 +159,10 @@ export class DAOmockup implements IDAO {
     }
 
     public getFamilyDropdownOptions (storeId: number, classificationId: number): Observable<Family[]>{
-        return this.http.get<Family[]>('http://localhost:3000/newTicketFamilies11');;
+        return this.http.get<Family[]>('http://localhost:3000/newTicketFamilies'+storeId.toString()+classificationId.toString());;
     }
     public getEquipmentDropdownOptions (storeId: number, classificationId: number, familyId: number): Observable<EquipmentDetail[]>{
-        return this.http.get<EquipmentDetail[]>('http://localhost:3000/newTicketEquipment11');;
+        return this.http.get<EquipmentDetail[]>('http://localhost:3000/newTicketEquipment'+storeId.toString()+classificationId.toString()+familyId.toString());;
     }
     public getFailureTypeDropdownOptions (): Observable<FailureType[]>{
         return this.http.get<FailureType[]>('http://localhost:3000/newTicketFailureType');;

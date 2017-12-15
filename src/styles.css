@@ -180,6 +180,9 @@
     width: 100%;
     border-color: #EBEDF3;
     border-radius: 0.25em;
+    padding: 0.5em 1.25em;
+    font-size: 1em;
+    color: #55595c;
 }
 
 .portlet-new-ticket .new-ticket-group .new-ticket-value > textarea.new-ticket-comment:focus {

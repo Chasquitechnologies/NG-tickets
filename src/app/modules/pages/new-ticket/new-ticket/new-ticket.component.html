@@ -51,7 +51,7 @@
                         </label>
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
-                        <p-dropdown [options]="equipmentClassDropdown" [(ngModel)]="selectedClassification" (ngModelChange)="onOtherDropdownChange($event)" optionLabel="description" 
+                        <p-dropdown [options]="equipmentClassDropdown" [(ngModel)]="selectedClassification" (ngModelChange)="onClassificationChange($event)" optionLabel="description" 
                         [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
                       </div>
                     </div>
@@ -62,7 +62,7 @@
                         </label>
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
-                        <p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" (ngModelChange)="onOtherDropdownChange($event)" filter="true" optionLabel="description" 
+                        <p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" (ngModelChange)="onFamilyChange($event)" filter="true" optionLabel="description" 
                         [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
                       </div>
                     </div>
@@ -73,7 +73,7 @@
                         </label>
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
-                        <p-dropdown [options]="equipmentDetailDropdown" [(ngModel)]="selectedEquipment" (ngModelChange)="onOtherDropdownChange($event)" filter="true" optionLabel="description" 
+                        <p-dropdown [options]="equipmentDetailDropdown" [(ngModel)]="selectedEquipment" (ngModelChange)="onEquipmentChange($event)" filter="true" optionLabel="description" 
                         [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
                       </div>
                     </div>
@@ -85,7 +85,7 @@
                         </label>
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
-                        <p-dropdown [options]="failureTypeDropdown" [(ngModel)]="selectedFailureType" (ngModelChange)="onOtherDropdownChange($event)" optionLabel="description" 
+                        <p-dropdown [options]="failureTypeDropdown" [(ngModel)]="selectedFailureType" optionLabel="description" 
                         [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
                       </div>
                     </div>
@@ -97,7 +97,7 @@
                         </label>
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
-                        <textarea [rows]="5" pInputTextarea [(ngModel)]="comment" class="new-ticket-comment"></textarea>
+                        <textarea [rows]="5" pInputTextarea [(ngModel)]="comment" class="new-ticket-comment" placeholder="Ingresa un comentario..."></textarea>
                       </div>
                     </div>
   
@@ -115,8 +115,7 @@
   
   
                   </div>
-  
-                  
+                    
   
   
   
