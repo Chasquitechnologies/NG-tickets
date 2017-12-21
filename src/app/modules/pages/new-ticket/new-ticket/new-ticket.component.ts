@@ -32,6 +32,9 @@ export class NewTicketComponent implements OnInit {
   public selectedEquipment: EquipmentDetail;
   public selectedFailureType: FailureType;
 
+  public affectPeople: boolean;
+  public affectStore: boolean;
+
   public newTicketForm: FormGroup;
 
   public submitAttemptedFlag: boolean;
@@ -49,7 +52,9 @@ export class NewTicketComponent implements OnInit {
       'family': new FormControl('',newTicketDropdownValidator),
       'equipmentDetail': new FormControl('', newTicketDropdownValidator),
       'failType': new FormControl('', newTicketDropdownValidator),
-      'comment': new FormControl('', Validators.required)
+      'comment': new FormControl('', Validators.required),
+      'affectPeople': new FormControl(),
+      'affectStore': new FormControl()
     });
 
 
@@ -67,6 +72,9 @@ export class NewTicketComponent implements OnInit {
     this.selectedFamily = this.familyDropdown[0];
     this.selectedEquipment = this.equipmentDetailDropdown[0];
     this.selectedFailureType = this.failureTypeDropdown[0];
+
+    this.affectPeople=false;
+    this.affectStore=false;
 
     // Clearing comments box
     this.comment = '';

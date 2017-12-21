@@ -127,7 +127,13 @@
                         </label>
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
-                        <!-- <p>{{ticketDetails[0].FailureType}}</p> -->
+                        <div>
+                            <p-checkbox [(ngModel)]="affectPeople" formControlName="affectPeople" label="¿Afecta seguridad/salud de las personas?" binary="true"></p-checkbox>
+                        </div>
+                        <div>
+                            <p-checkbox [(ngModel)]="affectStore" formControlName="affectStore" label="¿Alta posibilidad de dejar de vender?" binary="true"></p-checkbox>
+                        </div>
+                        
                       </div>
                     </div>
                     

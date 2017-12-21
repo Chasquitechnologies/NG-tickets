@@ -160,6 +160,21 @@ form.newTicketForm p-dropdown.ng-dirty.ng-invalid > .ui-dropdown:not(.ui-state-d
     border-bottom-color: #cccccc;
 }
 
+form.newTicketForm p-checkbox label.ui-chkbox-label {
+    margin-bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+p-checkbox div.ui-chkbox-box.ui-widget{
+    border-color: #EBEDF3;
+}
+p-checkbox div.ui-chkbox-box.ui-widget.ui-state-focus{
+    border-color: #716aca;
+}
+
+
+
 form.newTicketForm textarea.new-ticket-comment.ng-submitted.ng-invalid {
     border-left:4px solid #e13131;
     border-bottom-color: #EBEDF3;
@@ -212,6 +227,10 @@ form.newTicketForm textarea.new-ticket-comment.ng-submitted.ng-invalid {
     
 }
 
+.portlet-new-ticket .new-ticket-group .new-ticket-value > textarea.new-ticket-comment:hover {
+    border-color: #cccccc;
+}
+
 /* Styling dropdown label when in mobile size */
 @media only screen and (max-width: 640px) {
     
@@ -223,6 +242,11 @@ form.newTicketForm textarea.new-ticket-comment.ng-submitted.ng-invalid {
         text-align: left;
         
     }
+
+    form.newTicketForm p-checkbox label.ui-chkbox-label {
+        display: inline;
+    }
+
     
 }
 
@@ -574,6 +598,8 @@ p-datatable.metronic-theme p-paginator a.ui-paginator-page.ui-paginator-element.
 p-datatable.metronic-theme p-paginator .ui-paginator-bottom > a.ui-paginator-element {
     color: #716aca;
 }
+
+
 
 
 
