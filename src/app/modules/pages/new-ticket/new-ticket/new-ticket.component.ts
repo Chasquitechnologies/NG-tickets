@@ -9,6 +9,7 @@ import { NewTicketServiceService } from '../../../../_services/new-ticket-servic
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { newTicketDropdownValidator } from '../../../../_validators/newTicketDropdownValidator';
 import { Router } from '@angular/router';
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 
 
 @Component({
@@ -40,7 +41,10 @@ export class NewTicketComponent implements OnInit {
 
   public submitAttemptedFlag: boolean;
 
-  constructor(private newTicketService: NewTicketServiceService, private fb: FormBuilder, private _router: Router) { }
+  constructor(private newTicketService: NewTicketServiceService,
+    private fb: FormBuilder,
+    private _router: Router,
+    private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
 
@@ -50,7 +54,7 @@ export class NewTicketComponent implements OnInit {
       'brand': new FormControl('', newTicketDropdownValidator),
       'store': new FormControl('', newTicketDropdownValidator),
       'classification': new FormControl('', newTicketDropdownValidator),
-      'family': new FormControl('',newTicketDropdownValidator),
+      'family': new FormControl('', newTicketDropdownValidator),
       'equipmentDetail': new FormControl('', newTicketDropdownValidator),
       'failType': new FormControl('', newTicketDropdownValidator),
       'comment': new FormControl('', Validators.required),
@@ -74,8 +78,8 @@ export class NewTicketComponent implements OnInit {
     this.selectedEquipment = this.equipmentDetailDropdown[0];
     this.selectedFailureType = this.failureTypeDropdown[0];
 
-    this.affectPeople=false;
-    this.affectStore=false;
+    this.affectPeople = false;
+    this.affectStore = false;
 
     // Clearing comments box
     this.comment = '';
@@ -121,10 +125,10 @@ export class NewTicketComponent implements OnInit {
   getStoreOptions(selectedBrand: Brand): void {
     console.log('en get store options');
     console.log(selectedBrand.id);
-    if (selectedBrand.id >0) {
+    if (selectedBrand.id > 0) {
       this.newTicketService.getStoreDropdownOptions(selectedBrand.id).subscribe(
         data => {
-  
+
           // Check if there is at least a single store in the dropdown and add the '-- Seleccione --' option to the dropdown options 
           // received from http response if it the user does not have any stores assigned to him. If at least one store is assigned to the user,
           // then the first store available is selected
@@ -132,7 +136,7 @@ export class NewTicketComponent implements OnInit {
           if (!(typeof filteredCheck[0] != 'undefined')) {
             data.unshift({ id: 0, brandId: 0, description: '-- Seleccione --' });
           }
-  
+
           // Populates dropdown and selects first option (i.e. '-- Seleccione --')
           this.storeDropdown = data;
           this.selectedStore = data[0];
@@ -221,14 +225,14 @@ export class NewTicketComponent implements OnInit {
   //<<<------------------------------------------------------------------------------------------------------------------------------------>
   onBrandChange(event): void {
     // Clears dropdowns to prevent old data from sticking on the variable
-    
+
     console.log(event);
     this.storeDropdown = [{ id: 0, brandId: 0, description: '-- Seleccione --' }]
     this.familyDropdown = [{ id: 0, description: '-- Seleccione --' }]
     this.equipmentDetailDropdown = [{ id: 0, description: '-- Seleccione --' }]
 
     // Selects first option in dropdown (i.e. '-- Seleccione --' or first store available to the user)
-    
+
     this.selectedStore = this.storeDropdown[0];
     this.selectedClassification = this.equipmentClassDropdown[0];
     this.selectedFamily = this.familyDropdown[0];
@@ -236,12 +240,12 @@ export class NewTicketComponent implements OnInit {
     this.selectedFailureType = this.failureTypeDropdown[0];
 
     console.log('brand changes')
-    if (this.selectedBrand == null){
+    if (this.selectedBrand == null) {
       console.log('null event!!!');
-    }else{
+    } else {
       this.getStoreOptions(this.selectedBrand);
     }
-    
+
   }
 
   onStoreChange(event): void {
@@ -295,25 +299,33 @@ export class NewTicketComponent implements OnInit {
     this.selectedFailureType = this.failureTypeDropdown[0];
   }
 
-  onSubmit(newTicketForm: FormGroup){
-    console.log(newTicketForm);
-
-    if(newTicketForm.valid){
-      console.log(newTicketForm);
-    }else{
+  onSubmit(newTicketForm: FormGroup) {
+    if (newTicketForm.valid) {
+      if (newTicketForm.controls['affectPeople'].value || newTicketForm.controls['affectStore'].value) {
+        this.confirmationService.confirm({
+          message: '¿Está seguro?',
+          accept: () => {
+            console.log('form is valid but needed addtl confirmation of priority');
+            console.log(newTicketForm);
+          }
+        });
+      } else {
+        console.log('form is valid and did not need addtl confirmation');
+        console.log(newTicketForm);
+      }
+    } else {
       this.submitAttemptedFlag = true;
-      console.log('i got here');
-
+      console.log('form is not valid');
     }
 
   }
 
-  onCancel(){
-    console.log('Canceled new ticket entry');    
+  onCancel() {
+    console.log('Canceled new ticket entry');
     // this.newTicketForm.reset();
     this.submitAttemptedFlag = false;
     console.log(this.submitAttemptedFlag);
-    this._router.navigate(['tickets']);                
+    this._router.navigate(['tickets']);
 
 
 

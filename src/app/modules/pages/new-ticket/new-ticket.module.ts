@@ -15,7 +15,8 @@ import { newTicketDropdownValidator } from '../../../_validators/newTicketDropdo
 import { DropdownModule } from 'primeng/components/dropdown/dropdown';
 import { InputTextareaModule } from 'primeng/components/inputtextarea/inputtextarea';
 import { CheckboxModule } from 'primeng/components/checkbox/checkbox';
-
+import { ConfirmDialogModule } from 'primeng/components/confirmdialog/confirmdialog';
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 
 const routes: Routes = [
   {
@@ -44,8 +45,12 @@ const routes: Routes = [
     DropdownModule,
     FormsModule,
     CheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ConfirmDialogModule,
   ],
-  declarations: [NewTicketComponent, NewTicketMainComponent]
+  declarations: [
+    NewTicketComponent,
+    NewTicketMainComponent
+  ]
 })
 export class NewTicketModule { }

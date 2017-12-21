@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DAOmockup } from './DAOLayer/DAOmockup';
 import { IDAO } from './DAOLayer/IDAO';
 import { NewTicketServiceService } from './_services/new-ticket-service.service';
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
+
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import { NewTicketServiceService } from './_services/new-ticket-service.service'
   providers: [
     {provide: IDAO, useClass: DAOmockup},
     NewTicketServiceService,
+    ConfirmationService,
     AdminTicketService,
     FilterDropDownService,
     RedirectUrlService,
