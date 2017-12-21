@@ -155,6 +155,10 @@ form.newTicketForm p-dropdown.ng-submitted.ng-invalid > .ui-dropdown{
     border-bottom-color: #EBEDF3;
 }
 
+form.newTicketForm p-dropdown.ng-submitted.ng-invalid > .ui-dropdown:hover{
+    border-bottom-color: #cccccc;
+}
+
 form.newTicketForm p-dropdown.ng-dirty.ng-invalid > .ui-dropdown:not(.ui-state-disabled):hover {
     background-color: #d9d9d9;
     border-bottom-color: #cccccc;
@@ -230,6 +234,12 @@ form.newTicketForm textarea.new-ticket-comment.ng-submitted.ng-invalid {
 .portlet-new-ticket .new-ticket-group .new-ticket-value > textarea.new-ticket-comment:hover {
     border-color: #cccccc;
 }
+
+.portlet-new-ticket .new-ticket-group .new-ticket-value > textarea.new-ticket-comment.ng-submitted.ng-invalid:hover {
+    border-color: #cccccc;
+    border-left-color:#e13131;
+}
+
 
 /* Styling dropdown label when in mobile size */
 @media only screen and (max-width: 640px) {
