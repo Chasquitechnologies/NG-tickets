@@ -8,6 +8,7 @@ import { FailureType } from '../../../../models/FailureType';
 import { NewTicketServiceService } from '../../../../_services/new-ticket-service.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { newTicketDropdownValidator } from '../../../../_validators/newTicketDropdownValidator';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -39,7 +40,7 @@ export class NewTicketComponent implements OnInit {
 
   public submitAttemptedFlag: boolean;
 
-  constructor(private newTicketService: NewTicketServiceService, private fb: FormBuilder) { }
+  constructor(private newTicketService: NewTicketServiceService, private fb: FormBuilder, private _router: Router) { }
 
   ngOnInit() {
 
@@ -312,6 +313,8 @@ export class NewTicketComponent implements OnInit {
     // this.newTicketForm.reset();
     this.submitAttemptedFlag = false;
     console.log(this.submitAttemptedFlag);
+    this._router.navigate(['tickets']);                
+
 
 
   }

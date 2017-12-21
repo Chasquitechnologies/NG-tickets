@@ -148,17 +148,19 @@
                 <!-- <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div> -->
               </div>
               <div class="m-portlet__foot m-portlet__foot--fit">
-                <div class="m-form__actions">
-                  <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-8">
-                      <button type="submit" label="Submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">
-                        Ingresar
-                      </button> &nbsp;&nbsp;
-                      <button (click)="onCancel()" type="button" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
-                        Cancelar
-                      </button>
-                    </div>
+                <div class="m-form__actions" style="padding-top:20px; padding-bottom:20px;">
+                  <div class="row ui-g">
+                      <div class="ui-sm-6 ui-md-offset-3 ui-md-3 ui-lg-offset-3 ui-lg-3"  style="text-align:right;">
+                          <button type="submit" label="Submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                              Ingresar
+                            </button>
+                      </div>
+                      <div class="ui-sm-6 ui-md-3 ui-lg-3">
+                          <button (click)="onCancel()" type="button" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                              Cancelar
+                            </button>
+                      </div>
+
                   </div>
 
                 </div>
