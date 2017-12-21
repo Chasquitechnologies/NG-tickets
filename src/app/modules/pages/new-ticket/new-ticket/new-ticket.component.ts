@@ -6,6 +6,9 @@ import { EquipmentClassification } from '../../../../models/EquipmentClassificat
 import { EquipmentDetail } from '../../../../models/EquipmentDetail';
 import { FailureType } from '../../../../models/FailureType';
 import { NewTicketServiceService } from '../../../../_services/new-ticket-service.service';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { newTicketDropdownValidator } from '../../../../_validators/newTicketDropdownValidator';
+
 
 @Component({
   selector: 'app-new-ticket',
@@ -29,10 +32,27 @@ export class NewTicketComponent implements OnInit {
   public selectedEquipment: EquipmentDetail;
   public selectedFailureType: FailureType;
 
+  public newTicketForm: FormGroup;
 
-  constructor(private newTicketService: NewTicketServiceService) { }
+  public submitAttemptedFlag: boolean;
+
+  constructor(private newTicketService: NewTicketServiceService, private fb: FormBuilder) { }
 
   ngOnInit() {
+
+    this.submitAttemptedFlag = false;
+
+    this.newTicketForm = this.fb.group({
+      'brand': new FormControl('', newTicketDropdownValidator),
+      'store': new FormControl('', newTicketDropdownValidator),
+      'classification': new FormControl('', newTicketDropdownValidator),
+      'family': new FormControl('',newTicketDropdownValidator),
+      'equipmentDetail': new FormControl('', newTicketDropdownValidator),
+      'failType': new FormControl('', newTicketDropdownValidator),
+      'comment': new FormControl('', Validators.required)
+    });
+
+
     // Initializing all dropdowns
     this.brandDropdown = [{ id: 0, description: '-- Seleccione --' }]
     this.storeDropdown = [{ id: 0, brandId: 0, description: '-- Seleccione --' }]
@@ -49,7 +69,7 @@ export class NewTicketComponent implements OnInit {
     this.selectedFailureType = this.failureTypeDropdown[0];
 
     // Clearing comments box
-    this.comment ='';
+    this.comment = '';
 
     // Get the base dropdowns
     this.getBrandOptions();
@@ -63,7 +83,7 @@ export class NewTicketComponent implements OnInit {
   getBrandOptions(): void {
     this.newTicketService.getBrandDropdownOptions().subscribe(
       data => {
-        
+
         // Check if there is at least a single brand in the dropdown and add the '-- Seleccione --' option to the dropdown options 
         // received from http response if it the user does not have any brands assigned to him. If at least one brand is assigned to the user,
         // then the first bran available is selected
@@ -77,10 +97,12 @@ export class NewTicketComponent implements OnInit {
         this.selectedBrand = data[0];
 
         //Only queries for the store dropdown options if the user has at least 1 brand with id>0 assigned to him
-        if (this.selectedBrand.id>0){
+        if (this.selectedBrand.id > 0) {
+          console.log("looking ")
+          console.log(this.selectedBrand)
           this.getStoreOptions(this.selectedBrand);
         }
-        
+
       },
       err => console.log(err),
       () => console.log('done retrieving brands dropdown options')
@@ -88,24 +110,28 @@ export class NewTicketComponent implements OnInit {
   }
 
   getStoreOptions(selectedBrand: Brand): void {
-    this.newTicketService.getStoreDropdownOptions(selectedBrand.id).subscribe(
-      data => {
-
-        // Check if there is at least a single store in the dropdown and add the '-- Seleccione --' option to the dropdown options 
-        // received from http response if it the user does not have any stores assigned to him. If at least one store is assigned to the user,
-        // then the first store available is selected
-        let filteredCheck: Store[] = data.filter(store => store.id > 0);
-        if (!(typeof filteredCheck[0] != 'undefined')) {
-          data.unshift({ id: 0, brandId: 0, description: '-- Seleccione --' });
-        }
-
-        // Populates dropdown and selects first option (i.e. '-- Seleccione --')
-        this.storeDropdown = data;
-        this.selectedStore = data[0];
-      },
-      err => console.log(err),
-      () => console.log('done retrieving store dropdown options')
-    );
+    console.log('en get store options');
+    console.log(selectedBrand.id);
+    if (selectedBrand.id >0) {
+      this.newTicketService.getStoreDropdownOptions(selectedBrand.id).subscribe(
+        data => {
+  
+          // Check if there is at least a single store in the dropdown and add the '-- Seleccione --' option to the dropdown options 
+          // received from http response if it the user does not have any stores assigned to him. If at least one store is assigned to the user,
+          // then the first store available is selected
+          let filteredCheck: Store[] = data.filter(store => store.id > 0);
+          if (!(typeof filteredCheck[0] != 'undefined')) {
+            data.unshift({ id: 0, brandId: 0, description: '-- Seleccione --' });
+          }
+  
+          // Populates dropdown and selects first option (i.e. '-- Seleccione --')
+          this.storeDropdown = data;
+          this.selectedStore = data[0];
+        },
+        err => console.log(err),
+        () => console.log('done retrieving store dropdown options')
+      );
+    }
   }
 
   getClassificationOptions(): void {
@@ -186,18 +212,27 @@ export class NewTicketComponent implements OnInit {
   //<<<------------------------------------------------------------------------------------------------------------------------------------>
   onBrandChange(event): void {
     // Clears dropdowns to prevent old data from sticking on the variable
+    
+    console.log(event);
     this.storeDropdown = [{ id: 0, brandId: 0, description: '-- Seleccione --' }]
     this.familyDropdown = [{ id: 0, description: '-- Seleccione --' }]
     this.equipmentDetailDropdown = [{ id: 0, description: '-- Seleccione --' }]
 
-    // Selects first option in dropdown (i.e. '-- Seleccione --' or first store available to the user)        
+    // Selects first option in dropdown (i.e. '-- Seleccione --' or first store available to the user)
+    
     this.selectedStore = this.storeDropdown[0];
     this.selectedClassification = this.equipmentClassDropdown[0];
     this.selectedFamily = this.familyDropdown[0];
     this.selectedEquipment = this.equipmentDetailDropdown[0];
     this.selectedFailureType = this.failureTypeDropdown[0];
 
-    this.getStoreOptions(this.selectedBrand);
+    console.log('brand changes')
+    if (this.selectedBrand == null){
+      console.log('null event!!!');
+    }else{
+      this.getStoreOptions(this.selectedBrand);
+    }
+    
   }
 
   onStoreChange(event): void {
@@ -248,9 +283,29 @@ export class NewTicketComponent implements OnInit {
   }
 
   onEquipmentChange(event): void {
-    this.selectedFailureType = this.failureTypeDropdown[0];    
+    this.selectedFailureType = this.failureTypeDropdown[0];
   }
 
+  onSubmit(newTicketForm: FormGroup){
+    console.log(newTicketForm);
 
+    if(newTicketForm.valid){
+      console.log(newTicketForm);
+    }else{
+      this.submitAttemptedFlag = true;
+      console.log('i got here');
+
+    }
+
+  }
+
+  onCancel(){
+    console.log('Canceled new ticket entry');    
+    // this.newTicketForm.reset();
+    this.submitAttemptedFlag = false;
+    console.log(this.submitAttemptedFlag);
+
+
+  }
 
 }

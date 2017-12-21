@@ -6,8 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from '../../layout/default/default.component';
 import { LayoutModule } from '../../layout/layout.module';
 
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { newTicketDropdownValidator } from '../../../_validators/newTicketDropdownValidator';
 
 
 // PrimeNG Modules
@@ -40,7 +41,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     LayoutModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [NewTicketComponent, NewTicketMainComponent]
 })

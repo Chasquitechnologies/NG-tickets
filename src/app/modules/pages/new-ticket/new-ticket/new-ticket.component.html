@@ -7,7 +7,7 @@
         </div> -->
         <div class="tab-content">
           <div class="tab-pane active" id="m_user_profile_tab_1">
-            <div class="m-form">
+            <form novalidate class="m-form newTicketForm" [formGroup]="newTicketForm" (ngSubmit)="onSubmit(newTicketForm)">
   
               <div class="m-portlet__body">
   
@@ -21,6 +21,17 @@
                         INGRESA TU NUEVA SOLICITUD
                       </h3>
                       <div class="m-form__seperator m-form__seperator m-form__seperator--space-2x"></div>
+                      <div *ngIf="!newTicketForm.valid && submitAttemptedFlag" class="alert alert-danger" role="alert" style="background-color: #fbe1e3; border-color: #fbe1e3; color: #e73d4a;">
+                        <ul style="margin-bottom:0px">
+                          <li *ngIf="!newTicketForm.controls['brand'].valid">Seleccionar la Marca</li>
+                          <li *ngIf="!newTicketForm.controls['store'].valid">Seleccionar la Tienda</li>
+                          <li *ngIf="!newTicketForm.controls['classification'].valid">Seleccionar la Clasificación</li>
+                          <li *ngIf="!newTicketForm.controls['family'].valid">Seleccionar la Familia</li>
+                          <li *ngIf="!newTicketForm.controls['equipmentDetail'].valid">Seleccionar el Equipo</li>
+                          <li *ngIf="!newTicketForm.controls['failType'].valid">Seleccionar el Tipo de Falla</li>
+                          <li *ngIf="!newTicketForm.controls['comment'].valid">Agregar un Commentario</li>
+                        </ul>
+                      </div>
                     </div>
                     <div class="ui-g-12 new-ticket-group">
                       <div class="ui-g-4 ui-sm-12 ui-md-4 ui-xl-3 new-ticket-label-holder">
@@ -30,7 +41,8 @@
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
                         <p-dropdown [options]="brandDropdown" [(ngModel)]="selectedBrand" (ngModelChange)="onBrandChange($event)" optionLabel="description"
-                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down" formControlName="brand"
+                        [ngClass]="{'ng-submitted': submitAttemptedFlag}"></p-dropdown>
                       </div>
                     </div>
                     <div class="ui-g-12 new-ticket-group">
@@ -41,7 +53,8 @@
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
                         <p-dropdown [options]="storeDropdown" [(ngModel)]="selectedStore" (ngModelChange)="onStoreChange($event)" filter="true" optionLabel="description" 
-                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down" formControlName="store"
+                        [ngClass]="{'ng-submitted': submitAttemptedFlag}"></p-dropdown>
                       </div>
                     </div>
                     <div class="ui-g-12 new-ticket-group">
@@ -52,7 +65,8 @@
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
                         <p-dropdown [options]="equipmentClassDropdown" [(ngModel)]="selectedClassification" (ngModelChange)="onClassificationChange($event)" optionLabel="description" 
-                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down" formControlName="classification"
+                        [ngClass]="{'ng-submitted': submitAttemptedFlag}"></p-dropdown>
                       </div>
                     </div>
                     <div class="ui-g-12 new-ticket-group">
@@ -63,7 +77,8 @@
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
                         <p-dropdown [options]="familyDropdown" [(ngModel)]="selectedFamily" (ngModelChange)="onFamilyChange($event)" filter="true" optionLabel="description" 
-                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down" formControlName="family"
+                        [ngClass]="{'ng-submitted': submitAttemptedFlag}"></p-dropdown>
                       </div>
                     </div>
                     <div class="ui-g-12 new-ticket-group">
@@ -74,7 +89,8 @@
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
                         <p-dropdown [options]="equipmentDetailDropdown" [(ngModel)]="selectedEquipment" (ngModelChange)="onEquipmentChange($event)" filter="true" optionLabel="description" 
-                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down" formControlName="equipmentDetail"
+                        [ngClass]="{'ng-submitted': submitAttemptedFlag}"></p-dropdown>
                       </div>
                     </div>
   
@@ -86,7 +102,8 @@
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
                         <p-dropdown [options]="failureTypeDropdown" [(ngModel)]="selectedFailureType" optionLabel="description" 
-                        [autoWidth]="false" dropdownIcon="fa fa-angle-down"></p-dropdown>
+                        [autoWidth]="false" dropdownIcon="fa fa-angle-down" formControlName="failType"
+                        [ngClass]="{'ng-submitted': submitAttemptedFlag}"></p-dropdown>
                       </div>
                     </div>
   
@@ -97,7 +114,9 @@
                         </label>
                       </div>
                       <div class="ui-g-8 ui-sm-12 ui-md-8 ui-xl-9 ui-fluid new-ticket-value">
-                        <textarea [rows]="5" pInputTextarea [(ngModel)]="comment" class="new-ticket-comment" placeholder="Ingresa un comentario..."></textarea>
+                        <textarea [rows]="5" pInputTextarea [(ngModel)]="comment" class="new-ticket-comment" 
+                        placeholder="Ingresa un comentario..." formControlName="comment"
+                        [ngClass]="{'ng-submitted': submitAttemptedFlag}"></textarea>
                       </div>
                     </div>
   
@@ -127,17 +146,18 @@
                   <div class="row">
                     <div class="col-4"></div>
                     <div class="col-8">
-                      <button routerLink="/tickets" type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                      <button type="submit" label="Submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">
                         Ingresar
                       </button> &nbsp;&nbsp;
-                      <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                      <button (click)="onCancel()" type="button" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
                         Cancelar
                       </button>
                     </div>
                   </div>
+
                 </div>
               </div>
-            </div>
+            </form>
           </div>
           <div class="tab-pane active" id="m_user_profile_tab_2"></div>
         </div>
