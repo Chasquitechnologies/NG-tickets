@@ -300,6 +300,7 @@ export class NewTicketComponent implements OnInit {
   }
 
   onSubmit(newTicketForm: FormGroup) {
+    
     if (newTicketForm.valid) {
       if (newTicketForm.controls['affectPeople'].value || newTicketForm.controls['affectStore'].value) {
         this.confirmationService.confirm({
@@ -321,6 +322,7 @@ export class NewTicketComponent implements OnInit {
   }
 
   onCancel() {
+    
     console.log('Canceled new ticket entry');
     // this.newTicketForm.reset();
     this.submitAttemptedFlag = false;

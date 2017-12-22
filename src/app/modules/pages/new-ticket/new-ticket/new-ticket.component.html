@@ -1,5 +1,10 @@
 <!-- END: Subheader -->
-<p-confirmDialog header="Prioridad Alta" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+<p-confirmDialog header="Prioridad Alta" icon="la la-warning" width="425" class="confirm-high-priority" #cd>
+    <p-footer>
+      <button type="button" pButton icon="la la-check" label="Si" class="confirm" (click)="cd.accept()"></button>
+      <button type="button" pButton icon="la la-close" label="No" class="reject" (click)="cd.reject()"></button>
+    </p-footer>
+</p-confirmDialog>
 
 <div class="row animationtest">
   

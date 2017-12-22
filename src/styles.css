@@ -609,6 +609,52 @@ p-datatable.metronic-theme p-paginator .ui-paginator-bottom > a.ui-paginator-ele
     color: #716aca;
 }
 
+/* STYLING PRIME NG CONFIRMATION DIALOG */
+
+/* Styling confirm dialog body and storig in place */
+p-confirmdialog.confirm-high-priority > div.ui-dialog.ui-confirmdialog.ui-widget{
+    border:0px;
+}
+
+/* styling title for confirm dialog */
+p-confirmdialog.confirm-high-priority div.ui-dialog-titlebar.ui-widget-header{
+    background-color: #eea236;
+    color:white;
+    border: 0px;
+}
+
+p-confirmdialog.confirm-high-priority div.ui-dialog-titlebar.ui-widget-header > span.ui-dialog-title{
+    font-weight: 400;
+}
+
+/* styling bottom border for confirm dialog */
+p-confirmdialog.confirm-high-priority div.ui-dialog-footer.ui-widget-content{
+    border: 0px;
+    
+}
+
+/* styling confirmation button */
+p-confirmDialog.confirm-high-priority button.confirm{
+    background-color: #00c5dc;
+    box-shadow:0 5px 10px 2px rgba(0,197,220,.19);
+
+}
+p-confirmDialog.confirm-high-priority button.confirm:hover{
+    background-color: #00a3b6
+
+}
+
+/* styling rejection button */
+p-confirmDialog.confirm-high-priority button.reject{
+    background-color: #fb446e;
+    box-shadow:0 5px 10px 2px rgba(0,197,220,.19);
+
+}
+p-confirmDialog.confirm-high-priority button.reject:hover{
+    background-color: #ef063cd1
+
+}
+
 
 
 
